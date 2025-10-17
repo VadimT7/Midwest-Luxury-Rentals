@@ -1,0 +1,42 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+
+import './globals.css'
+import { Providers } from './providers'
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-body',
+})
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Falcon Flair Car Rental Admin',
+    template: '%s | Falcon Flair Car Rental Admin',
+  },
+  description: 'Admin panel for Falcon Flair Car Rental',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <body className="font-body antialiased bg-neutral-50">
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  )
+}
