@@ -1,0 +1,38 @@
+{
+  "name": "@valore/database",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "prisma generate",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset",
+    "push": "prisma db push",
+    "seed": "tsx prisma/seed.ts",
+    "cleanup": "tsx scripts/cleanup-database.ts",
+    "cleanup:sql": "psql $DATABASE_URL -f scripts/cleanup-database.sql",
+    "verify-cleanup": "tsx scripts/verify-cleanup.ts",
+    "studio": "prisma studio",
+    "format": "prisma format",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "prisma": "^5.22.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.11.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.9.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
