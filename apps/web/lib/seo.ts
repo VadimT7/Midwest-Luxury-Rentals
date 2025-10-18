@@ -23,21 +23,21 @@ interface GenerateMetadataParams {
 }
 
 const siteConfig = {
-  name: 'FlyRentals',
-  title: 'FlyRentals - Ultra-Luxury Exotic Car Rentals',
-  description: 'Experience the pinnacle of automotive luxury. Rent Lamborghini, Ferrari, BMW M8, Mercedes-AMG G63 and more. Premium service, worldwide delivery.',
+  name: 'Falcon Flair Car Rental',
+  title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
+  description: 'Experience the pinnacle of automotive luxury in Dubai. Rent BMW M440, Mercedes CLE 53 AMG, Audi RS3, and more. Premium service with 24/7 support.',
   url: process.env.NEXT_PUBLIC_APP_URL || 'https://valorerent.com',
   keywords: [
-    'luxury car rental',
-    'exotic car rental',
-    'supercar rental',
-    'Lamborghini rental',
-    'Ferrari rental',
-    'BMW M8 rental',
-    'Mercedes G63 rental',
-    'Monaco car rental',
-    'European luxury cars',
+    'luxury car rental Dubai',
+    'exotic car rental Dubai',
+    'premium car rental UAE',
+    'BMW rental Dubai',
+    'Mercedes rental Dubai',
+    'Audi RS3 rental',
+    'Dubai car rental',
+    'luxury cars UAE',
     'premium car rental',
+    'supercar rental Dubai',
   ],
 }
 
@@ -139,25 +139,22 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         ...baseData,
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: `${siteConfig.url}/FlyRentalsLogo.png`,
+        logo: `${siteConfig.url}/logo.png`,
         description: siteConfig.description,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: '123 Luxury Avenue',
-          addressLocality: 'Monaco',
-          postalCode: '98000',
-          addressCountry: 'MC',
+          addressLocality: 'Dubai',
+          addressCountry: 'AE',
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+377-123-456-789',
+          telephone: '+971-585-046-440',
           contactType: 'customer service',
-          availableLanguage: ['English', 'French', 'Italian'],
+          availableLanguage: ['English', 'Arabic', 'Turkish'],
         },
         sameAs: [
-          'https://www.instagram.com/flyrentalsmtl',
-          'https://www.facebook.com/flyrentalsmtl',
-          'https://www.linkedin.com/company/flyrentalsmtl',
+          'https://www.instagram.com/falconflaircars',
+          'https://www.facebook.com/falconflaircars',
         ],
       }
 
@@ -188,7 +185,7 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         offers: {
           '@type': 'Offer',
           price: data.pricePerDay,
-          priceCurrency: 'EUR',
+          priceCurrency: 'AED',
           availability: 'https://schema.org/InStock',
           seller: {
             '@type': 'Organization',
@@ -224,7 +221,7 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         },
         dropoffTime: data.dropoffTime,
         price: data.totalPrice,
-        priceCurrency: 'EUR',
+        priceCurrency: 'AED',
         ...data,
       }
 

@@ -140,7 +140,7 @@ export default function FleetPage() {
           {/* Base gradient - Deeper theatrical darkness */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
           
-          {/* FlyRentals Logo Monogram Pattern - MOVING */}
+          {/* Falcon Flair Logo Monogram Pattern - MOVING */}
           <motion.div 
             className="absolute inset-0 opacity-[0.12]"
             style={{

@@ -23,7 +23,7 @@ export default function BookingConfirmationClient() {
   const returnLocation = searchParams.get('returnLocation') || 'showroom'
   const driverName = searchParams.get('driverName') || 'Driver'
   const driverEmail = searchParams.get('driverEmail') || 'driver@example.com'
-  const driverPhone = searchParams.get('driverPhone') || '+1 (438) 680-3936'
+  const driverPhone = searchParams.get('driverPhone') || '+971 58 504 6440'
   const totalPrice = searchParams.get('totalPrice') || '0'
   const days = searchParams.get('days') || '1'
 
@@ -57,35 +57,35 @@ export default function BookingConfirmationClient() {
   const getLocationDisplay = (location: string) => {
     switch (location) {
       case 'showroom':
-        return 'FlyRentals Showroom (Montreal)'
+        return 'Falcon Flair Showroom (Dubai)'
       case 'airport':
-        return 'Montreal Airport (YUL)'
+        return 'Dubai International Airport (DXB)'
       case 'hotel':
-        return 'Hotel Delivery (Montreal Area)'
+        return 'Hotel Delivery (Dubai)'
       default:
-        return 'FlyRentals Showroom (Montreal)'
+        return 'Falcon Flair Showroom (Dubai)'
     }
   }
 
   const getLocationAddress = (location: string) => {
     switch (location) {
       case 'showroom':
-        return '1555 Rue Richelieu, Montreal, QC H3J 1G8'
+        return 'Dubai, UAE'
       case 'airport':
-        return '975 Roméo-Vachon Blvd N, Dorval, QC H4Y 1H1'
+        return 'Dubai International Airport (DXB), Dubai, UAE'
       case 'hotel':
-        return 'Your Hotel Address (Montreal Area)'
+        return 'Your Hotel Address (Dubai)'
       default:
-        return '1555 Rue Richelieu, Montreal, QC H3J 1G8'
+        return 'Dubai, UAE'
     }
   }
 
   // Generate email content for booking confirmation
   const generateEmailContent = () => {
-    const subject = `FlyRentals Booking Confirmation - ${carName} ${carYear}`
+    const subject = `Falcon Flair Booking Confirmation - ${carName} ${carYear}`
     const body = `Dear ${driverName},
 
-Your luxury vehicle rental has been successfully booked with FlyRentals.
+Your luxury vehicle rental has been successfully booked with Falcon Flair Car Rental.
 
 BOOKING DETAILS:
 Booking ID: ${bookingId}
@@ -110,13 +110,13 @@ WHAT'S NEXT?
 Please present yourself at the selected car pick-up location at the booked time with your driver's license.
 
 Need help? Contact our concierge team:
-Phone: +1 (234) 567-890
-Email: flyrentalsca@gmail.com
+Phone: +971 58 504 6440 / +971 58 132 1831
+Email: info@falconflair.ae
 
-Thank you for choosing FlyRentals!
+Thank you for choosing Falcon Flair Car Rental!
 
 Best regards,
-The FlyRentals Team`
+The Falcon Flair Team`
 
     return { subject, body }
   }
@@ -132,10 +132,10 @@ The FlyRentals Team`
   const handleDownloadPDF = () => {
     const pdf = new jsPDF()
     
-    // Add FlyRentals header
+    // Add Falcon Flair header
     pdf.setFontSize(24)
     pdf.setTextColor(245, 158, 11) // Amber color
-    pdf.text('FlyRentals', 105, 20, { align: 'center' })
+    pdf.text('Falcon Flair Car Rental', 105, 20, { align: 'center' })
     
     pdf.setFontSize(16)
     pdf.setTextColor(0, 0, 0)
@@ -180,10 +180,10 @@ The FlyRentals Team`
     pdf.setFontSize(11)
     pdf.setTextColor(60, 60, 60)
     const locationText = pickupLocation === 'showroom' 
-      ? 'FlyRentals Showroom (Montreal)\n123 Luxury Street, Montreal, QC H3A 1A1'
+      ? 'Falcon Flair Showroom\nDubai, UAE'
       : pickupLocation === 'airport'
-      ? 'Montreal Airport (YUL)\n975 Roméo-Vachon Blvd N, Dorval, QC H4Y 1H1'
-      : 'Hotel Delivery (Montreal Area)'
+      ? 'Dubai International Airport (DXB)\nDubai, UAE'
+      : 'Hotel Delivery (Dubai)'
     
     const locationLines = locationText.split('\n')
     locationLines.forEach((line, index) => {
@@ -208,7 +208,7 @@ The FlyRentals Team`
     
     pdf.setFontSize(11)
     pdf.setTextColor(60, 60, 60)
-    pdf.text(`Total Amount: $${parseFloat(totalPrice).toLocaleString()} CAD`, 20, 215)
+    pdf.text(`Total Amount: ${parseFloat(totalPrice).toLocaleString()} AED`, 20, 215)
     pdf.text('Payment Status: Completed', 20, 222)
     
     // Important Information
@@ -232,11 +232,11 @@ The FlyRentals Team`
     // Footer
     pdf.setFontSize(10)
     pdf.setTextColor(150, 150, 150)
-    pdf.text('Thank you for choosing FlyRentals!', 105, 280, { align: 'center' })
-    pdf.text('Contact: +1 (438) 680-3936 | flyrentalsca@gmail.com', 105, 287, { align: 'center' })
+    pdf.text('Thank you for choosing Falcon Flair Car Rental!', 105, 280, { align: 'center' })
+    pdf.text('Contact: +971 58 504 6440 | info@falconflair.ae', 105, 287, { align: 'center' })
     
     // Save the PDF
-    pdf.save(`FlyRentals_Booking_${bookingId}.pdf`)
+    pdf.save(`FalconFlair_Booking_${bookingId}.pdf`)
   }
 
   return (
@@ -394,14 +394,14 @@ The FlyRentals Team`
               Need help? Contact our concierge team
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="tel:+14386803936">
+              <Link href="tel:+971585046440">
                 <Button variant="outline" size="lg" className="text-base">
-                  +1 (438) 680-3936
+                  +971 58 504 6440
                 </Button>
               </Link>
-              <Link href="mailto:flyrentalsca@gmail.com">
+              <Link href="mailto:info@falconflair.ae">
                 <Button variant="outline" size="lg" className="text-base">
-                  flyrentalsca@gmail.com
+                  info@falconflair.ae
                 </Button>
               </Link>
             </div>

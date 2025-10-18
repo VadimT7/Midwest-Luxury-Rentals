@@ -29,9 +29,9 @@ const navigation = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: '+1 (438) 680-3936', href: 'tel:+14386803936' },
-  { icon: Mail, text: 'flyrentalsca@gmail.com', href: 'mailto:flyrentalsca@gmail.com' },
-  { icon: MapPin, text: 'Montreal, Quebec', href: '/contact' },
+  { icon: Phone, text: '+971 58 504 6440', href: 'tel:+971585046440' },
+  { icon: Mail, text: 'info@falconflair.ae', href: 'mailto:info@falconflair.ae' },
+  { icon: MapPin, text: 'Dubai, UAE', href: '/contact' },
 ]
 
 export function Header() {
@@ -128,11 +128,11 @@ export function Header() {
             <div className="absolute left-1/2 transform -translate-x-1/2">
               <Link href="/" className="flex items-center group">
                 <Image
-                  src="/FlyRentalsLogo.png"
-                  alt="FlyRentals Luxury Rental"
-                  width={180}
-                  height={60}
-                  className="h-16 w-auto object-contain"
+                  src="/logo.png"
+                  alt="Falcon Flair Car Rental"
+                  width={360}
+                  height={120}
+                  className="h-32 w-auto object-contain"
                   priority
                 />
               </Link>

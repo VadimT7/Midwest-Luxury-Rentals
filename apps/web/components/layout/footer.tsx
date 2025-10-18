@@ -50,9 +50,9 @@ const socialLinks = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: '+1 (438) 680-3936', href: 'tel:+14386803936' },
-  { icon: Mail, text: 'flyrentalsca@gmail.com', href: 'mailto:flyrentalsca@gmail.com' },
-  { icon: MapPin, text: 'Montreal, Quebec', href: '/contact' },
+  { icon: Phone, text: '+971 58 504 6440 / +971 58 132 1831', href: 'tel:+971585046440' },
+  { icon: Mail, text: 'info@falconflair.ae', href: 'mailto:info@falconflair.ae' },
+  { icon: MapPin, text: 'Dubai, UAE', href: '/contact' },
 ]
 
 export function Footer() {
@@ -69,10 +69,10 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-xl font-bold tracking-wider text-white">
-                  FLY
+                  FALCON FLAIR
                 </span>
                 <span className="text-xs tracking-luxury text-slate-400">
-                  RENTALS
+                  CAR RENTAL
                 </span>
               </div>
             </Link>
@@ -175,7 +175,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-6 text-sm">
-                              <span>&copy; 2025 FlyRentals. All rights reserved.</span>
+                              <span>&copy; 2025 Falcon Flair Car Rental. All rights reserved.</span>
               <div className="flex items-center gap-4">
                 <Link href="/terms" className="hover:text-primary transition-colors">
                   Terms

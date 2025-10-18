@@ -8,22 +8,22 @@ export async function GET(request: NextRequest) {
     const locations = [
       {
         id: 'showroom',
-        name: 'FlyRentals Showroom (Montreal)',
-        address: '1555 Rue Richelieu, Montreal, QC H3J 1G8',
+        name: 'Falcon Flair Showroom',
+        address: 'Dubai, UAE',
         type: 'SHOWROOM',
         isDefault: true
       },
       {
         id: 'airport',
-        name: 'Montreal Airport (YUL)',
-        address: '975 Roméo-Vachon Blvd N, Dorval, QC H4Y 1H1',
+        name: 'Dubai International Airport (DXB)',
+        address: 'Dubai, UAE',
         type: 'AIRPORT',
         isDefault: false
       },
       {
         id: 'hotel',
         name: 'Hotel Delivery',
-        address: 'Your Hotel Address (Montreal Area)',
+        address: 'Your Hotel Address (Dubai)',
         type: 'HOTEL',
         isDefault: false
       }

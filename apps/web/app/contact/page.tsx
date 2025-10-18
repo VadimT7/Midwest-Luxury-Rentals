@@ -18,23 +18,23 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: '+1 (438) 680-3936',
-    href: 'tel:+14386803936',
+    details: '+971 58 504 6440 / +971 58 132 1831',
+    href: 'tel:+971585046440',
     description: '24/7 Premium Support'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: 'flyrentalsca@gmail.com',
-    href: 'mailto:flyrentalsca@gmail.com',
+    details: 'info@falconflair.ae',
+    href: 'mailto:info@falconflair.ae',
     description: 'Quick Response Guaranteed'
   },
   {
     icon: MapPin,
     title: 'Location',
-    details: 'Montreal, Quebec',
+    details: 'Dubai, UAE 🇦🇪',
     href: '/contact',
-    description: 'Our Premium Showroom'
+    description: 'Premium Service in Dubai'
   },
   {
     icon: Clock,
@@ -166,7 +166,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="bg-slate-800 border-slate-700 text-white placeholder-slate-400 focus:border-primary focus:ring-primary"
-                      placeholder="+1 (438) 680-3936"
+                      placeholder="+971 58 504 6440"
                     />
                   </div>
                   
@@ -287,7 +287,7 @@ export default function ContactPage() {
 
             {/* Additional Info */}
             <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 border border-primary/20">
-              <h3 className="text-xl font-bold text-white mb-4">Why Choose Valore?</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Why Choose Falcon Flair?</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full" />

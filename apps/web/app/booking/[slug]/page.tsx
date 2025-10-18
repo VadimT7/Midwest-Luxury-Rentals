@@ -148,7 +148,7 @@ export default function BookingPage() {
     },
     rating: 4.9,
     featured: car.featured,
-    location: 'Montreal',
+    location: 'Dubai',
     available: true,
   }
 
@@ -246,8 +246,8 @@ export default function BookingPage() {
           endDate: bookingData.endDate,
           pickupType: bookingData.pickupLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
           returnType: bookingData.returnLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
-          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'FlyRentals Showroom' : 'Delivery',
-          returnLocation: bookingData.returnLocation === 'showroom' ? 'FlyRentals Showroom' : 'Delivery',
+          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'Falcon Flair Showroom' : 'Delivery',
+          returnLocation: bookingData.returnLocation === 'showroom' ? 'Falcon Flair Showroom' : 'Delivery',
           guestEmail: bookingData.driverEmail,
           guestName: bookingData.driverName,
           guestPhone: bookingData.driverPhone,
@@ -291,7 +291,7 @@ export default function BookingPage() {
     } catch (error) {
       console.error('❌ Failed to create booking:', error)
       // Still redirect to confirmation page but show error
-      const bookingId = `FLY-${Date.now()}`
+      const bookingId = `FF-${Date.now()}`
       const params = new URLSearchParams({
         bookingId,
         paymentIntentId,
@@ -412,9 +412,9 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, pickupLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">FlyRentals Showroom (Montreal)</option>
-                  <option value="airport">Montreal Airport (YUL)</option>
-                  <option value="hotel">Hotel Delivery (Montreal Area)</option>
+                  <option value="showroom">Falcon Flair Showroom (Dubai)</option>
+                  <option value="airport">Dubai International Airport (DXB)</option>
+                  <option value="hotel">Hotel Delivery (Dubai)</option>
                 </select>
               </div>
               <div>
@@ -425,9 +425,9 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, returnLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">FlyRentals Showroom (Montreal)</option>
-                  <option value="airport">Montreal Airport (YUL)</option>
-                  <option value="hotel">Hotel Pickup (Montreal Area)</option>
+                  <option value="showroom">Falcon Flair Showroom (Dubai)</option>
+                  <option value="airport">Dubai International Airport (DXB)</option>
+                  <option value="hotel">Hotel Pickup (Dubai)</option>
                 </select>
               </div>
             </div>
@@ -438,8 +438,8 @@ export default function BookingPage() {
                 <div>
                   <h3 className="font-semibold text-blue-900 mb-1">Location Information</h3>
                   <p className="text-blue-700 text-sm">
-                    Our original pick-up location is located at 1555 Rue Richelieu, Montreal, QC H3J 1G8. Airport and hotel delivery services are available 
-                    for an additional fee. Please contact us for specific arrangements.
+                    Our showroom is located in Dubai, UAE. Airport and hotel delivery services are available 
+                    throughout Dubai for an additional fee. Please contact us for specific arrangements.
                   </p>
                 </div>
               </div>
@@ -488,7 +488,7 @@ export default function BookingPage() {
                   type="tel"
                   value={bookingData.driverPhone}
                   onChange={(e) => setBookingData(prev => ({ ...prev, driverPhone: e.target.value }))}
-                  placeholder="+1 (438) 680-3936"
+                  placeholder="+971 58 504 6440"
                 />
               </div>
               <div>

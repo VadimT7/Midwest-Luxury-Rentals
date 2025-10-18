@@ -10,45 +10,45 @@ import { cn } from '@valore/ui'
 const testimonials = [
   {
     id: '1',
-    authorName: 'Ahmed Al-Rashid',
-    content: 'Exceptional service from start to finish. The Porsche Cayenne Turbo was immaculate, and the delivery to my hotel was seamless. FlyRentals sets the standard for luxury car rentals.',
+    authorName: 'Ahmed Al-Mansouri',
+    content: 'Exceptional service from start to finish. The ROX 01 VIP was absolutely stunning, and the delivery to my hotel in Dubai Marina was seamless. Falcon Flair sets the standard for luxury car rentals.',
     rating: 5,
-    carModel: 'Porsche Cayenne Turbo',
+    carModel: '2025 ROX 01 VIP',
   },
   {
     id: '2',
     authorName: 'Priya Sharma',
-    content: 'La Mercedes-Benz AMG C43 était parfaite pour mon escapade de fin de semaine. L\'équipe de FlyRentals a parfaitement compris mes besoins et a dépassé mes attentes pour accommoder mon horaire.',
+    content: 'The BMW M440 was perfect for my Dubai business trip. The Falcon Flair team understood my needs perfectly and exceeded my expectations with their professional service.',
     rating: 5,
-    carModel: 'Mercedes-Benz AMG C43',
+    carModel: 'BMW M440 Coupé',
   },
   {
     id: '3',
     authorName: 'Dmitri Volkov',
-    content: "I've rented luxury cars worldwide, but FlyRentals' attention to detail is unmatched. The Porsche Cayenne Turbo was pristine, and their concierge service made everything effortless.",
+    content: "I've rented luxury cars worldwide, but Falcon Flair's attention to detail is unmatched. The RS3 Daytona was pristine, and their concierge service made everything effortless in Dubai.",
     rating: 5,
-    carModel: 'Porsche Cayenne Turbo',
+    carModel: 'Audi RS3 Daytona Grey',
   },
   {
     id: '4',
-    authorName: 'Marie-Claude Dubois',
-    content: 'Conduire la Mercedes-Benz AMG C43 le long du fleuve Saint-Laurent était un rêve devenu réalité. L\'équipe de FlyRentals a organisé l\'itinéraire parfait et a même arrangé un déjeuner privé dans un vignoble.',
+    authorName: 'Sarah Al-Khalifa',
+    content: 'Driving the CLE 53 AMG through Dubai was an absolute dream. The Falcon Flair team organized the perfect experience and made sure every detail was taken care of.',
     rating: 5,
-    carModel: 'Mercedes-Benz AMG C43',
+    carModel: 'Mercedes CLE 53 AMG',
   },
   {
     id: '5',
     authorName: 'James Thompson',
-    content: 'FlyRentals exceeded all my expectations. The Porsche Cayenne Turbo was delivered in perfect condition, and their customer service team was incredibly responsive and professional throughout my rental period.',
+    content: 'Falcon Flair exceeded all my expectations. The RS3 Black was delivered in perfect condition, and their customer service team was incredibly responsive and professional throughout my rental period in Dubai.',
     rating: 5,
-    carModel: 'Porsche Cayenne Turbo',
+    carModel: 'Audi RS3 Hatchback Black',
   },
   {
     id: '6',
-    authorName: 'Sophie Tremblay',
-    content: 'Service impeccable de A à Z. La Mercedes-Benz AMG C43 était en parfait état et l\'équipe de FlyRentals a su s\'adapter à mes besoins spécifiques. Je recommande vivement pour une expérience de location de luxe exceptionnelle.',
+    authorName: 'Mohammed Hassan',
+    content: 'Impeccable service from A to Z. The C43 AMG was in perfect condition and the Falcon Flair team adapted to my specific needs. I highly recommend them for an exceptional luxury rental experience in Dubai.',
     rating: 5,
-    carModel: 'Mercedes-Benz AMG C43',
+    carModel: 'Mercedes C43 AMG',
   },
 ]
 
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
         <p className="text-luxury text-primary mb-4">Client Experiences</p>
         <h2 className="heading-large mb-4">Voices of Excellence</h2>
         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-          Discover why discerning individuals choose FlyRentals for their luxury automotive experiences
+          Discover why discerning individuals choose Falcon Flair for their luxury automotive experiences
         </p>
       </motion.div>
 

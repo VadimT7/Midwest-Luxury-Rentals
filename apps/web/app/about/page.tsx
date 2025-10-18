@@ -73,29 +73,29 @@ const team = [
 
 const milestones = [
   {
-    year: '2022',
+    year: '2023',
     title: 'Company Founded',
-    description: 'Started with a single Mercedes CLA in Montreal, establishing FlyRentals as the premier luxury car rental service.',
+    description: 'Started in Dubai with a vision to provide the finest luxury car rental experience in the UAE.',
   },
   {
-    year: '2023',
-    title: 'Fleet Expansion & Showroom',
-    description: 'Grew to 5 luxury vehicles and opened our first state-of-the-art showroom in downtown Montreal.',
+    year: '2024',
+    title: 'Fleet Expansion',
+    description: 'Expanded our fleet to include premium vehicles: BMW M440, Mercedes CLE 53 AMG, Audi RS3, and more.',
   },
   {
     year: '2024',
     title: 'Premium Service Launch',
-    description: 'Introduced 24/7 concierge service, nationwide delivery, and launched our advanced booking platform.',
+    description: 'Introduced 24/7 concierge service, Dubai-wide delivery, and launched our advanced booking platform.',
   },
   {
     year: '2024',
-    title: 'Industry Recognition',
-    description: 'Awarded "Best Luxury Car Rental" in Quebec and "Excellence in Customer Service" by the Canadian Tourism Board.',
+    title: 'Innovation Leader',
+    description: 'Added the revolutionary ROX 01 VIP to our fleet - a premium luxury SUV with 1300 km range and plug-in hybrid technology.',
   },
   {
     year: '2025',
-    title: 'Digital Innovation & Expansion',
-    description: 'Launched mobile app, introduced AI-powered vehicle recommendations, and expanded to serve all major Canadian cities.',
+    title: 'Market Leader',
+    description: 'Established Falcon Flair as Dubai\'s premier choice for luxury car rentals with competitive pricing and exceptional service.',
   },
 ]
 
@@ -120,12 +120,12 @@ export default function AboutPage() {
                   textShadow: '0 0 80px rgba(251, 191, 36, 0.3)'
                 }}
               >
-                About FlyRentals
+                About Falcon Flair
               </span>
             </h1>
             <p className="text-xl text-neutral-300 max-w-3xl mx-auto font-light">
-              Montreal's premier luxury car rental service, delivering exceptional experiences 
-              with the world's most prestigious vehicles since 2022.
+              Dubai's premier luxury car rental service, delivering exceptional experiences 
+              with the world's most prestigious vehicles.
             </p>
           </motion.div>
         </div>
@@ -167,17 +167,17 @@ export default function AboutPage() {
               <h2 className="heading-medium text-slate-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Founded in 2022 in the heart of Montreal, FlyRentals began with a simple vision: 
+                  Founded in the heart of Dubai, Falcon Flair began with a simple vision: 
                   to make luxury automotive experiences accessible to discerning clients who appreciate 
                   the finest things in life.
                 </p>
                 <p>
-                  What started with a single Lamborghini has grown into Quebec's most prestigious 
-                  luxury car rental service, featuring an exclusive collection of supercars, luxury 
-                  sedans, and exotic vehicles from the world's most renowned manufacturers.
+                  We've grown into Dubai's most prestigious luxury car rental service, featuring an 
+                  exclusive collection of premium vehicles including BMW M440, Mercedes CLE 53 AMG, 
+                  Audi RS3, and the revolutionary ROX 01 VIP from the world's most renowned manufacturers.
                 </p>
                 <p>
-                  Based in Montreal, we serve clients across Quebec and beyond, providing not just 
+                  Based in Dubai, UAE, we serve clients across the Emirates, providing not just 
                   vehicle rentals, but complete luxury experiences that exceed expectations and create 
                   lasting memories.
                 </p>
@@ -194,7 +194,7 @@ export default function AboutPage() {
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop"
-                  alt="Luxury cars in Montreal"
+                  alt="Luxury cars in Dubai"
                   fill
                   className="object-cover"
                 />
@@ -204,7 +204,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-semibold text-slate-900">Montreal, Quebec</p>
+                    <p className="font-semibold text-slate-900">Dubai, UAE 🇦🇪</p>
                     <p className="text-sm text-slate-600">Our Home Base</p>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-slate-900 mb-4">Meet Our Team</h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              The passionate professionals behind FlyRentals' success.
+              The passionate professionals behind Falcon Flair's success.
             </p>
           </motion.div>
 
@@ -310,7 +310,7 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-slate-900 mb-4">Our Journey</h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              A journey of growth, innovation, and excellence in luxury car rental from 2022 to today.
+              A journey of growth, innovation, and excellence in luxury car rental in Dubai.
             </p>
           </motion.div>
 
@@ -362,8 +362,8 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-white mb-4 drop-shadow-lg">Ready to Experience Luxury?</h2>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Join thousands of satisfied clients who have experienced the FlyRentals difference. 
-              Book your luxury vehicle today and discover why we're Montreal's premier choice.
+              Join thousands of satisfied clients who have experienced the Falcon Flair difference. 
+              Book your luxury vehicle today and discover why we're Dubai's premier choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/fleet">
