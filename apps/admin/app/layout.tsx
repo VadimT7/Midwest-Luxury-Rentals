@@ -12,10 +12,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'FlyRentals Admin',
-    template: '%s | FlyRentals Admin',
+    default: 'Falcon Flair Admin',
+    template: '%s | Falcon Flair Admin',
   },
-  description: 'Admin panel for FlyRentals',
+  description: 'Admin panel for Falcon Flair',
   robots: {
     index: false,
     follow: false,

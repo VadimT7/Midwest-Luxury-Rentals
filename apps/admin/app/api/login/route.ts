@@ -5,14 +5,14 @@ export async function POST(request: NextRequest) {
     const { username, password } = await request.json()
 
     // Simple hardcoded check
-    if (username === 'admin' && password === 'Flyrentals') {
+    if (username === 'admin' && password === 'FalconFlair') {
       // Create a simple session
       const response = NextResponse.json({ 
         success: true, 
         user: { 
           id: 'admin-1', 
           name: 'Admin User', 
-          email: 'admin@flyrentals.com' 
+          email: 'admin@falconflair.com' 
         } 
       })
       
