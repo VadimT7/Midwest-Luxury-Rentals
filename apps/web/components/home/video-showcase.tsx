@@ -102,7 +102,7 @@ export function VideoShowcase() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-16"
-        >
+        > 
           <a 
             href="https://www.instagram.com/falconflaircars/" 
             target="_blank" 
