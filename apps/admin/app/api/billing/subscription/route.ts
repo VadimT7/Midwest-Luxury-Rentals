@@ -112,7 +112,7 @@ export async function POST(req: NextRequest) {
       // Create customer if doesn't exist
       if (!customerId) {
         const customer = await stripe.customers.create({
-          email: 'admin@flyrentals.com',
+          email: 'admin@falconflair.com',
           name: 'Admin User',
           metadata: {
             tenantId: TENANT_ID,
@@ -125,7 +125,7 @@ export async function POST(req: NextRequest) {
           where: { tenantId: TENANT_ID },
           data: {
             stripeCustomerId: customerId,
-            billingEmail: 'admin@flyrentals.com',
+            billingEmail: 'admin@falconflair.com',
           },
         });
       }
@@ -169,7 +169,7 @@ export async function POST(req: NextRequest) {
       // Audit log
       await prisma.auditLog.create({
         data: {
-          actor: 'admin@flyrentals.com',
+          actor: 'admin@falconflair.com',
           action: 'subscription_canceled',
           entity: 'TenantBillingProfile',
           entityId: TENANT_ID,
@@ -213,7 +213,7 @@ export async function POST(req: NextRequest) {
 
       await switchPlan(TENANT_ID, plan as BillingPlan, {
         stripeSubscriptionId: billing.stripeSubscriptionId,
-        actor: 'admin@flyrentals.com',
+        actor: 'admin@falconflair.com',
         reason: 'subscription_updated',
       });
 

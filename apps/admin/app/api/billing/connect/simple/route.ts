@@ -81,7 +81,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    console.log('🔍 [Connect API] POST request received');
+    console.log('🔍 [Connect API] Stripe initialized:', !!stripe);
+    console.log('🔍 [Connect API] Stripe secret key exists:', !!process.env.STRIPE_SECRET_KEY);
+
     if (!stripe) {
+      console.error('❌ [Connect API] Stripe is not configured');
       return NextResponse.json(
         { error: 'Stripe is not configured' },
         { status: 500 }
@@ -91,11 +96,15 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { action } = body;
 
+    console.log('🔍 [Connect API] Action:', action);
+
     if (action === 'connect' || action === 'refresh') {
       // Check if already exists
       const existing = await prisma.tenantStripeConnect.findUnique({
         where: { tenantId: TENANT_ID },
       });
+
+      console.log('🔍 [Connect API] Existing account:', existing ? existing.stripeAccountId : 'none');
 
       let accountId = existing?.stripeAccountId;
 
@@ -103,13 +112,16 @@ export async function POST(req: NextRequest) {
         // Ensure a billing profile exists to satisfy FK constraint
         await getOrCreateTenantBilling(TENANT_ID);
 
+        console.log('🔍 [Connect API] Creating new Connect account...');
+        
         // Create new Connect Express account
         const account = await createConnectAccount({
-          email: 'admin@flyrentals.com', // Use actual tenant email
+          email: 'admin@falconflair.com', // Use actual tenant email
           country: 'US',
           businessType: 'individual',
         });
 
+        console.log('✅ [Connect API] Created account:', account.id);
         accountId = account.id;
 
         // Save to database

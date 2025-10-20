@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
 
       // Create new Connect account
       const account = await createConnectAccount({
-        email: 'admin@flyrentals.com', // Default email
+        email: 'admin@falconflair.com', // Default email
         country,
         businessType,
       });
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
       // Audit log
       await prisma.auditLog.create({
         data: {
-          actor: 'admin@flyrentals.com',
+          actor: 'admin@falconflair.com',
           action: 'connect_account_created',
           entity: 'TenantStripeConnect',
           entityId: TENANT_ID,

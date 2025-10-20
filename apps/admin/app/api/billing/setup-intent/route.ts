@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     // Create Stripe customer if doesn't exist
     if (!customerId) {
       const customer = await stripe.customers.create({
-        email: 'admin@flyrentals.com',
+        email: 'admin@falconflair.com',
         name: 'Admin User',
         metadata: {
           tenantId: TENANT_ID,
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         where: { tenantId: TENANT_ID },
         data: {
           stripeCustomerId: customerId,
-          billingEmail: 'admin@flyrentals.com',
+          billingEmail: 'admin@falconflair.com',
         },
       });
     }

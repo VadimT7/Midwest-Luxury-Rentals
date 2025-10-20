@@ -54,7 +54,7 @@ export async function POST(
       // Audit log
       await prisma.auditLog.create({
         data: {
-          actor: 'admin@flyrentals.com',
+          actor: 'admin@falconflair.com',
           action: 'deposit_captured',
           entity: 'DepositAuthorization',
           entityId: deposit.id,
@@ -87,7 +87,7 @@ export async function POST(
       // Audit log
       await prisma.auditLog.create({
         data: {
-          actor: 'admin@flyrentals.com',
+          actor: 'admin@falconflair.com',
           action: 'deposit_released',
           entity: 'DepositAuthorization',
           entityId: deposit.id,

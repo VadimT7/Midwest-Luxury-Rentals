@@ -13,7 +13,7 @@ export function DashboardContent({ children }: DashboardContentProps) {
   const mockUser = {
     id: 'admin-1',
     name: 'Admin User',
-    email: 'admin@flyrentals.com',
+    email: 'admin@falconflair.com',
   }
 
   return (

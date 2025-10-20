@@ -131,7 +131,7 @@ export async function POST(req: NextRequest) {
     // Audit log
     await prisma.auditLog.create({
       data: {
-        actor: 'admin@flyrentals.com',
+        actor: 'admin@falconflair.com',
         action: 'booking_payment_created',
         entity: 'Booking',
         entityId: booking.id,

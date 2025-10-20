@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
     let customerId = billing.stripeCustomerId;
     if (!customerId) {
       const customer = await stripe.customers.create({
-        email: 'admin@flyrentals.com', // Use actual tenant email
+        email: 'admin@falconflair.com', // Use actual tenant email
         metadata: {
           tenantId: TENANT_ID,
         },
