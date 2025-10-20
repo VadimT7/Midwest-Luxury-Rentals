@@ -120,10 +120,10 @@ export default function LoginPage() {
         <p className="text-center text-sm text-neutral-600 mt-6">
           Need help? Contact{' '}
           <a
-            href="mailto:flyrentalsca@gmail.com"
+            href="mailto:tuchila.vadim@hotmail.com"
             className="text-primary hover:underline"
           >
-            flyrentalsca@gmail.com
+            tuchila.vadim@hotmail.com
           </a>
         </p>
       </div>
