@@ -50,27 +50,6 @@ const values = [
   },
 ]
 
-const team = [
-  {
-    name: 'Alexandre Dubois',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    bio: 'Former racing driver with 15+ years in luxury automotive industry.',
-  },
-  {
-    name: 'Sophie Tremblay',
-    role: 'Operations Director',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
-    bio: 'Expert in premium customer service and fleet management.',
-  },
-  {
-    name: 'Marc Lavoie',
-    role: 'Head of Fleet',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-    bio: 'Certified mechanic specializing in exotic and luxury vehicles.',
-  },
-]
-
 const milestones = [
   {
     year: '2023',
@@ -193,8 +172,8 @@ export default function AboutPage() {
             >
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop"
-                  alt="Luxury cars in Dubai"
+                  src="/CLE53_3.jpg"
+                  alt="Mercedes CLE 53 AMG - Falcon Flair luxury fleet in Dubai"
                   fill
                   className="object-cover"
                 />
@@ -245,52 +224,6 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-4">{value.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{value.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="heading-medium text-slate-900 mb-4">Meet Our Team</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              The passionate professionals behind Falcon Flair's success.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {team.map((member, index) => (
-              <motion.div key={index} variants={staggerItem}>
-                <div className="bg-white rounded-2xl shadow-luxury-lg overflow-hidden">
-                  <div className="relative h-64">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-slate-900 mb-1">{member.name}</h3>
-                    <p className="text-primary font-medium mb-3">{member.role}</p>
-                    <p className="text-slate-600 text-sm leading-relaxed">{member.bio}</p>
-                  </div>
                 </div>
               </motion.div>
             ))}
