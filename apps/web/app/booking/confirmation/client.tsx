@@ -57,13 +57,13 @@ export default function BookingConfirmationClient() {
   const getLocationDisplay = (location: string) => {
     switch (location) {
       case 'showroom':
-        return 'Falcon Flair Showroom (Dubai)'
+        return 'Midwest Luxury Showroom (Dubai)'
       case 'airport':
         return 'Dubai International Airport (DXB)'
       case 'hotel':
         return 'Hotel Delivery (Dubai)'
       default:
-        return 'Falcon Flair Showroom (Dubai)'
+        return 'Midwest Luxury Showroom (Dubai)'
     }
   }
 
@@ -82,10 +82,10 @@ export default function BookingConfirmationClient() {
 
   // Generate email content for booking confirmation
   const generateEmailContent = () => {
-    const subject = `Falcon Flair Booking Confirmation - ${carName} ${carYear}`
+    const subject = `Midwest Luxury Booking Confirmation - ${carName} ${carYear}`
     const body = `Dear ${driverName},
 
-Your luxury vehicle rental has been successfully booked with Falcon Flair Car Rental.
+Your luxury vehicle rental has been successfully booked with Midwest Luxury Car Rental.
 
 BOOKING DETAILS:
 Booking ID: ${bookingId}
@@ -111,12 +111,12 @@ Please present yourself at the selected car pick-up location at the booked time 
 
 Need help? Contact our concierge team:
 Phone: +971 58 504 6440 / +971 58 132 1831
-Email: info@falconflair.ae
+Email: info@midwestluxury.ae
 
-Thank you for choosing Falcon Flair Car Rental!
+Thank you for choosing Midwest Luxury Car Rental!
 
 Best regards,
-The Falcon Flair Team`
+The Midwest Luxury Team`
 
     return { subject, body }
   }
@@ -132,10 +132,10 @@ The Falcon Flair Team`
   const handleDownloadPDF = () => {
     const pdf = new jsPDF()
     
-    // Add Falcon Flair header
+    // Add Midwest Luxury header
     pdf.setFontSize(24)
     pdf.setTextColor(245, 158, 11) // Amber color
-    pdf.text('Falcon Flair Car Rental', 105, 20, { align: 'center' })
+    pdf.text('Midwest Luxury Car Rental', 105, 20, { align: 'center' })
     
     pdf.setFontSize(16)
     pdf.setTextColor(0, 0, 0)
@@ -180,7 +180,7 @@ The Falcon Flair Team`
     pdf.setFontSize(11)
     pdf.setTextColor(60, 60, 60)
     const locationText = pickupLocation === 'showroom' 
-      ? 'Falcon Flair Showroom\nDubai, UAE'
+      ? 'Midwest Luxury Showroom\nDubai, UAE'
       : pickupLocation === 'airport'
       ? 'Dubai International Airport (DXB)\nDubai, UAE'
       : 'Hotel Delivery (Dubai)'
@@ -232,11 +232,11 @@ The Falcon Flair Team`
     // Footer
     pdf.setFontSize(10)
     pdf.setTextColor(150, 150, 150)
-    pdf.text('Thank you for choosing Falcon Flair Car Rental!', 105, 280, { align: 'center' })
-    pdf.text('Contact: +971 58 504 6440 | info@falconflair.ae', 105, 287, { align: 'center' })
+    pdf.text('Thank you for choosing Midwest Luxury Car Rental!', 105, 280, { align: 'center' })
+    pdf.text('Contact: +971 58 504 6440 | info@midwestluxury.ae', 105, 287, { align: 'center' })
     
     // Save the PDF
-    pdf.save(`FalconFlair_Booking_${bookingId}.pdf`)
+    pdf.save(`MidwestLuxury_Booking_${bookingId}.pdf`)
   }
 
   return (

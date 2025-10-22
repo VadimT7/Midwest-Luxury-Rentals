@@ -58,7 +58,7 @@ export function Sidebar() {
               height={32}
               className="w-8 h-8"
             />
-            <span className="font-semibold text-lg text-primary">Falcon Flair Admin</span>
+            <span className="font-semibold text-lg text-primary">Midwest Luxury Admin</span>
           </Link>
         )}
         {isCollapsed && (

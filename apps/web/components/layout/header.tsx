@@ -129,7 +129,7 @@ export function Header() {
               <Link href="/" className="flex items-center group">
                 <Image
                   src="/logo.png"
-                  alt="Falcon Flair Car Rental"
+                  alt="Midwest Luxury Car Rental"
                   width={360}
                   height={120}
                   className="h-32 w-auto object-contain"

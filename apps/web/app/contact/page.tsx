@@ -287,7 +287,7 @@ export default function ContactPage() {
 
             {/* Additional Info */}
             <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 border border-primary/20">
-              <h3 className="text-xl font-bold text-white mb-4">Why Choose Falcon Flair?</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Why Choose Midwest Luxury?</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full" />

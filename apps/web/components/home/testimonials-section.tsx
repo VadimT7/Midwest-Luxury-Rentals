@@ -11,44 +11,44 @@ const testimonials = [
   {
     id: '1',
     authorName: 'Ahmed Al-Mansouri',
-    content: 'Exceptional service from start to finish. The ROX 01 VIP was absolutely stunning, and the delivery to my hotel in Dubai Marina was seamless. Falcon Flair sets the standard for luxury car rentals.',
+    content: 'Exceptional service from start to finish. The Ferrari 488 was absolutely stunning, and the delivery to my hotel in Dubai Marina was seamless. Midwest Luxury sets the standard for luxury car rentals.',
     rating: 5,
-    carModel: '2025 ROX 01 VIP',
+    carModel: '2024 Ferrari 488 Spider',
   },
   {
     id: '2',
     authorName: 'Priya Sharma',
-    content: 'The BMW M440 was perfect for my Dubai business trip. The Falcon Flair team understood my needs perfectly and exceeded my expectations with their professional service.',
+    content: 'The Mercedes-AMG G63 was perfect for my Dubai business trip. The Midwest Luxury team understood my needs perfectly and exceeded my expectations with their professional service.',
     rating: 5,
-    carModel: 'BMW M440 Coupé',
+    carModel: 'Mercedes-AMG G63',
   },
   {
     id: '3',
     authorName: 'Dmitri Volkov',
-    content: "I've rented luxury cars worldwide, but Falcon Flair's attention to detail is unmatched. The RS3 Daytona was pristine, and their concierge service made everything effortless in Dubai.",
+    content: "I've rented luxury cars worldwide, but Midwest Luxury's attention to detail is unmatched. The McLaren 720S was pristine, and their concierge service made everything effortless in Dubai.",
     rating: 5,
-    carModel: 'Audi RS3 Daytona Grey',
+    carModel: 'McLaren 720S',
   },
   {
     id: '4',
     authorName: 'Sarah Al-Khalifa',
-    content: 'Driving the CLE 53 AMG through Dubai was an absolute dream. The Falcon Flair team organized the perfect experience and made sure every detail was taken care of.',
+    content: 'Driving the Lamborghini Urus through Dubai was an absolute dream. The Midwest Luxury team organized the perfect experience and made sure every detail was taken care of.',
     rating: 5,
-    carModel: 'Mercedes CLE 53 AMG',
+    carModel: 'Lamborghini Urus Performante',
   },
   {
     id: '5',
     authorName: 'James Thompson',
-    content: 'Falcon Flair exceeded all my expectations. The RS3 Black was delivered in perfect condition, and their customer service team was incredibly responsive and professional throughout my rental period in Dubai.',
+    content: 'Midwest Luxury exceeded all my expectations. The Ferrari 488 GTB was delivered in perfect condition, and their customer service team was incredibly responsive and professional throughout my rental period in Dubai.',
     rating: 5,
-    carModel: 'Audi RS3 Hatchback Black',
+    carModel: 'Ferrari 488 GTB',
   },
   {
     id: '6',
     authorName: 'Mohammed Hassan',
-    content: 'Impeccable service from A to Z. The C43 AMG was in perfect condition and the Falcon Flair team adapted to my specific needs. I highly recommend them for an exceptional luxury rental experience in Dubai.',
+    content: 'Impeccable service from A to Z. The Lamborghini Urus was in perfect condition and the Midwest Luxury team adapted to my specific needs. I highly recommend them for an exceptional luxury rental experience in Dubai.',
     rating: 5,
-    carModel: 'Mercedes C43 AMG',
+    carModel: 'Lamborghini Urus',
   },
 ]
 
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
         <p className="text-luxury text-primary mb-4">Client Experiences</p>
         <h2 className="heading-large mb-4">Voices of Excellence</h2>
         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-          Discover why discerning individuals choose Falcon Flair for their luxury automotive experiences
+          Discover why discerning individuals choose Midwest Luxury for their luxury automotive experiences
         </p>
       </motion.div>
 

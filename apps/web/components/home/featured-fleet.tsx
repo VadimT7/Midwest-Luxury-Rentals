@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Button, Card } from '@valore/ui'
 import { formatCurrency } from '@valore/ui'
 import { staggerContainer, staggerItem } from '@valore/ui'
+import { getMockVehicles, type MockVehicle } from '@/lib/mock-vehicles'
 
 interface Vehicle {
   id: string
@@ -33,20 +34,11 @@ export function FeaturedFleet() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchFeaturedVehicles()
+    // Use mock data instead of fetching from database
+    const mockData = getMockVehicles({ featured: true, limit: 6 })
+    setVehicles(mockData)
+    setLoading(false)
   }, [])
-
-  const fetchFeaturedVehicles = async () => {
-    try {
-      const response = await fetch('/api/vehicles?featured=true')
-      const data = await response.json()
-      setVehicles(data.slice(0, 6)) // Limit to 6 featured vehicles
-      setLoading(false)
-    } catch (error) {
-      console.error('Failed to fetch featured vehicles:', error)
-      setLoading(false)
-    }
-  }
 
   if (loading) {
     return (

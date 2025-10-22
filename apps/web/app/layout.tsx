@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   ...generateSiteMetadata({
-    title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
+    title: 'Midwest Luxury Car Rental - Premium Car Rental in Dubai',
     description: 'Experience the pinnacle of automotive luxury in Dubai. Rent BMW M440, Mercedes CLE 53 AMG, Audi RS3, ROX 01 VIP and more. Premium service with 24/7 support.',
   }),
   icons: {

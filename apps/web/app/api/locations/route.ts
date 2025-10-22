@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const locations = [
       {
         id: 'showroom',
-        name: 'Falcon Flair Showroom',
+        name: 'Midwest Luxury Showroom',
         address: 'Dubai, UAE',
         type: 'SHOWROOM',
         isDefault: true

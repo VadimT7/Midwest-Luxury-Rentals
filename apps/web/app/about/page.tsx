@@ -74,7 +74,7 @@ const milestones = [
   {
     year: '2025',
     title: 'Market Leader',
-    description: 'Established Falcon Flair as Dubai\'s premier choice for luxury car rentals with competitive pricing and exceptional service.',
+    description: 'Established Midwest Luxury as Dubai\'s premier choice for luxury car rentals with competitive pricing and exceptional service.',
   },
 ]
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   textShadow: '0 0 80px rgba(251, 191, 36, 0.3)'
                 }}
               >
-                About Falcon Flair
+                About Midwest Luxury
               </span>
             </h1>
             <p className="text-xl text-neutral-300 max-w-3xl mx-auto font-light">
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <h2 className="heading-medium text-slate-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Founded in the heart of Dubai, Falcon Flair began with a simple vision: 
+                  Founded in the heart of Dubai, Midwest Luxury began with a simple vision: 
                   to make luxury automotive experiences accessible to discerning clients who appreciate 
                   the finest things in life.
                 </p>
@@ -173,7 +173,7 @@ export default function AboutPage() {
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <Image
                   src="/CLE53_3.jpg"
-                  alt="Mercedes CLE 53 AMG - Falcon Flair luxury fleet in Dubai"
+                  alt="Mercedes CLE 53 AMG - Midwest Luxury luxury fleet in Dubai"
                   fill
                   className="object-cover"
                 />
@@ -295,7 +295,7 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-white mb-4 drop-shadow-lg">Ready to Experience Luxury?</h2>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Join thousands of satisfied clients who have experienced the Falcon Flair difference. 
+              Join thousands of satisfied clients who have experienced the Midwest Luxury difference. 
               Book your luxury vehicle today and discover why we're Dubai's premier choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

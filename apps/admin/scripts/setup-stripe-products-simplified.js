@@ -9,7 +9,7 @@ async function setupStripeProducts() {
 
     // Create Starter Product
     const starterProduct = await stripe.products.create({
-      name: 'Falcon Flair Starter Plan',
+      name: 'Midwest Luxury Starter Plan',
       description: '2% per booking + $99/month',
       metadata: {
         plan: 'STARTER',
@@ -36,7 +36,7 @@ async function setupStripeProducts() {
 
     // Create Pro Product
     const proProduct = await stripe.products.create({
-      name: 'Falcon Flair Pro Plan',
+      name: 'Midwest Luxury Pro Plan',
       description: '1% per booking + $199/month',
       metadata: {
         plan: 'PRO',

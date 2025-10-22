@@ -23,8 +23,8 @@ interface GenerateMetadataParams {
 }
 
 const siteConfig = {
-  name: 'Falcon Flair Car Rental',
-  title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
+  name: 'Midwest Luxury Car Rental',
+  title: 'Midwest Luxury Car Rental - Premium Car Rental in Dubai',
   description: 'Experience the pinnacle of automotive luxury in Dubai. Rent BMW M440, Mercedes CLE 53 AMG, Audi RS3, and more. Premium service with 24/7 support.',
   url: process.env.NEXT_PUBLIC_APP_URL || 'https://valorerent.com',
   keywords: [

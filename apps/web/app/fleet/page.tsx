@@ -18,6 +18,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Card, Input } from '@valore/ui'
 import { formatCurrency } from '@valore/ui'
+import { getMockVehicles, type MockVehicle } from '@/lib/mock-vehicles'
 
 interface Vehicle {
   id: string
@@ -66,25 +67,16 @@ export default function FleetPage() {
   const [sortBy, setSortBy] = useState('featured')
 
   useEffect(() => {
-    fetchVehicles()
+    // Use mock data instead of fetching from database
+    const mockData = getMockVehicles()
+    setVehicles(mockData)
+    setFilteredVehicles(mockData)
+    setLoading(false)
   }, [])
 
   useEffect(() => {
     filterAndSortVehicles()
   }, [vehicles, selectedCategory, selectedPriceRange, searchTerm, sortBy])
-
-  const fetchVehicles = async () => {
-    try {
-      const response = await fetch('/api/vehicles')
-      const data = await response.json()
-      setVehicles(data)
-      setFilteredVehicles(data)
-      setLoading(false)
-    } catch (error) {
-      console.error('Failed to fetch vehicles:', error)
-      setLoading(false)
-    }
-  }
 
   const filterAndSortVehicles = () => {
     let filtered = [...vehicles]
@@ -140,7 +132,7 @@ export default function FleetPage() {
           {/* Base gradient - Deeper theatrical darkness */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
           
-          {/* Falcon Flair Logo Monogram Pattern - MOVING */}
+          {/* Midwest Luxury Logo Monogram Pattern - MOVING */}
           <motion.div 
             className="absolute inset-0 opacity-[0.12]"
             style={{

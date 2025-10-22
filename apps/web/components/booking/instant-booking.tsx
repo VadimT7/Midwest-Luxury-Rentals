@@ -127,7 +127,7 @@ export function InstantBooking() {
                   : 'border-neutral-200 hover:border-neutral-300'
               )}
             >
-              <p className="font-medium mb-1">Falcon Flair Showroom</p>
+              <p className="font-medium mb-1">Midwest Luxury Showroom</p>
               <p className="text-sm text-neutral-600">Dubai, UAE</p>
             </button>
             <button
