@@ -11,37 +11,37 @@ const testimonials = [
   {
     id: '1',
     authorName: 'Mohammed Al-Rashid',
-    content: 'Exceptional service from start to finish. The BMW M440 was immaculate, and the delivery to my hotel in Dubai was seamless. Falcon Flair Car Rental sets the standard for luxury car rentals in the UAE.',
+    content: 'Exceptional service from start to finish. The Ferrari 488 GTB was immaculate, and the delivery to my hotel in Chicago was seamless. Midwest Luxury Rentals sets the standard for luxury car rentals in the UAE.',
     rating: 5,
   },
   {
     id: '2',
     authorName: 'Fatima Al-Mansouri',
-    content: 'The Mercedes CLE 53 AMG was perfect for my photoshoot in Dubai. The team at Falcon Flair Car Rental understood exactly what I needed and went above and beyond to accommodate my schedule.',
+    content: 'The McLaren 720S was perfect for my photoshoot in Chicago. The team at Midwest Luxury Rentals understood exactly what I needed and went above and beyond to accommodate my schedule.',
     rating: 5,
   },
   {
     id: '3',
     authorName: 'Ahmed Al-Zaabi',
-    content: "I've rented luxury cars worldwide, but Falcon Flair Car Rental's attention to detail is unmatched. The Mercedes C43 AMG was pristine, and their concierge service made everything effortless.",
+    content: "I've rented luxury cars worldwide, but Midwest Luxury Rentals' attention to detail is unmatched. The Mercedes G63 AMG was pristine, and their concierge service made everything effortless.",
     rating: 5,
   },
   {
     id: '4',
     authorName: 'Layla Hassan',
-    content: "Driving the Audi RS3 through Dubai was a dream come true. Falcon Flair Car Rental's team provided excellent service and made the entire experience memorable.",
+    content: "Driving the Lamborghini Urus through Chicago was a dream come true. Midwest Luxury Rentals' team provided excellent service and made the entire experience memorable.",
     rating: 5,
   },
   {
     id: '5',
     authorName: 'Khalid Al-Falasi',
-    content: 'For my anniversary, I rented the ROX 01 VIP from Falcon Flair Car Rental. The car was stunning with its amazing range, and the premium experience made it unforgettable. Truly five-star service in Dubai.',
+    content: 'For my anniversary, I rented the Lamborghini Urus Performante from Midwest Luxury Rentals. The car was stunning with its amazing performance, and the premium experience made it unforgettable. Truly five-star service in Chicago.',
     rating: 5,
   },
   {
     id: '6',
     authorName: 'Omar Abdullah',
-    content: "The Audi RS3 Daytona is an absolute masterpiece! Falcon Flair Car Rental delivered it in perfect condition. The raw performance exceeded my expectations. A true driver's car!",
+    content: "The Ferrari 488 GTB is an absolute masterpiece! Midwest Luxury Rentals delivered it in perfect condition. The raw performance exceeded my expectations. A true driver's car!",
     rating: 5,
   },
 ]
@@ -71,7 +71,7 @@ export function TestimonialsSection() {
         <p className="text-luxury text-primary mb-4">Client Experiences</p>
         <h2 className="heading-large mb-4">Voices of Excellence</h2>
         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-          Discover why discerning individuals choose Falcon Flair Car Rental for their luxury automotive experiences in Dubai
+          Discover why discerning individuals choose Midwest Luxury Rentals for their luxury automotive experiences in Chicago
         </p>
       </motion.div>
 

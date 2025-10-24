@@ -179,15 +179,15 @@ export async function POST(request: NextRequest) {
        priceRules: {
          create: {
            basePricePerDay: String(vehicleData.pricePerDay || 0),
-           currency: 'EUR',
+           currency: 'AED',
            weekendMultiplier: String(vehicleData.weekendMultiplier || 1.0),
            weeklyDiscount: String(vehicleData.weeklyDiscount || 0.0),
            monthlyDiscount: String(vehicleData.monthlyDiscount || 0.0),
            minimumDays: vehicleData.minimumDays || 1,
            maximumDays: vehicleData.maximumDays || 30,
-           includedKmPerDay: vehicleData.includedKmPerDay || 200,
-           extraKmPrice: String(vehicleData.extraKmPrice || 0.5),
-           depositAmount: String(vehicleData.depositAmount || 1000),
+           includedKmPerDay: vehicleData.includedKmPerDay || 250,
+           extraKmPrice: String(vehicleData.extraKmPrice || 3),
+           depositAmount: String(vehicleData.depositAmount || 0),
            isActive: true
          }
        }

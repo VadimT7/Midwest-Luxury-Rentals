@@ -23,7 +23,7 @@ export default function BookingConfirmationClient() {
   const returnLocation = searchParams.get('returnLocation') || 'showroom'
   const driverName = searchParams.get('driverName') || 'Driver'
   const driverEmail = searchParams.get('driverEmail') || 'driver@example.com'
-  const driverPhone = searchParams.get('driverPhone') || '+971 58 504 6440'
+  const driverPhone = searchParams.get('driverPhone') || '888-263-0123'
   const totalPrice = searchParams.get('totalPrice') || '0'
   const days = searchParams.get('days') || '1'
 
@@ -57,35 +57,35 @@ export default function BookingConfirmationClient() {
   const getLocationDisplay = (location: string) => {
     switch (location) {
       case 'showroom':
-        return 'Falcon Flair Car Rental Showroom - Dubai'
+        return 'Midwest Luxury Rentals Showroom - Dubai'
       case 'airport':
         return 'Dubai International Airport (DXB)'
       case 'hotel':
         return 'Hotel Delivery (Dubai Area)'
       default:
-        return 'Falcon Flair Car Rental Showroom - Dubai'
+        return 'Midwest Luxury Rentals Showroom - Dubai'
     }
   }
 
   const getLocationAddress = (location: string) => {
     switch (location) {
       case 'showroom':
-        return 'Dubai, UAE'
+        return 'Chicago, IL'
       case 'airport':
-        return 'Dubai International Airport, Dubai, UAE'
+        return 'Dubai International Airport, Chicago, IL'
       case 'hotel':
         return 'Your Hotel Address (Dubai Area)'
       default:
-        return 'Dubai, UAE'
+        return 'Chicago, IL'
     }
   }
 
   // Generate email content for booking confirmation
   const generateEmailContent = () => {
-    const subject = `Falcon Flair Car Rental Booking Confirmation - ${carName} ${carYear}`
+    const subject = `Midwest Luxury Rentals Booking Confirmation - ${carName} ${carYear}`
     const body = `Dear ${driverName},
 
-Your luxury vehicle rental has been successfully booked with Falcon Flair Car Rental.
+Your luxury vehicle rental has been successfully booked with Midwest Luxury Rentals.
 
 BOOKING DETAILS:
 Booking ID: ${bookingId}
@@ -111,9 +111,9 @@ Please present yourself at the selected car pick-up location at the booked time 
 
 Need help? Contact our concierge team:
 Phone: +1 (234) 567-890
-Email: info@falconflairrental.com
+Email: info@midwestluxury.com
 
-Thank you for choosing Falcon Flair Car Rental!
+Thank you for choosing Midwest Luxury Rentals!
 
 Best regards,
 The Falcon Flair Car Rental Team`
@@ -135,7 +135,7 @@ The Falcon Flair Car Rental Team`
     // Add Top Tier Rental header
     pdf.setFontSize(24)
     pdf.setTextColor(245, 158, 11) // Amber color
-    pdf.text('Falcon Flair Car Rental', 105, 20, { align: 'center' })
+    pdf.text('Midwest Luxury Rentals', 105, 20, { align: 'center' })
     
     pdf.setFontSize(16)
     pdf.setTextColor(0, 0, 0)
@@ -180,9 +180,9 @@ The Falcon Flair Car Rental Team`
     pdf.setFontSize(11)
     pdf.setTextColor(60, 60, 60)
     const locationText = pickupLocation === 'showroom' 
-      ? 'Falcon Flair Car Rental Showroom - Dubai\nDubai, UAE'
+      ? 'Midwest Luxury Rentals Showroom - Dubai\nChicago, IL'
       : pickupLocation === 'airport'
-      ? 'Dubai International Airport (DXB)\nDubai International Airport, Dubai, UAE'
+      ? 'Dubai International Airport (DXB)\nDubai International Airport, Chicago, IL'
       : 'Hotel Delivery (Dubai Area)'
     
     const locationLines = locationText.split('\n')
@@ -232,8 +232,8 @@ The Falcon Flair Car Rental Team`
     // Footer
     pdf.setFontSize(10)
     pdf.setTextColor(150, 150, 150)
-    pdf.text('Thank you for choosing Falcon Flair Car Rental!', 105, 280, { align: 'center' })
-    pdf.text('Contact: +971 58 504 6440 | info@falconflairrental.com', 105, 287, { align: 'center' })
+    pdf.text('Thank you for choosing Midwest Luxury Rentals!', 105, 280, { align: 'center' })
+    pdf.text('Contact: 888-263-0123 | info@midwestluxury.com', 105, 287, { align: 'center' })
     
     // Save the PDF
     pdf.save(`Falcon_Flair_Car_Rental_Booking_${bookingId}.pdf`)
@@ -396,12 +396,12 @@ The Falcon Flair Car Rental Team`
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="tel:+971585046440">
                 <Button variant="outline" size="lg" className="text-base">
-                  +971 58 504 6440
+                  888-263-0123
                 </Button>
               </Link>
-              <Link href="mailto:info@falconflairrental.com">
+              <Link href="mailto:info@midwestluxury.com">
                 <Button variant="outline" size="lg" className="text-base">
-                  info@falconflairrental.com
+                  info@midwestluxury.com
                 </Button>
               </Link>
             </div>

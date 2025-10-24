@@ -78,7 +78,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="companyName">Company Name</Label>
-                <Input id="companyName" defaultValue="Falcon Flair Car Rental" />
+                <Input id="companyName" defaultValue="Midwest Luxury Rentals" />
               </div>
               <div>
                 <Label htmlFor="website">Website URL</Label>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <Label htmlFor="phone">Contact Phone</Label>
-                <Input id="phone" defaultValue="+971 58 504 6440" />
+                <Input id="phone" defaultValue="888-263-0123" />
               </div>
               <div className="md:col-span-2">
                 <Label htmlFor="address">Business Address</Label>
@@ -110,7 +110,7 @@ export default function SettingsPage() {
               <div>
                 <Label htmlFor="currency">Currency</Label>
                 <select id="currency" className="w-full px-3 py-2 border rounded-lg">
-                  <option value="EUR">EUR ($)</option>
+                  <option value="AED">AED (د.إ)</option>
                   <option value="USD">USD ($)</option>
                   <option value="GBP">GBP (£)</option>
                 </select>

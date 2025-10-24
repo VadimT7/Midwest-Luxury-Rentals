@@ -350,7 +350,7 @@ export async function PUT(
           includedKmPerDay,
           extraKmPrice: extraKmPrice,
           depositAmount: depositAmount,
-          currency: 'CAD',
+          currency: 'AED',
           isActive: true,
           validFrom: new Date(),
           updatedAt: new Date()

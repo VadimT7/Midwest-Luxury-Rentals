@@ -57,7 +57,7 @@ const milestones = [
   {
     year: '2022',
     title: 'Company Founded',
-    description: 'Started with a passion for luxury vehicles in Dubai, establishing Falcon Flair Car Rental as the premier car rental service in the UAE.',
+    description: 'Started with a passion for luxury vehicles in Dubai, establishing Midwest Luxury Rentals as the premier car rental service in the UAE.',
   },
   {
     year: '2023',
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   textShadow: '0 0 80px rgba(251, 191, 36, 0.3)'
                 }}
               >
-                About Falcon Flair Car Rental
+                About Midwest Luxury Rentals
               </span>
             </h1>
             <p className="text-xl text-neutral-300 max-w-3xl mx-auto font-light">
@@ -149,7 +149,7 @@ export default function AboutPage() {
               <h2 className="heading-medium text-slate-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Founded in 2022 in the heart of Dubai, Falcon Flair Car Rental began with a simple vision: 
+                  Founded in 2022 in the heart of Dubai, Midwest Luxury Rentals began with a simple vision: 
                   to make premium automotive experiences accessible to everyone who appreciates 
                   quality and performance.
                 </p>
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-semibold text-slate-900">Dubai, UAE</p>
+                    <p className="font-semibold text-slate-900">Chicago, IL</p>
                     <p className="text-sm text-slate-600">Our Home Base</p>
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-white mb-4 drop-shadow-lg">Ready to Experience Premium Driving?</h2>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Join thousands of satisfied clients who have experienced the Falcon Flair Car Rental difference. 
+              Join thousands of satisfied clients who have experienced the Midwest Luxury Rentals difference. 
               Book your premium vehicle today and discover why we're Dubai's premier choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

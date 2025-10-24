@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     const returnTime = '10:00 AM'
 
     // Create the email content
-    const emailSubject = `🎉 Booking Confirmation - ${bookingNumber} | Falcon Flair Car Rental`
+    const emailSubject = `🎉 Booking Confirmation - ${bookingNumber} | Midwest Luxury Rentals`
     
     const emailBody = `
 <!DOCTYPE html>
@@ -177,7 +177,7 @@ export async function POST(request: NextRequest) {
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🚗 Falcon Flair Car Rental</div>
+            <div class="logo">🚗 Midwest Luxury Rentals</div>
             <div class="tagline">Luxury Car Rental Experience</div>
         </div>
 
@@ -234,7 +234,7 @@ export async function POST(request: NextRequest) {
 
         <div class="contact-info">
             <h4>📞 Need Help?</h4>
-            <p><strong>Phone:</strong> +971 58 504 6440</p>
+            <p><strong>Phone:</strong> 888-263-0123</p>
             <p><strong>Email:</strong> flyrentalsca@gmail.com</p>
             <p><strong>Hours:</strong> 24/7 Premium Service</p>
         </div>
@@ -242,8 +242,8 @@ export async function POST(request: NextRequest) {
         <p>We're thrilled to be part of your luxury car experience. Get ready to turn heads and create unforgettable memories! 🌟</p>
 
         <div class="footer">
-            <p>Thank you for choosing Falcon Flair Car Rental!</p>
-            <p>© 2025 Falcon Flair Car Rental. All rights reserved.</p>
+            <p>Thank you for choosing Midwest Luxury Rentals!</p>
+            <p>© 2025 Midwest Luxury Rentals. All rights reserved.</p>
         </div>
     </div>
 </body>

@@ -39,7 +39,7 @@ export function VideoShowcase() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/CLE53_Video_2.mp4" type="video/mp4" />
+                <source src="/MidwestLuxuryRentalsVideo1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -75,7 +75,7 @@ export function VideoShowcase() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/AMG45_Video.mp4" type="video/mp4" />
+                <source src="/MidwestLuxuryRentalsVideo2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

@@ -86,7 +86,7 @@ function getNestedValue(obj: any, path: string): any {
 
 // Format functions for common data types
 export const formatters = {
-  currency: (value: number) => `$${value.toLocaleString()}`,
+  currency: (value: number) => `${value.toLocaleString()} AED`,
   date: (value: string | Date) => new Date(value).toLocaleDateString(),
   datetime: (value: string | Date) => new Date(value).toLocaleString(),
   boolean: (value: boolean) => value ? 'Yes' : 'No',

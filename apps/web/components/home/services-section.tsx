@@ -11,25 +11,25 @@ const services = [
     icon: Car,
     title: 'Self-Drive Excellence',
     description: 'Take the wheel of automotive perfection with our comprehensive insurance and 24/7 support',
-    image: '/SF90-1.jpg',
+    image: '/Ferrari 488 - black.jpg',
   },
   {
     icon: Users,
     title: 'Chauffeur Service',
     description: 'Professional drivers trained to deliver comfort and discretion for your journey',
-    image: '/Mercedes-Benz-S580-1.jpg',
+    image: '/G63-white.jpg',
   },
   {
     icon: Camera,
     title: 'Photoshoot Package',
     description: 'Capture your experience with professional photographers and stunning locations',
-    image: '/Bentley Continental Speed W12 - 1.jpg',
+    image: '/McLaren Blue.jpg',
   },
   {
     icon: Globe,
     title: 'Curated Experiences',
     description: 'Exclusive driving routes, private track days, and bespoke automotive adventures',
-    image: '/Rolls-Royce-Dawn.jpg',
+    image: '/Lamborghini Urus Performante Blue.jpg',
   },
 ]
 

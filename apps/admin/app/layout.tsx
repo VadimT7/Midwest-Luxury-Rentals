@@ -15,10 +15,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Falcon Flair Car Rental Admin',
-    template: '%s | Falcon Flair Car Rental Admin',
+    default: 'Midwest Luxury Rentals Admin',
+    template: '%s | Midwest Luxury Rentals Admin',
   },
-  description: 'Admin panel for Falcon Flair Car Rental',
+  description: 'Admin panel for Midwest Luxury Rentals',
   robots: {
     index: false,
     follow: false,

@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
         user: { 
           id: 'admin-1', 
           name: 'Admin User', 
-          email: 'admin@flyrentals.com' 
+          email: 'admin@falconflair.com' 
         } 
       })
       

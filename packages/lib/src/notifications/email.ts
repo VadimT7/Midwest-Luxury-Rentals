@@ -28,11 +28,11 @@ export interface SendEmailParams {
 export async function sendEmail({
   to,
   template,
-  replyTo = process.env.EMAIL_REPLY_TO || 'info@falconflairrental.com',
+  replyTo = process.env.EMAIL_REPLY_TO || 'info@midwestluxury.com',
   attachments = [],
 }: SendEmailParams): Promise<string> {
   const { data, error } = await resend.emails.send({
-    from: process.env.EMAIL_FROM || 'info@falconflairrental.com',
+    from: process.env.EMAIL_FROM || 'info@midwestluxury.com',
     to: Array.isArray(to) ? to : [to],
     subject: template.subject,
     html: template.html,
@@ -158,7 +158,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
   const pickupTime = format(booking.startDate, 'h:mm a')
   const returnTime = format(booking.endDate, 'h:mm a')
   
-  const subject = `Booking Confirmation - ${booking.car.displayName} | Falcon Flair Car Rental`
+  const subject = `Booking Confirmation - ${booking.car.displayName} | Midwest Luxury Rentals`
   
   const html = `
     <!DOCTYPE html>
@@ -251,7 +251,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
     <body>
       <div class="container">
         <div class="header">
-          <h1>Falcon Flair Car Rental</h1>
+          <h1>Midwest Luxury Rentals</h1>
           <p style="margin: 10px 0 0 0; font-size: 16px; font-weight: 300;">
             Your Luxury Experience Awaits
           </p>
@@ -263,7 +263,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
           </h2>
           <p>Dear ${booking.user?.name || booking.guestName || 'Valued Customer'},</p>
           <p>
-            Thank you for choosing Falcon Flair Car Rental. Your booking for the 
+            Thank you for choosing Midwest Luxury Rentals. Your booking for the 
             <strong>${booking.car.displayName}</strong> has been confirmed.
           </p>
           
@@ -294,7 +294,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
               <span class="detail-value">${
                 booking.pickupType === 'DELIVERY' 
                   ? 'Delivery to your location' 
-                  : 'Falcon Flair Car Rental Showroom - Dubai'
+                  : 'Midwest Luxury Rentals Showroom - Chicago'
               }</span>
             </div>
             <div class="detail-row">
@@ -333,13 +333,13 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
           <p>
             If you have any questions or need to make changes to your booking, 
             please don't hesitate to contact us at 
-            <a href="mailto:info@falconflairrental.com">info@falconflairrental.com</a> 
-            or call us at +971 58 504 6440.
+            <a href="mailto:info@midwestluxury.com">info@midwestluxury.com</a> 
+            or call us at 888-263-0123.
           </p>
         </div>
         
         <div class="footer">
-          <p>© ${new Date().getFullYear()} Falcon Flair Car Rental. All rights reserved.</p>
+          <p>© ${new Date().getFullYear()} Midwest Luxury Rentals. All rights reserved.</p>
           <p>
             This email was sent to ${booking.user?.email || booking.guestEmail}. 
             If you no longer wish to receive these emails, you can 
@@ -352,11 +352,11 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
   `
   
   const text = `
-Falcon Flair Car Rental - Booking Confirmation
+Midwest Luxury Rentals - Booking Confirmation
 
 Dear ${booking.user?.name || booking.guestName || 'Valued Customer'},
 
-Thank you for choosing Falcon Flair Car Rental. Your booking for the ${booking.car.displayName} has been confirmed.
+Thank you for choosing Midwest Luxury Rentals. Your booking for the ${booking.car.displayName} has been confirmed.
 
 BOOKING DETAILS
 ---------------
@@ -364,7 +364,7 @@ Booking Number: ${booking.bookingNumber}
 Vehicle: ${booking.car.displayName}
 Pickup Date: ${pickupDate} at ${pickupTime}
 Return Date: ${returnDate} at ${returnTime}
-Pickup Location: ${booking.pickupType === 'DELIVERY' ? 'Delivery to your location' : 'Falcon Flair Car Rental Showroom - Dubai'}
+Pickup Location: ${booking.pickupType === 'DELIVERY' ? 'Delivery to your location' : 'Midwest Luxury Rentals Showroom - Chicago'}
 Total Amount: $${booking.totalAmount.toFixed(2)}
 
 WHAT'S NEXT?
@@ -373,9 +373,9 @@ WHAT'S NEXT?
 2. Please bring your valid driver's license and the credit card used for booking
 3. Our concierge team is available 24/7 for any special requests
 
-If you have any questions or need to make changes to your booking, please contact us at info@falconflairrental.com or call +971 58 504 6440.
+If you have any questions or need to make changes to your booking, please contact us at info@midwestluxury.com or call 888-263-0123.
 
-© ${new Date().getFullYear()} Falcon Flair Car Rental. All rights reserved.
+© ${new Date().getFullYear()} Midwest Luxury Rentals. All rights reserved.
   `.trim()
   
   return { subject, html, text }
@@ -388,7 +388,7 @@ function generatePickupReminderTemplate(booking: any): EmailTemplate {
   const pickupDate = format(booking.startDate, 'EEEE, MMMM d, yyyy')
   const pickupTime = format(booking.startDate, 'h:mm a')
   
-  const subject = `Pickup Reminder - ${booking.car.displayName} Tomorrow | Falcon Flair Car Rental`
+  const subject = `Pickup Reminder - ${booking.car.displayName} Tomorrow | Midwest Luxury Rentals`
   
   const html = `
     <!DOCTYPE html>
@@ -408,7 +408,7 @@ function generatePickupReminderTemplate(booking: any): EmailTemplate {
           <p><strong>Location:</strong> ${
             booking.pickupType === 'DELIVERY' 
               ? booking.deliveryAddress 
-              : 'Falcon Flair Car Rental Showroom - Dubai, UAE'
+              : 'Midwest Luxury Rentals Showroom - Chicago, IL'
           }</p>
         </div>
         
@@ -421,7 +421,7 @@ function generatePickupReminderTemplate(booking: any): EmailTemplate {
         
         <p>Our team looks forward to providing you with an exceptional experience.</p>
         
-        <p>Best regards,<br>The Falcon Flair Car Rental Team</p>
+        <p>Best regards,<br>The Midwest Luxury Rentals Team</p>
       </div>
     </body>
     </html>

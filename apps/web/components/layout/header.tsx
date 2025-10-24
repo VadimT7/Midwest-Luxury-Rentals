@@ -29,9 +29,9 @@ const navigation = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: '+971 58 504 6440', href: 'tel:+971585046440' },
-  { icon: Mail, text: 'info@falconflairrental.com', href: 'mailto:info@falconflairrental.com' },
-  { icon: MapPin, text: 'Dubai, UAE', href: '/contact' },
+  { icon: Phone, text: '888-263-0123', href: 'tel:+971585046440' },
+  { icon: Mail, text: 'info@midwestluxury.com', href: 'mailto:info@midwestluxury.com' },
+  { icon: MapPin, text: 'Chicago, IL', href: '/contact' },
 ]
 
 export function Header() {
@@ -129,7 +129,7 @@ export function Header() {
               <Link href="/" className="flex items-center group">
                 <Image
                   src="/logo.png"
-                  alt="Falcon Flair Car Rental - Premium Car Rental in Dubai"
+                  alt="Midwest Luxury Rentals - Premium Car Rental in Dubai"
                   width={180}
                   height={60}
                   className="h-32 w-auto object-contain"

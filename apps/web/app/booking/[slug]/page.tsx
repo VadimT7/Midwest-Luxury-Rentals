@@ -250,8 +250,8 @@ export default function BookingPage() {
           endDate: bookingData.endDate,
           pickupType: bookingData.pickupLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
           returnType: bookingData.returnLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
-          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'Falcon Flair Car Rental Showroom - Dubai' : 'Delivery',
-          returnLocation: bookingData.returnLocation === 'showroom' ? 'Falcon Flair Car Rental Showroom - Dubai' : 'Delivery',
+          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'Midwest Luxury Rentals Showroom - Dubai' : 'Delivery',
+          returnLocation: bookingData.returnLocation === 'showroom' ? 'Midwest Luxury Rentals Showroom - Dubai' : 'Delivery',
           guestEmail: bookingData.driverEmail,
           guestName: bookingData.driverName,
           guestPhone: bookingData.driverPhone,
@@ -416,7 +416,7 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, pickupLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">Falcon Flair Car Rental Showroom - Dubai</option>
+                  <option value="showroom">Midwest Luxury Rentals Showroom - Dubai</option>
                   <option value="airport">Los Angeles International Airport (LAX)</option>
                   <option value="hotel">Hotel Delivery (Los Angeles Area)</option>
                 </select>
@@ -429,7 +429,7 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, returnLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">Falcon Flair Car Rental Showroom - Dubai</option>
+                  <option value="showroom">Midwest Luxury Rentals Showroom - Dubai</option>
                   <option value="airport">Los Angeles International Airport (LAX)</option>
                   <option value="hotel">Hotel Pickup (Los Angeles Area)</option>
                 </select>
@@ -492,7 +492,7 @@ export default function BookingPage() {
                   type="tel"
                   value={bookingData.driverPhone}
                   onChange={(e) => setBookingData(prev => ({ ...prev, driverPhone: e.target.value }))}
-                  placeholder="+971 58 504 6440"
+                  placeholder="888-263-0123"
                 />
               </div>
               <div>

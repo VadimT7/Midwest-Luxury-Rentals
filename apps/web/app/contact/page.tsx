@@ -21,21 +21,21 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: '+971 58 504 6440',
+    details: '888-263-0123',
     href: 'tel:+971585046440',
     description: '24/7 Premium Support'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: 'info@falconflairrental.com',
-    href: 'mailto:info@falconflairrental.com',
+    details: 'info@midwestluxury.com',
+    href: 'mailto:info@midwestluxury.com',
     description: 'Quick Response Guaranteed'
   },
   {
     icon: MapPin,
     title: 'Location',
-    details: 'Dubai, UAE',
+    details: 'Chicago, IL',
     href: '/contact',
     description: 'Our Premium Location'
   },
@@ -169,7 +169,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="bg-slate-800 border-slate-700 text-white placeholder-slate-400 focus:border-primary focus:ring-primary"
-                      placeholder="+971 58 504 6440"
+                      placeholder="888-263-0123"
                     />
                   </div>
                   
@@ -290,7 +290,7 @@ export default function ContactPage() {
 
             {/* Additional Info */}
             <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 border border-primary/20">
-              <h3 className="text-xl font-bold text-white mb-4">Why Choose Falcon Flair Car Rental?</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Why Choose Midwest Luxury Rentals?</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full" />

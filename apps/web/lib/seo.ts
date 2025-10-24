@@ -23,21 +23,21 @@ interface GenerateMetadataParams {
 }
 
 const siteConfig = {
-  name: 'Falcon Flair Car Rental',
-  title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
-  description: 'Experience the pinnacle of automotive luxury in Dubai. Rent BMW, Mercedes-Benz AMG, Audi RS3 and more. Premium service, no deposit options available.',
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://falconflairrental.com',
+  name: 'Midwest Luxury Rentals',
+  title: 'Midwest Luxury Rentals - Premium Car Rental in Chicago',
+  description: 'Experience the pinnacle of automotive luxury in Chicago. Rent BMW, Mercedes-Benz AMG, Audi RS3 and more. Premium service, no deposit options available.',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://midwestluxury.com',
   keywords: [
-    'luxury car rental Dubai',
-    'car rental Dubai',
+    'luxury car rental Chicago',
+    'car rental Chicago',
     'premium car rental UAE',
-    'BMW M440 rental Dubai',
-    'Mercedes AMG rental Dubai',
-    'Audi RS3 rental Dubai',
-    'Dubai car rental',
+    'Ferrari 488 GTB rental Chicago',
+    'McLaren 720S rental Chicago',
+    'Lamborghini Urus rental Chicago',
+    'Chicago car rental',
     'UAE luxury cars',
     'premium car rental',
-    'sports car rental Dubai',
+    'sports car rental Chicago',
   ],
 }
 
@@ -90,7 +90,7 @@ export function generateMetadata(params: GenerateMetadataParams = {}): Metadata 
       title: twitter?.title || title,
       description: twitter?.description || description,
       images: twitter?.images || ['/twitter-image.jpg'],
-      creator: '@falconflairrental',
+      creator: '@midwestluxury',
     },
     robots: {
       index: true,
@@ -143,8 +143,8 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         description: siteConfig.description,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Dubai',
-          addressLocality: 'Dubai',
+          streetAddress: 'Chicago',
+          addressLocality: 'Chicago',
           postalCode: '00000',
           addressCountry: 'AE',
         },

@@ -198,7 +198,7 @@ For detailed deployment instructions, see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.m
 ### Default Credentials
 
 #### Admin User
-- Email: `elitemotionrentals@gmail.com`
+- Email: `info@midwestluxury.com`
 - Password: `admin123`
 
 #### Test Customer
@@ -518,7 +518,7 @@ pnpm test:e2e:debug
 - **Documentation**: Check `/docs` folder
 - **Issues**: GitHub Issues for bug reports
 - **Discussions**: GitHub Discussions for questions
-- **Email**: elitemotionrentals@gmail.com
+- **Email**: info@midwestluxury.com
 
 ### Common Issues
 
@@ -536,7 +536,7 @@ pnpm test:e2e:debug
 
 ## 📄 License
 
-Copyright © 2025 Falcon Flair Car Rental. All rights reserved.
+Copyright © 2025 Midwest Luxury Rentals. All rights reserved.
 
 This is proprietary software. Unauthorized copying, modification, or distribution is strictly prohibited.
 

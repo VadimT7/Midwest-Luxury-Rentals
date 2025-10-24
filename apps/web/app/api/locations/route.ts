@@ -8,8 +8,8 @@ export async function GET(request: NextRequest) {
     const locations = [
       {
         id: 'showroom',
-        name: 'Falcon Flair Car Rental Showroom - Dubai',
-        address: 'Dubai, UAE',
+        name: 'Midwest Luxury Rentals Showroom - Dubai',
+        address: 'Chicago, IL',
         type: 'SHOWROOM',
         isDefault: true
       },

@@ -78,7 +78,7 @@ export default function FleetPage() {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/vehicles')
+      const response = await fetch('/api/vehicles-new')
       const data = await response.json()
       setVehicles(data)
       setFilteredVehicles(data)

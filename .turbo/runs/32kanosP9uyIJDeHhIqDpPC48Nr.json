@@ -1,0 +1,466 @@
+{
+  "id": "32kanosP9uyIJDeHhIqDpPC48Nr",
+  "version": "1",
+  "turboVersion": "1.13.4",
+  "monorepo": true,
+  "globalCacheInputs": {
+    "rootKey": "HEY STELLLLLLLAAAAAAAAAAAAA",
+    "files": {
+      ".env.local": "c49088c227d8f041d33d1379c974a9bfe4bf9d5f",
+      ".vercel/.env.preview.local": "1440bfac2d84cbb17c2d78fdd1b8d92f8354f45d",
+      "apps/web/.env.local": "26e8554cbbda59c8dbf910641c94c0455eab5544"
+    },
+    "hashOfExternalDependencies": "fda13e91a580da5d",
+    "globalDotEnv": null,
+    "environmentVariables": {
+      "specified": {
+        "env": [],
+        "passThroughEnv": null
+      },
+      "configured": [],
+      "inferred": [],
+      "passthrough": null
+    }
+  },
+  "execution": {
+    "command": "turbo run build --filter=@valore/admin",
+    "repoPath": "",
+    "success": 2,
+    "failed": 1,
+    "cached": 0,
+    "attempted": 3,
+    "startTime": 1757967154033,
+    "endTime": 1757967193016,
+    "exitCode": 1
+  },
+  "packages": [
+    "@valore/admin"
+  ],
+  "envMode": "infer",
+  "frameworkInference": true,
+  "tasks": [
+    {
+      "taskId": "@valore/admin#build",
+      "task": "build",
+      "package": "@valore/admin",
+      "hash": "00dafcfe02548f72",
+      "inputs": {
+        ".gitignore": "e985853ed84acf10f62f639a4733083229c5a55d",
+        "app/(dashboard)/analytics/page.tsx": "2910e0759478538f6a2e7e03d839a7ce2cbd511f",
+        "app/(dashboard)/availability/page.tsx": "e44d6d6c25d05f6b8abdcd48674c4d9d34730032",
+        "app/(dashboard)/bookings/advanced-page.tsx": "fa9f89ca4bb2084ecf5ab7890022d92079c0bdbd",
+        "app/(dashboard)/bookings/page.tsx": "e2146f190dbc95e6349c65f41bd9f729219f0ee3",
+        "app/(dashboard)/customers/page.tsx": "0705f44445211277615f2eeb66346c06bb0fdaf8",
+        "app/(dashboard)/featured/page.tsx": "ac874518a544c472f4950d779fb64b2feea68150",
+        "app/(dashboard)/fleet/[id]/edit/page.tsx": "5b3a8c2ad417b208f9ee5338376cf6a8203371de",
+        "app/(dashboard)/fleet/[id]/page.tsx": "11a4dfa77e2fac9d514cce437e75c3de28b18282",
+        "app/(dashboard)/fleet/new/page.tsx": "623923fde32073497cbb00efa8d73ad1a7264150",
+        "app/(dashboard)/fleet/page.tsx": "ea6abaa423a9dc7aef536c0cf1ebcab86b94ae60",
+        "app/(dashboard)/layout.tsx": "9aef0cf156061f36980fb3c0f6efeb58b2470e9f",
+        "app/(dashboard)/page.tsx": "974957f59d10de4f3e42524563f9e66a2b78b481",
+        "app/(dashboard)/payments/page.tsx": "3b9b56a7dd0331a1cb233d4e62d085f4873d5623",
+        "app/(dashboard)/settings/page.tsx": "97bdee5ed9304c6eacc8c4771afd07f51fc95ef1",
+        "app/(dashboard)/vehicles/new/page.tsx": "b385eb61ff4323e27b170d58c58857e8540166e2",
+        "app/(dashboard)/vehicles/page.tsx": "d684671d4f7bebd644c9cb1996b712810c1803ab",
+        "app/api/analytics/route.ts": "943ff1d41d4b0d14e0d5b1ae0f846979a90376dc",
+        "app/api/auth/[...nextauth]/route.ts": "9e62bbfeda179a35a057ddccb1eb00b75bfac51f",
+        "app/api/bookings/[id]/route.ts": "0cdc8181b05cff9bcefcd3df18bf14b322b791dc",
+        "app/api/bookings/route.ts": "ee4833b465aab992c0452d0850cee699e9800bb8",
+        "app/api/bookings/send-confirmation/route.ts": "1e0d7a556489f0629f975ef5a9dbbbbc481411dc",
+        "app/api/customers/route.ts": "24365122c730a35262eac112a4f853a8a7c776cf",
+        "app/api/dashboard/stats/route.ts": "b20eba1e49e521efbb86cddb1a3ad334a49f6920",
+        "app/api/payments/route.ts": "f5a3240aed219aec349f00868d62ae9e02c7fd4c",
+        "app/api/vehicles/[id]/route.ts": "842f83a0c3f244f91a8d802293c213616fdd1034",
+        "app/api/vehicles/route.ts": "556cd2d795fd89b023bd71df1f8548a384eec18b",
+        "app/globals.css": "ab431185b6c067ebdc0edfffe3724fef465c6e6e",
+        "app/layout.tsx": "c5326378a3c8630607b03bc204107bd84ad264e4",
+        "app/login/layout.tsx": "c5d30a12837313eb3cf866654a349d95fdba37e9",
+        "app/login/page.tsx": "7fd40f6cb87c565431c35f4707ab59db04b53b12",
+        "app/providers.tsx": "d9a21e5e40277f1b9db63399d1b0b0d3061ece1e",
+        "apps/web/public/uploads/CLA250-primary-1756901188668.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/CLA250-primary-1756901199275.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-0-1756902344140.jpg": "aa433131405ca2cf3942221301e4f13f4fe4f384",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-0-1756902371009.jpg": "aa433131405ca2cf3942221301e4f13f4fe4f384",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-0-1756902435625.jpg": "aa433131405ca2cf3942221301e4f13f4fe4f384",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-1-1756902344152.jpg": "69254f46e2091d5cf67dd8e78e46314e2b1c95d4",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-1-1756902371025.jpg": "69254f46e2091d5cf67dd8e78e46314e2b1c95d4",
+        "apps/web/public/uploads/mercedes-amg-c43-gallery-1-1756902435637.jpg": "69254f46e2091d5cf67dd8e78e46314e2b1c95d4",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756902344131.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756902370998.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756902435615.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756903252825.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756903269587.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756903313964.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-amg-c43-primary-1756972542110.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "apps/web/public/uploads/mercedes-benz-c43-primary-1756903790570.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "build.sh": "4d94ea657d0259cf3405a3e705ad963b4bf42cf4",
+        "components/dashboard/bookings-table.tsx": "0bd7e7efc1819d211984f35f84108fc7a01721a1",
+        "components/dashboard/fleet-utilization.tsx": "cc5fcacad06f69938ba9171be2675e2524d76944",
+        "components/dashboard/real-time-metrics.tsx": "088e88d38281de03725536d21ce71249a4307a64",
+        "components/dashboard/revenue-chart.tsx": "a9fd3f39e7e0aae23b0b2272da25b5c4c4eb91cf",
+        "components/dashboard/stats.tsx": "e548b44c6a0396bd0fb4ce2cd77761629961cba7",
+        "components/layout/header.tsx": "0d80a75c1b9d91a47d17863c24e106d392adf48e",
+        "components/layout/sidebar.tsx": "b6f4ae6965fbfa29da985aa5fa5b9cbc974a23b5",
+        "components/ui/confirmation-modal.tsx": "e92daf2a034576d453841328ca83c75709d8eb07",
+        "components/ui/dropdown-menu.tsx": "b670d1d59bd2cfcc0b9f4e561bd7e79efecf3d4d",
+        "components/ui/loading-card.tsx": "00171a8309b4ba9cdf70ed2b38a2934af67afa5d",
+        "components/ui/simple-button.tsx": "887fbd3ee985d1534069ee9c68809d931607ad79",
+        "components/ui/simple-card.tsx": "606cc75f8526214ed5c0b17fdf0126085201ea94",
+        "components/ui/toast-notification.tsx": "aea92e6002b653971b5e0bb33f1ff38a0e636cee",
+        "components/ui/toast.tsx": "0761f7d07950789f86ba60177145b0dde6b523a6",
+        "lib/auth.ts": "7c47b6bbbe4f183e444c69e70850fabd5cd7bd25",
+        "lib/export-utils.ts": "9f1fbe13c3c8a00df7974fc08c7ed5206ff0695e",
+        "lib/trpc/client.ts": "39424c941210e44ecbdfa4243df24c4acdb723cc",
+        "lib/trpc/routers/_app.ts": "836df50bd904621846561d3569ecfc0ae5095c94",
+        "lib/trpc/routers/admin.ts": "c8f547608d8395487353995b3ebc3622a04e1a2e",
+        "next.config.js": "213969739fe5f79aae77b0a09d61e4df1d25df56",
+        "package.json": "9c8d0b6822f93edfaebd1c4ec83380fc5ee422ff",
+        "postcss.config.js": "33ad091d26d8a9dc95ebdf616e217d985ec215b8",
+        "public/favicon.svg": "cc800d998e3f93092e1cefd77b06b085590102ca",
+        "public/logo.png": "c9302724140cf1e6a28882fda9aa7d8687591bd9",
+        "public/placeholder-car.jpg": "75ef7a7c58a55743b4258358aec5850f99c4d7f5",
+        "public/uploads/vehicles/1757276617143-Merecedes-primary.jpg": "246ca15f183af9066b789d3207a8678fa9161caa",
+        "public/uploads/vehicles/1757324866977-Mercedes-Benz-AMG-C43-primary.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "public/uploads/vehicles/1757324875368-Mercedes-Benz-AMG-C43-primary.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "public/uploads/vehicles/1757336878080-Mercedes-AMG-GT63S-primary.jpg": "eadab999e9d7f7cfc5b6e4f3cd3733e2847feee9",
+        "public/uploads/vehicles/1757336878090-Mercedes-AMG-GT63S-gallery-1.jpg": "a3c467d9582788601a900b8aba405b6158def93b",
+        "public/uploads/vehicles/1757336878106-Mercedes-AMG-GT63S-gallery-2.jpg": "21ad983309536c94fc49480b033758f2785e0984",
+        "public/uploads/vehicles/1757338551616-Porsche-Cayenne-primary.jpg": "a969235c4a2db4e82b7f6f0290dd33875c254d15",
+        "public/uploads/vehicles/1757338551620-Porsche-Cayenne-gallery-1.jpg": "21ad983309536c94fc49480b033758f2785e0984",
+        "public/uploads/vehicles/1757339264507-Lamborghini-Aventador-SVJ-primary.jpg": "69254f46e2091d5cf67dd8e78e46314e2b1c95d4",
+        "public/uploads/vehicles/1757339264508-Lamborghini-Aventador-SVJ-gallery-1.jpg": "b3a1336a2a3ac4dfa5f4e3544a2b5037bd373fc1",
+        "public/uploads/vehicles/1757339264510-Lamborghini-Aventador-SVJ-gallery-2.jpg": "9ae55fd4c35d1bcc275d229d5791681296cf1733",
+        "tailwind.config.ts": "f7d4bc773a41ddb8328ccbf7a2ba621d7ed5e393",
+        "tsconfig.json": "4d73665606f12d6f22a10507079022b4544b0488",
+        "vercel.json": "44fc7ba7e0f203288a88fe2dffa8c4ca7034ba32"
+      },
+      "hashOfExternalDependencies": "247cf4129d9f483f",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "next build",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**",
+        ".sanity/**",
+        "build/**",
+        "dist/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "apps\\admin\\.turbo\\turbo-build.log",
+      "directory": "apps\\admin",
+      "dependencies": [
+        "@valore/database#build",
+        "@valore/lib#build",
+        "@valore/ui#build"
+      ],
+      "dependents": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**",
+          ".sanity/**",
+          "build/**",
+          "dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [],
+        "outputMode": "full",
+        "persistent": false,
+        "env": [
+          "DATABASE_URL",
+          "NEXTAUTH_SECRET",
+          "NEXT_PUBLIC_*",
+          "NODE_ENV",
+          "RESEND_API_KEY",
+          "SANITY_API_TOKEN",
+          "STRIPE_SECRET_KEY"
+        ],
+        "passThroughEnv": null,
+        "dotEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "nextjs",
+      "envMode": "loose",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "DATABASE_URL",
+            "NEXTAUTH_SECRET",
+            "NEXT_PUBLIC_*",
+            "NODE_ENV",
+            "RESEND_API_KEY",
+            "SANITY_API_TOKEN",
+            "STRIPE_SECRET_KEY"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "NODE_ENV=ab8e18ef4ebebeddc0b3152ce9c9006e14fc05242e3fc9ce32246ea6a9543074"
+        ],
+        "inferred": [],
+        "passthrough": null
+      },
+      "dotEnv": null,
+      "execution": {
+        "startTime": 1757967157050,
+        "endTime": 1757967193014,
+        "error": "command (C:\\Users\\User\\Desktop\\Repos\\Car Renting Firms Clients\\FlyRentals\\apps\\admin) C:\\Users\\User\\AppData\\Local\\pnpm\\.tools\\@pnpm+win-x64\\8.15.1\\bin\\pnpm.CMD run build exited (1)",
+        "exitCode": 1
+      }
+    },
+    {
+      "taskId": "@valore/database#build",
+      "task": "build",
+      "package": "@valore/database",
+      "hash": "349b04537de4d5b3",
+      "inputs": {
+        "package.json": "b2239200804c56597d34b91cd34d1ea0540bd2f2",
+        "prisma/migrations/20250824134134_init/migration.sql": "2aac4097156ce05cc5e811bd14b8e1184701cb0d",
+        "prisma/migrations/migration_lock.toml": "fbffa92c2bb7c748d6fc78f9f9dcac604dabb87d",
+        "prisma/schema.prisma": "e455403ceaeecbf9875927fa6e1984cf20c1b30a",
+        "prisma/seed.ts": "a2eecedae41f7761cd1626fc22f121c7adf1f069",
+        "src/client.ts": "845fa0321fadaad99b9068b19c1c0683f3a4d4f3",
+        "src/index.ts": "8fffb3228daef26c0f3bfb3d35d903ee1493dfbd",
+        "src/mock-data.ts": "192e3416692ecf31d0c769b3867fe7296197d5ed",
+        "src/service.ts": "bd2ee88fa071e73c6707cda4c1743da22cb93b4d",
+        "tsconfig.json": "a54044965d9ef5db32ecda76d1025630c969544f"
+      },
+      "hashOfExternalDependencies": "2827a2f41e61997f",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "prisma generate",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**",
+        ".sanity/**",
+        "build/**",
+        "dist/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages\\database\\.turbo\\turbo-build.log",
+      "directory": "packages\\database",
+      "dependencies": [],
+      "dependents": [
+        "@valore/admin#build",
+        "@valore/lib#build"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**",
+          ".sanity/**",
+          "build/**",
+          "dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [],
+        "outputMode": "full",
+        "persistent": false,
+        "env": [
+          "DATABASE_URL",
+          "NEXTAUTH_SECRET",
+          "NEXT_PUBLIC_*",
+          "NODE_ENV",
+          "RESEND_API_KEY",
+          "SANITY_API_TOKEN",
+          "STRIPE_SECRET_KEY"
+        ],
+        "passThroughEnv": null,
+        "dotEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [
+        "packages\\database\\.turbo\\turbo-build.log",
+        "packages\\database\\dist",
+        "packages\\database\\dist\\tsconfig.tsbuildinfo"
+      ],
+      "framework": "",
+      "envMode": "loose",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "DATABASE_URL",
+            "NEXTAUTH_SECRET",
+            "NEXT_PUBLIC_*",
+            "NODE_ENV",
+            "RESEND_API_KEY",
+            "SANITY_API_TOKEN",
+            "STRIPE_SECRET_KEY"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "NODE_ENV=ab8e18ef4ebebeddc0b3152ce9c9006e14fc05242e3fc9ce32246ea6a9543074"
+        ],
+        "inferred": [],
+        "passthrough": null
+      },
+      "dotEnv": null,
+      "execution": {
+        "startTime": 1757967154432,
+        "endTime": 1757967156604,
+        "exitCode": 0
+      }
+    },
+    {
+      "taskId": "@valore/lib#build",
+      "task": "build",
+      "package": "@valore/lib",
+      "hash": "e0ee93637f1ccc2d",
+      "inputs": {
+        "package.json": "79fb27e7e8dc827b55c5e65e0a4b54526db59672",
+        "src/api/trpc.ts": "a12aec57851d147c98cf3d09a7f98c4fd088c9f6",
+        "src/booking/availability.ts": "9899dcbbe2f5e0dcc3790c98f187ec31c4568b1d",
+        "src/index.ts": "bda70974cf90783cba56d23245f5a6f3481ef720",
+        "src/notifications/email.ts": "cc1cf0bdebe14c1dfe25f6aef35e1b35043e175c",
+        "src/payments/stripe.ts": "53a9aaf27c27f88c9fad13e861ad5d4bcb61f400",
+        "src/pricing/calculator.ts": "4ed3f020cd1f77ffea921710fae2aea21183f64d",
+        "tsconfig.json": "97fca0eacb58616f47a3c6438ce312e5197d007e"
+      },
+      "hashOfExternalDependencies": "d5af24fbcacf9c98",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "echo 'Build complete'",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**",
+        ".sanity/**",
+        "build/**",
+        "dist/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages\\lib\\.turbo\\turbo-build.log",
+      "directory": "packages\\lib",
+      "dependencies": [
+        "@valore/database#build"
+      ],
+      "dependents": [
+        "@valore/admin#build"
+      ],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**",
+          ".sanity/**",
+          "build/**",
+          "dist/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [],
+        "outputMode": "full",
+        "persistent": false,
+        "env": [
+          "DATABASE_URL",
+          "NEXTAUTH_SECRET",
+          "NEXT_PUBLIC_*",
+          "NODE_ENV",
+          "RESEND_API_KEY",
+          "SANITY_API_TOKEN",
+          "STRIPE_SECRET_KEY"
+        ],
+        "passThroughEnv": null,
+        "dotEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [
+        "packages\\lib\\.turbo\\turbo-build.log",
+        "packages\\lib\\dist",
+        "packages\\lib\\dist\\api",
+        "packages\\lib\\dist\\api\\trpc.d.ts",
+        "packages\\lib\\dist\\api\\trpc.d.ts.map",
+        "packages\\lib\\dist\\api\\trpc.js",
+        "packages\\lib\\dist\\api\\trpc.js.map",
+        "packages\\lib\\dist\\booking",
+        "packages\\lib\\dist\\booking\\availability.d.ts",
+        "packages\\lib\\dist\\booking\\availability.d.ts.map",
+        "packages\\lib\\dist\\booking\\availability.js",
+        "packages\\lib\\dist\\booking\\availability.js.map",
+        "packages\\lib\\dist\\index.d.ts",
+        "packages\\lib\\dist\\index.d.ts.map",
+        "packages\\lib\\dist\\index.js",
+        "packages\\lib\\dist\\index.js.map",
+        "packages\\lib\\dist\\notifications",
+        "packages\\lib\\dist\\notifications\\email.d.ts",
+        "packages\\lib\\dist\\notifications\\email.d.ts.map",
+        "packages\\lib\\dist\\notifications\\email.js",
+        "packages\\lib\\dist\\notifications\\email.js.map",
+        "packages\\lib\\dist\\notifications\\index.d.ts",
+        "packages\\lib\\dist\\notifications\\index.d.ts.map",
+        "packages\\lib\\dist\\notifications\\index.js",
+        "packages\\lib\\dist\\notifications\\index.js.map",
+        "packages\\lib\\dist\\payments",
+        "packages\\lib\\dist\\payments\\stripe.d.ts",
+        "packages\\lib\\dist\\payments\\stripe.d.ts.map",
+        "packages\\lib\\dist\\payments\\stripe.js",
+        "packages\\lib\\dist\\payments\\stripe.js.map",
+        "packages\\lib\\dist\\pricing",
+        "packages\\lib\\dist\\pricing\\calculator.d.ts",
+        "packages\\lib\\dist\\pricing\\calculator.d.ts.map",
+        "packages\\lib\\dist\\pricing\\calculator.js",
+        "packages\\lib\\dist\\pricing\\calculator.js.map",
+        "packages\\lib\\dist\\tsconfig.tsbuildinfo"
+      ],
+      "framework": "",
+      "envMode": "loose",
+      "environmentVariables": {
+        "specified": {
+          "env": [
+            "DATABASE_URL",
+            "NEXTAUTH_SECRET",
+            "NEXT_PUBLIC_*",
+            "NODE_ENV",
+            "RESEND_API_KEY",
+            "SANITY_API_TOKEN",
+            "STRIPE_SECRET_KEY"
+          ],
+          "passThroughEnv": null
+        },
+        "configured": [
+          "NODE_ENV=ab8e18ef4ebebeddc0b3152ce9c9006e14fc05242e3fc9ce32246ea6a9543074"
+        ],
+        "inferred": [],
+        "passthrough": null
+      },
+      "dotEnv": null,
+      "execution": {
+        "startTime": 1757967156606,
+        "endTime": 1757967157048,
+        "exitCode": 0
+      }
+    }
+  ],
+  "user": "",
+  "scm": {
+    "type": "git",
+    "sha": "9408d034f1864b4320bf8abd11771fcb9f6d4cb7",
+    "branch": "main"
+  }
+}

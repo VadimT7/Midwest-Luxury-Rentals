@@ -41,12 +41,12 @@ export function Sidebar() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="Falcon Flair Car Rental Logo"
-            width={32}
-            height={32}
-            className="w-8 h-8"
+            alt="Midwest Luxury Rentals Logo"
+            width={56}
+            height={56}
+            className="w-20 h-20"
           />
-          <span className="font-semibold text-lg text-primary">Falcon Flair Car Rental Admin</span>
+          <span className="font-semibold text-base text-primary">Midwest Luxury Rentals</span>
         </Link>
       </div>
 
@@ -75,7 +75,7 @@ export function Sidebar() {
       {/* Footer */}
         <div className="p-4 border-t border-neutral-200">
           <div className="text-xs text-neutral-500">
-            <p>© 2025 Falcon Flair Car Rental</p>
+            <p>© 2025 Midwest Luxury Rentals</p>
             <p className="mt-1">Admin Panel v1.0</p>
           </div>
         </div>

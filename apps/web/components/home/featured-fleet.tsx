@@ -38,7 +38,7 @@ export function FeaturedFleet() {
 
   const fetchFeaturedVehicles = async () => {
     try {
-      const response = await fetch('/api/vehicles?featured=true')
+      const response = await fetch('/api/vehicles-new')
       const data = await response.json()
       setVehicles(data.slice(0, 6)) // Limit to 6 featured vehicles
       setLoading(false)

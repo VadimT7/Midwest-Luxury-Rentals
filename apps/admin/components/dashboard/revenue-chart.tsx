@@ -42,7 +42,7 @@ const options = {
           if (context.parsed.y !== null) {
             label += new Intl.NumberFormat('en-US', {
               style: 'currency',
-              currency: 'EUR',
+              currency: 'AED',
             }).format(context.parsed.y)
           }
           return label

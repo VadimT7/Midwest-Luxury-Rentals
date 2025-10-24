@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   ...generateSiteMetadata({
-    title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
+    title: 'Midwest Luxury Rentals - Premium Car Rental in Chicago',
     description: 'Experience the pinnacle of automotive luxury. Rent Ferrari, Bentley, Rolls-Royce, Mercedes-Benz and more. Premium service, worldwide delivery.',
   }),
   icons: {

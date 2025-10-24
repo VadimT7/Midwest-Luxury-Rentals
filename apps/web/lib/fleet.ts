@@ -23,9 +23,9 @@ export interface FleetCar {
 
 export const FLEET_DATA: FleetCar[] = [
   {
-    id: 'ferrari-sf90-stradale',
+    id: 'ferrari-488-gtb',
     brand: 'Ferrari',
-    model: 'SF90 Stradale',
+    model: '488 GTB',
     year: 2024,
     category: 'supercar',
     transmission: 'automatic',
@@ -33,152 +33,133 @@ export const FLEET_DATA: FleetCar[] = [
     pricePerDay: 2999,
     featured: true,
     specs: {
-      engine: '4.0L Twin-Turbo V8 + Electric',
-      power: '986 HP',
-      acceleration: '0-60 mph in 2.5s',
-      topSpeed: '211 mph'
+      engine: '3.9L V8 Twin-Turbo',
+      power: '670 HP',
+      acceleration: '0-60 mph in 3.0s',
+      topSpeed: '330 km/h'
     },
     images: {
-      primary: '/SF90-1.jpg',
+      primary: '/Ferrari 488 - black.jpg',
       gallery: [
-        '/SF90-1.jpg',
-        '/SF90-2.jpg',
-        '/SF90-3.jpg',
-        '/SF90-4.jpg',
-        '/SF90-5.jpg',
-        '/SF90-6.jpg'
+        '/Ferrari 488 - black.jpg',
+        '/Ferrari 488 - red.jpg'
       ]
     }
   },
   {
-    id: 'bentley-continental-gt-speed',
-    brand: 'Bentley',
-    model: 'Continental GT Speed W12',
+    id: 'ferrari-488-gtb-red',
+    brand: 'Ferrari',
+    model: '488 GTB',
     year: 2024,
-    category: 'luxury',
+    category: 'supercar',
     transmission: 'automatic',
-    seats: 4,
-    pricePerDay: 1799,
+    seats: 2,
+    pricePerDay: 2999,
     featured: true,
     specs: {
-      engine: '6.0L Twin-Turbo W12',
-      power: '650 HP',
-      acceleration: '0-60 mph in 3.5s',
-      topSpeed: '208 mph'
+      engine: '3.9L V8 Twin-Turbo',
+      power: '670 HP',
+      acceleration: '0-60 mph in 3.0s',
+      topSpeed: '330 km/h'
     },
     images: {
-      primary: '/Bentley Continental Speed W12 - 1.jpg',
+      primary: '/Ferrari 488 - red.jpg',
       gallery: [
-        '/Bentley Continental Speed W12 - 1.jpg',
-        '/Bentley Continental Speed W12 - 2.jpg',
-        '/Bentley Continental Speed W12 - 3.jpg',
-        '/Bentley Continental Speed W12 - 4.jpg'
+        '/Ferrari 488 - red.jpg',
+        '/Ferrari 488 - black.jpg'
       ]
     }
   },
   {
-    id: 'bentley-bentayga-w12',
-    brand: 'Bentley',
-    model: 'Bentayga W12',
+    id: 'mercedes-g63-amg',
+    brand: 'Mercedes-Benz',
+    model: 'G63 AMG',
     year: 2024,
     category: 'suv',
     transmission: 'automatic',
     seats: 5,
-    pricePerDay: 1599,
+    pricePerDay: 1999,
     featured: true,
     specs: {
-      engine: '6.0L Twin-Turbo W12',
-      power: '626 HP',
-      acceleration: '0-60 mph in 3.9s',
-      topSpeed: '190 mph'
+      engine: '4.0L V8 Twin-Turbo',
+      power: '577 HP',
+      acceleration: '0-60 mph in 4.5s',
+      topSpeed: '220 km/h'
     },
     images: {
-      primary: '/Bentley Bentayga W12 - 1.jpg',
+      primary: '/G63-white.jpg',
       gallery: [
-        '/Bentley Bentayga W12 - 1.jpg',
-        '/Bentley Bentayga W12 - 2.jpg',
-        '/Bentley Bentayga W12 - 3.jpg',
-        '/Bentley Bentayga W12 - 4.jpg'
+        '/G63-white.jpg'
       ]
     }
   },
   {
-    id: 'mercedes-benz-s580',
-    brand: 'Mercedes-Benz',
-    model: 'S580 4MATIC',
+    id: 'lamborghini-urus-performante',
+    brand: 'Lamborghini',
+    model: 'Urus Performante',
     year: 2024,
-    category: 'luxury',
+    category: 'suv',
     transmission: 'automatic',
     seats: 5,
-    pricePerDay: 999,
-    featured: true,
-    specs: {
-      engine: '4.0L Twin-Turbo V8',
-      power: '496 HP',
-      acceleration: '0-60 mph in 4.4s',
-      topSpeed: '155 mph'
-    },
-    images: {
-      primary: '/Mercedes-Benz-S580-1.jpg',
-      gallery: [
-        '/Mercedes-Benz-S580-1.jpg',
-        '/Mercedes-Benz-S580-2.jpg',
-        '/Mercedes-Benz-S580-3.jpg'
-      ]
-    }
-  },
-  {
-    id: 'rolls-royce-dawn',
-    brand: 'Rolls-Royce',
-    model: 'Dawn Black Badge',
-    year: 2024,
-    category: 'luxury',
-    transmission: 'automatic',
-    seats: 4,
     pricePerDay: 2499,
     featured: true,
     specs: {
-      engine: '6.6L Twin-Turbo V12',
-      power: '593 HP',
-      acceleration: '0-60 mph in 4.3s',
-      topSpeed: '155 mph'
+      engine: '4.0L V8 Twin-Turbo',
+      power: '666 HP',
+      acceleration: '0-60 mph in 3.3s',
+      topSpeed: '306 km/h'
     },
     images: {
-      primary: '/Rolls-Royce-Dawn.jpg',
+      primary: '/Lamborghini Urus Performante Blue.jpg',
       gallery: [
-        '/Rolls-Royce-Dawn.jpg'
+        '/Lamborghini Urus Performante Blue.jpg'
       ]
-    },
-    video: '/Rolls-Royce-Dawn-Video.mp4'
+    }
   },
   {
-    id: 'lamborghini-urus',
+    id: 'mclaren-720s',
+    brand: 'McLaren',
+    model: '720S',
+    year: 2024,
+    category: 'supercar',
+    transmission: 'automatic',
+    seats: 2,
+    pricePerDay: 3499,
+    featured: true,
+    specs: {
+      engine: '4.0L V8 Twin-Turbo',
+      power: '710 HP',
+      acceleration: '0-60 mph in 2.9s',
+      topSpeed: '341 km/h'
+    },
+    images: {
+      primary: '/McLaren Blue.jpg',
+      gallery: [
+        '/McLaren Blue.jpg'
+      ]
+    }
+  },
+  {
+    id: 'lamborghini-urus-hulk',
     brand: 'Lamborghini',
-    model: 'Urus S',
+    model: 'Urus',
     year: 2024,
     category: 'suv',
     transmission: 'automatic',
     seats: 5,
-    pricePerDay: 1399,
+    pricePerDay: 2299,
     featured: true,
     specs: {
-      engine: '4.0L Twin-Turbo V8',
-      power: '666 HP',
-      acceleration: '0-60 mph in 3.5s',
-      topSpeed: '190 mph'
+      engine: '4.0L V8 Twin-Turbo',
+      power: '641 HP',
+      acceleration: '0-60 mph in 3.6s',
+      topSpeed: '305 km/h'
     },
     images: {
-      primary: '/lamborghini-urus-1.jpg',
+      primary: '/Urus Hulk Green.jpg',
       gallery: [
-        '/lamborghini-urus-1.jpg',
-        '/lamborghini-urus-2.jpg',
-        '/lamborghini-urus-3.jpg',
-        '/lamborghini-urus-4.jpg',
-        '/lamborghini-urus-5.jpg',
-        '/lamborghini-urus-6.jpg',
-        '/lamborghini-urus-7.jpg'
+        '/Urus Hulk Green.jpg'
       ]
-    },
-    video: '/Lamborghini-Urus-Video.mp4'
+    }
   }
 ];
