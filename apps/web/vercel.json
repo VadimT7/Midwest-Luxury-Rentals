@@ -1,11 +1,5 @@
 {
-  "buildCommand": "cd apps/web && npm run build",
-  "outputDirectory": "apps/web/.next",
-  "framework": "nextjs",
-  "installCommand": "npm install",
-  "functions": {
-    "apps/web/app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "installCommand": "cd ../.. && npm install -g pnpm@8.15.1 && pnpm install",
+  "buildCommand": "cd ../.. && pnpm db:generate && pnpm run build:web",
+  "outputDirectory": ".next"
 }
