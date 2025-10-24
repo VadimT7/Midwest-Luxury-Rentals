@@ -1,6 +1,6 @@
 {
   "installCommand": "cd ../.. && npm install -g pnpm@8.15.1 && pnpm install",
-  "buildCommand": "cd ../.. && pnpm db:generate && pnpm run build:web",
+  "buildCommand": "cd ../.. && pnpm db:generate && npx prisma generate && pnpm run build:web",
   "outputDirectory": ".next",
   "functions": {
     "apps/web/app/api/**/*.ts": {
