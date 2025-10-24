@@ -18,5 +18,5 @@
   "buildCommand": "pnpm --filter @valore/admin build",
   "outputDirectory": "apps/admin/.next",
   "framework": "nextjs",
-  "rootDirectory": "apps/admin"
+  "rootDirectory": "apps/admin" 
 }
