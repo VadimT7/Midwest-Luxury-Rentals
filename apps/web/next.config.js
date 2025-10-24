@@ -4,8 +4,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: false,
   transpilePackages: ['@valore/ui', '@valore/database', '@valore/lib'],
-  // Completely disable static generation
-  staticPageGenerationTimeout: 0,
+  output: 'standalone',
   generateEtags: false,
   images: {
     remotePatterns: [
@@ -33,11 +32,9 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
-  // Force all pages to be dynamic
   experimental: {
     typedRoutes: false,
   },
-  // Completely disable static generation
   skipTrailingSlashRedirect: true,
   webpack: (config, { isServer }) => {
     // Fix for lucide-react barrel optimization issues
