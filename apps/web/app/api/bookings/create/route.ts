@@ -153,8 +153,8 @@ export async function POST(request: NextRequest) {
           updatedAt: new Date(),
         },
         include: {
-          car: true,
-          user: true,
+          Car: true,
+          User: true,
         },
       })
 
