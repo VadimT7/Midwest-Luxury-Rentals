@@ -140,7 +140,7 @@ export default function FleetPage() {
           {/* Base gradient - Deeper theatrical darkness */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
           
-          {/* Falcon Flair Logo Monogram Pattern - MOVING */}
+          {/* Midwest Luxury Rentals Logo Pattern - MOVING */}
           <motion.div 
             className="absolute inset-0 opacity-[0.12]"
             style={{
@@ -795,7 +795,7 @@ export default function FleetPage() {
                           {vehicle.displayName}
                           </motion.h3>
                           <p className="text-amber-300/80 text-sm font-light tracking-wider uppercase">
-                            {vehicle.year} • {vehicle.bodyType}
+                            {vehicle.bodyType}
                           </p>
                         </div>
                         
@@ -900,7 +900,7 @@ export default function FleetPage() {
                               <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                                 {vehicle.displayName}
                               </h3>
-                              <p className="text-neutral-600 mb-4">{vehicle.year} • {vehicle.bodyType}</p>
+                              <p className="text-neutral-600 mb-4">{vehicle.bodyType}</p>
                               
                               <div className="flex gap-6 mb-4">
                                 <div className="flex items-center gap-2">

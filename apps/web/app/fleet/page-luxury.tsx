@@ -426,7 +426,7 @@ export default function FleetPage() {
                         <h3 className="text-xl font-bold text-neutral-900 mb-1">
                           {vehicle.displayName}
                         </h3>
-                        <p className="text-neutral-600 mb-4">{vehicle.year} • {vehicle.bodyType}</p>
+                        <p className="text-neutral-600 mb-4">{vehicle.bodyType}</p>
                         
                         <div className="grid grid-cols-3 gap-4 mb-6">
                           <div className="text-center">
@@ -496,7 +496,7 @@ export default function FleetPage() {
                               <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                                 {vehicle.displayName}
                               </h3>
-                              <p className="text-neutral-600 mb-4">{vehicle.year} • {vehicle.bodyType}</p>
+                              <p className="text-neutral-600 mb-4">{vehicle.bodyType}</p>
                               
                               <div className="flex gap-6 mb-4">
                                 <div className="flex items-center gap-2">

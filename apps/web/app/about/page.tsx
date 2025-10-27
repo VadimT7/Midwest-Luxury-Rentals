@@ -52,29 +52,29 @@ const values = [
 
 const milestones = [
   {
-    year: '2023',
+    year: '2020',
     title: 'Company Founded',
-    description: 'Started in Dubai with a vision to provide the finest luxury car rental experience in the UAE.',
+    description: 'Started in Chicago with a vision to provide the finest luxury car rental experience in the Midwest.',
   },
   {
-    year: '2024',
+    year: '2021',
     title: 'Fleet Expansion',
-    description: 'Expanded our fleet to include premium vehicles: BMW M440, Mercedes CLE 53 AMG, Audi RS3, and more.',
+    description: 'Expanded our fleet to include premium vehicles: Mercedes-Benz, Porsche, and more exotic cars.',
   },
   {
-    year: '2024',
+    year: '2022',
     title: 'Premium Service Launch',
-    description: 'Introduced 24/7 concierge service, Dubai-wide delivery, and launched our advanced booking platform.',
+    description: 'Introduced 24/7 concierge service, multi-city delivery, and launched our advanced booking platform.',
   },
   {
-    year: '2024',
-    title: 'Innovation Leader',
-    description: 'Added the revolutionary ROX 01 VIP to our fleet - a premium luxury SUV with 1300 km range and plug-in hybrid technology.',
+    year: '2023',
+    title: 'Multi-State Expansion',
+    description: 'Expanded operations to Miami, Michigan, Ohio, and Iowa, becoming a premier multi-state luxury rental provider.',
   },
   {
     year: '2025',
     title: 'Market Leader',
-    description: 'Established Falcon Flair as Dubai\'s premier choice for luxury car rentals with competitive pricing and exceptional service.',
+    description: 'Established Midwest Luxury Rentals as the premier choice for luxury car rentals across the Midwest and beyond.',
   },
 ]
 
@@ -99,12 +99,12 @@ export default function AboutPage() {
                   textShadow: '0 0 80px rgba(251, 191, 36, 0.3)'
                 }}
               >
-                About Falcon Flair
+                About Midwest Luxury Rentals
               </span>
             </h1>
             <p className="text-xl text-neutral-300 max-w-3xl mx-auto font-light">
-              Dubai's premier luxury car rental service, delivering exceptional experiences 
-              with the world's most prestigious vehicles.
+              Chicago's premier luxury car rental service, delivering exceptional experiences 
+              with the world's most prestigious vehicles across the Midwest and beyond.
             </p>
           </motion.div>
         </div>
@@ -146,17 +146,17 @@ export default function AboutPage() {
               <h2 className="heading-medium text-slate-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Founded in the heart of Dubai, Falcon Flair began with a simple vision: 
+                  Founded in the heart of Chicago, Midwest Luxury Rentals began with a simple vision: 
                   to make luxury automotive experiences accessible to discerning clients who appreciate 
                   the finest things in life.
                 </p>
                 <p>
-                  We've grown into Dubai's most prestigious luxury car rental service, featuring an 
+                  We've grown into the Midwest's most prestigious luxury car rental service, featuring an 
                   exclusive collection of premium vehicles including BMW M440, Mercedes CLE 53 AMG, 
                   Audi RS3, and the revolutionary ROX 01 VIP from the world's most renowned manufacturers.
                 </p>
                 <p>
-                  Based in Dubai, UAE, we serve clients across the Emirates, providing not just 
+                  Based in Chicago, Illinois, we serve clients across the Midwest and beyond, providing not just 
                   vehicle rentals, but complete luxury experiences that exceed expectations and create 
                   lasting memories.
                 </p>
@@ -172,8 +172,8 @@ export default function AboutPage() {
             >
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <Image
-                  src="/CLE53_3.jpg"
-                  alt="Mercedes CLE 53 AMG - Falcon Flair luxury fleet in Dubai"
+                  src="/Ferrari 488 - red.jpg"
+                  alt="Ferrari 488 - Midwest Luxury Rentals fleet in Chicago"
                   fill
                   className="object-cover"
                 />
@@ -183,7 +183,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-semibold text-slate-900">Dubai, UAE 🇦🇪</p>
+                    <p className="font-semibold text-slate-900">Chicago, IL 🇺🇸</p>
                     <p className="text-sm text-slate-600">Our Home Base</p>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-slate-900 mb-4">Our Journey</h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              A journey of growth, innovation, and excellence in luxury car rental in Dubai.
+              A journey of growth, innovation, and excellence in luxury car rental across Chicago and the Midwest.
             </p>
           </motion.div>
 
@@ -295,8 +295,8 @@ export default function AboutPage() {
           >
             <h2 className="heading-medium text-white mb-4 drop-shadow-lg">Ready to Experience Luxury?</h2>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Join thousands of satisfied clients who have experienced the Falcon Flair difference. 
-              Book your luxury vehicle today and discover why we're Dubai's premier choice.
+              Join thousands of satisfied clients who have experienced the Midwest Luxury Rentals difference. 
+              Book your luxury vehicle today and discover why we're Chicago's premier choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/fleet">

@@ -18,12 +18,12 @@ export function VideoShowcase() {
           <p className="text-luxury text-primary mb-4">Cinematic Experience</p>
           <h2 className="heading-large mb-4">See Our Fleet in Action</h2>
           <p className="text-xl text-neutral-300 max-w-2xl mx-auto">
-            Watch our luxury vehicles in their natural habitat - the open road
+            Watch our luxury vehicles in their natural habitat - Chicago streets and beyond
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* First Video - CLE 53 AMG */}
+          {/* First Video - Midwest Luxury Rentals Video */}
           <motion.div
             initial={{ opacity: 0, x: -200 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +39,7 @@ export function VideoShowcase() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/CLE53_Video_2.mp4" type="video/mp4" />
+                <source src="/MidwestLuxuryRentalsVideo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -51,7 +51,7 @@ export function VideoShowcase() {
                     <Instagram className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">Mercedes CLE 53 AMG</p>
+                    <p className="text-sm font-medium">Exotic Fleet Collection</p>
                     <p className="text-xs text-neutral-300">Where Power and Elegance Become One</p>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export function VideoShowcase() {
             </div>
           </motion.div>
 
-          {/* Second Video - AMG A35 */}
+          {/* Second Video - Midwest Luxury Rentals Video 2 */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,7 +75,7 @@ export function VideoShowcase() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/AMG_A35_Video.mp4" type="video/mp4" />
+                <source src="/MidwestLuxuryRentalsVideo2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -87,7 +87,7 @@ export function VideoShowcase() {
                     <Instagram className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">Mercedes AMG A35</p>
+                    <p className="text-sm font-medium">Premium Experience</p>
                     <p className="text-xs text-neutral-300">Raw Luxury Like Nowhere Else</p>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export function VideoShowcase() {
           className="text-center mt-16"
         > 
           <a 
-            href="https://www.instagram.com/falconflaircars/" 
+            href="https://www.instagram.com/midwestluxurygroup/" 
             target="_blank" 
             rel="noopener noreferrer"
           >

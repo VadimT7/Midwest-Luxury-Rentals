@@ -510,7 +510,7 @@ async function main() {
       data: {
         slug: 'airport-delivery',
         name: 'Airport Delivery',
-        description: 'Vehicle delivery to Dubai International Airport',
+        description: 'Vehicle delivery to Chicago O\'Hare International Airport',
         price: 100,
         priceType: 'PER_BOOKING',
         currency: 'AED',

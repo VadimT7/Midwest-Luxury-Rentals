@@ -48,27 +48,27 @@ export function Sidebar() {
       )}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center px-6 border-b border-neutral-200">
+      <div className="h-20 flex items-center px-6 border-b border-neutral-200">
         {!isCollapsed && (
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.png"
-              alt="FlyRentals Logo"
-              width={32}
-              height={32}
-              className="w-8 h-8"
+              src="/logo_gold.png"
+              alt="Midwest Luxury Rentals Logo"
+              width={64}
+              height={64}
+              className="w-16 h-16"
             />
-            <span className="font-semibold text-lg text-primary">Falcon Flair Admin</span>
+            <span className="font-semibold text-sm text-primary">Midwest Luxury Admin</span>
           </Link>
         )}
         {isCollapsed && (
           <Link href="/" className="flex items-center justify-center w-full">
             <Image
-              src="/logo.png"
-              alt="FlyRentals Logo"
-              width={32}
-              height={32}
-              className="w-8 h-8"
+              src="/logo_gold.png"
+              alt="Midwest Luxury Rentals Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12"
             />
           </Link>
         )}
@@ -115,7 +115,7 @@ export function Sidebar() {
       {!isCollapsed && (
         <div className="p-4 border-t border-neutral-200">
           <div className="text-xs text-neutral-500">
-            <p>© 2025 FlyRentals</p>
+            <p>© 2025 Midwest Luxury Rentals</p>
             <p className="mt-1">Admin Panel v1.0</p>
           </div>
         </div>

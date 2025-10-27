@@ -28,14 +28,14 @@ export async function GET(request: NextRequest) {
       orderBy: { createdAt: 'desc' },
       include: {
         _count: {
-          select: { bookings: true }
+          select: { Booking: true }
         },
-        priceRules: {
+        PriceRule: {
           where: { isActive: true },
           orderBy: { createdAt: 'desc' },
           take: 1
         },
-        images: {
+        CarImage: {
           where: { isGallery: false },
           orderBy: { order: 'asc' },
           take: 1
@@ -45,8 +45,8 @@ export async function GET(request: NextRequest) {
 
     // Transform vehicles to include calculated fields
     const transformedVehicles = await Promise.all(vehicles.map(async (vehicle: any) => {
-      const activePriceRule = vehicle.priceRules[0]
-      const primaryImage = vehicle.images[0]
+      const activePriceRule = vehicle.PriceRule[0]
+      const primaryImage = vehicle.CarImage[0]
       
       // Calculate real utilization based on actual booking data
       const now = new Date()
@@ -82,12 +82,12 @@ export async function GET(request: NextRequest) {
       
       // Calculate revenue from actual bookings
       const basePrice = activePriceRule?.basePricePerDay ? Number(activePriceRule.basePricePerDay) : 0
-      const revenue = vehicle._count.bookings * basePrice
+      const revenue = vehicle._count.Booking * basePrice
       
       return {
         ...vehicle,
         pricePerDay: basePrice,
-        bookingsCount: vehicle._count.bookings,
+        bookingsCount: vehicle._count.Booking,
         revenue: revenue,
         utilization: Math.round(utilizationPercentage),
         utilizationDays: utilizationDays,
@@ -206,10 +206,10 @@ export async function POST(request: NextRequest) {
        fuelConsumption: vehicleData.fuelConsumption || 0,
        features: vehicleData.features || [],
        primaryImageUrl: '/placeholder-car.jpg', // Default placeholder
-       priceRules: {
+       PriceRule: {
          create: {
            basePricePerDay: String(vehicleData.pricePerDay || 0),
-           currency: 'EUR',
+           currency: 'USD',
            weekendMultiplier: String(vehicleData.weekendMultiplier || 1.0),
            weeklyDiscount: String(vehicleData.weeklyDiscount || 0.0),
            monthlyDiscount: String(vehicleData.monthlyDiscount || 0.0),
@@ -225,7 +225,7 @@ export async function POST(request: NextRequest) {
 
     // Handle images if provided
     if (vehicleData.primaryImage || vehicleData.galleryImages) {
-      vehicleCreateData.images = {
+      vehicleCreateData.CarImage = {
         create: []
       }
       
@@ -250,7 +250,7 @@ export async function POST(request: NextRequest) {
             // Set the primary image URL on the vehicle
             vehicleCreateData.primaryImageUrl = result.imageUrl
             
-            vehicleCreateData.images.create.push({
+            vehicleCreateData.CarImage.create.push({
               url: result.imageUrl,
               alt: vehicleData.displayName,
               caption: 'Primary image',
@@ -266,7 +266,7 @@ export async function POST(request: NextRequest) {
             }
             // Use placeholder but don't fail the vehicle creation
             vehicleCreateData.primaryImageUrl = '/placeholder-car.jpg'
-            vehicleCreateData.images.create.push({
+            vehicleCreateData.CarImage.create.push({
               url: '/placeholder-car.jpg',
               alt: vehicleData.displayName,
               caption: 'Primary image',
@@ -278,7 +278,7 @@ export async function POST(request: NextRequest) {
           console.error('❌ Failed to process primary image:', error)
           // Use placeholder but don't fail the vehicle creation
           vehicleCreateData.primaryImageUrl = '/placeholder-car.jpg'
-          vehicleCreateData.images.create.push({
+          vehicleCreateData.CarImage.create.push({
             url: '/placeholder-car.jpg',
             alt: vehicleData.displayName,
             caption: 'Primary image',
@@ -308,7 +308,7 @@ export async function POST(request: NextRequest) {
             })
             
             if (result.success && result.imageUrl) {
-              vehicleCreateData.images.create.push({
+              vehicleCreateData.CarImage.create.push({
                 url: result.imageUrl,
                 alt: vehicleData.displayName,
                 caption: `Gallery image ${index + 1}`,
@@ -335,10 +335,10 @@ export async function POST(request: NextRequest) {
     const newVehicle = await prisma.car.create({
       data: vehicleCreateData,
       include: {
-        priceRules: true,
-        images: true,
+        PriceRule: true,
+        CarImage: true,
         _count: {
-          select: { bookings: true }
+          select: { Booking: true }
         }
       }
     })
@@ -416,7 +416,7 @@ export async function DELETE(request: NextRequest) {
       where: { id },
       include: {
         _count: {
-          select: { bookings: true }
+          select: { Booking: true }
         }
       }
     })
@@ -428,7 +428,7 @@ export async function DELETE(request: NextRequest) {
       deletedVehicle: {
         id: deletedVehicle.id,
         displayName: deletedVehicle.displayName,
-        bookingsCount: deletedVehicle._count.bookings
+        bookingsCount: deletedVehicle._count.Booking
       }
     })
   } catch (error) {

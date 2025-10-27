@@ -8,22 +8,29 @@ export async function GET(request: NextRequest) {
     const locations = [
       {
         id: 'showroom',
-        name: 'Falcon Flair Showroom',
-        address: 'Dubai, UAE',
+        name: 'Midwest Luxury Rentals Showroom',
+        address: 'Chicago, IL',
         type: 'SHOWROOM',
         isDefault: true
       },
       {
-        id: 'airport',
-        name: 'Dubai International Airport (DXB)',
-        address: 'Dubai, UAE',
+        id: 'airport-ord',
+        name: "O'Hare International Airport (ORD)",
+        address: 'Chicago, IL',
+        type: 'AIRPORT',
+        isDefault: false
+      },
+      {
+        id: 'airport-mdw',
+        name: 'Midway International Airport (MDW)',
+        address: 'Chicago, IL',
         type: 'AIRPORT',
         isDefault: false
       },
       {
         id: 'hotel',
         name: 'Hotel Delivery',
-        address: 'Your Hotel Address (Dubai)',
+        address: 'Your Hotel Address (Chicago Area)',
         type: 'HOTEL',
         isDefault: false
       }

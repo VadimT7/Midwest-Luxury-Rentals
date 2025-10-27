@@ -29,9 +29,9 @@ const navigation = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: '+971 58 504 6440', href: 'tel:+971585046440' },
-  { icon: Mail, text: 'info@falconflair.ae', href: 'mailto:info@falconflair.ae' },
-  { icon: MapPin, text: 'Dubai, UAE', href: '/contact' },
+  { icon: Phone, text: '888-263-0123', href: 'tel:+18882630123' },
+  { icon: Mail, text: 'info@midwestluxuryrentals.com', href: 'mailto:info@midwestluxuryrentals.com' },
+  { icon: MapPin, text: 'Chicago | Miami | MI | OH | IA', href: '/contact' },
 ]
 
 export function Header() {

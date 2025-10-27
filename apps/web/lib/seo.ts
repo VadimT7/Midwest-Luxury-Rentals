@@ -23,21 +23,22 @@ interface GenerateMetadataParams {
 }
 
 const siteConfig = {
-  name: 'Falcon Flair Car Rental',
-  title: 'Falcon Flair Car Rental - Premium Car Rental in Dubai',
-  description: 'Experience the pinnacle of automotive luxury in Dubai. Rent BMW M440, Mercedes CLE 53 AMG, Audi RS3, and more. Premium service with 24/7 support.',
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://valorerent.com',
+  name: 'Midwest Luxury Rentals',
+  title: 'Midwest Luxury Rentals - Premium Exotic Car Rental in Chicago',
+  description: 'Experience the pinnacle of automotive luxury in Chicago, Miami, and the Midwest. Rent Mercedes-Benz, Porsche, and more exotic cars. Premium service with 24/7 support.',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://midwestluxuryrentals.com',
   keywords: [
-    'luxury car rental Dubai',
-    'exotic car rental Dubai',
-    'premium car rental UAE',
-    'BMW rental Dubai',
-    'Mercedes rental Dubai',
-    'Audi RS3 rental',
-    'Dubai car rental',
-    'luxury cars UAE',
-    'premium car rental',
-    'supercar rental Dubai',
+    'luxury car rental Chicago',
+    'exotic car rental Chicago',
+    'premium car rental Miami',
+    'Mercedes rental Chicago',
+    'Porsche rental Chicago',
+    'luxury cars Chicago',
+    'exotic car rental Midwest',
+    'premium car rental Michigan',
+    'supercar rental Chicago',
+    'luxury car rental Ohio',
+    'exotic car rental Iowa',
   ],
 }
 
@@ -90,7 +91,7 @@ export function generateMetadata(params: GenerateMetadataParams = {}): Metadata 
       title: twitter?.title || title,
       description: twitter?.description || description,
       images: twitter?.images || ['/twitter-image.jpg'],
-      creator: '@valorerent',
+      creator: '@midwestluxury',
     },
     robots: {
       index: true,
@@ -143,18 +144,20 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         description: siteConfig.description,
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Dubai',
-          addressCountry: 'AE',
+          addressLocality: 'Chicago',
+          addressRegion: 'IL',
+          addressCountry: 'US',
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+971-585-046-440',
+          telephone: '+1-888-263-0123',
           contactType: 'customer service',
-          availableLanguage: ['English', 'Arabic', 'Turkish'],
+          availableLanguage: ['English'],
+          hoursAvailable: '24/7',
         },
         sameAs: [
-          'https://www.instagram.com/falconflaircars',
-          'https://www.facebook.com/falconflaircars',
+          'https://www.instagram.com/midwestluxurygroup',
+          'https://www.facebook.com/midwestluxurygroup',
         ],
       }
 
@@ -180,12 +183,12 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         speed: {
           '@type': 'QuantitativeValue',
           value: data.topSpeed,
-          unitCode: 'KMH',
+          unitCode: 'MPH',
         },
         offers: {
           '@type': 'Offer',
           price: data.pricePerDay,
-          priceCurrency: 'AED',
+          priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
           seller: {
             '@type': 'Organization',
@@ -221,7 +224,7 @@ export function generateJsonLd(type: 'Organization' | 'Car' | 'RentalCarReservat
         },
         dropoffTime: data.dropoffTime,
         price: data.totalPrice,
-        priceCurrency: 'AED',
+        priceCurrency: 'USD',
         ...data,
       }
 

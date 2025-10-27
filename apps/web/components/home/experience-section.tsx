@@ -1,30 +1,34 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Clock, MapPin, Sparkles } from 'lucide-react'
+import { Shield, Clock, Camera, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { fadeInUp, staggerContainer, staggerItem } from '@valore/ui'
 
 const experiences = [
   {
     icon: Shield,
-    title: 'Premium Insurance',
-    description: 'Comprehensive coverage with zero deductible for complete peace of mind',
+    title: 'Self-Drive Excellence',
+    description: 'Take the wheel of automotive perfection with comprehensive insurance and 24/7 support',
+    image: '/Ferrari 488 - red.jpg'
   },
   {
     icon: Clock,
-    title: '24/7 Concierge',
-    description: 'Dedicated support team available around the clock for any request',
+    title: 'Chauffeur Service',
+    description: 'Professional drivers trained to deliver comfort and discretion for your journey',
+    image: '/McLaren Blue.jpg'
+  },
+  {
+    icon: Camera,
+    title: 'Photoshoot Package',
+    description: 'Capture your experience with professional photographers and stunning locations',
+    image: '/Lamborghini Urus Performante Blue.jpg'
   },
   {
     icon: MapPin,
-    title: 'Dubai Delivery',
-    description: 'We deliver to your location anywhere in Dubai within 24 hours',
-  },
-  {
-    icon: Sparkles,
-    title: 'Bespoke Services',
-    description: 'Extras: Personal chauffeur, photographer, and curated driving experiences',
+    title: 'Curated Experiences',
+    description: 'Exclusive driving routes, private track days, and bespoke automotive adventures',
+    image: '/G63-white.jpg'
   },
 ]
 
@@ -40,7 +44,7 @@ export function ExperienceSection() {
             viewport={{ once: true, margin: '-100px' }}
             variants={fadeInUp}
           >
-            <p className="text-luxury text-primary mb-4">The Falcon Flair Difference</p>
+            <p className="text-luxury text-primary mb-4">The Midwest Luxury Difference</p>
             <h2 className="heading-large mb-8">
               Crafted for the
               <span className="block gradient-text">Extraordinary</span>
@@ -91,7 +95,7 @@ export function ExperienceSection() {
                 playsInline
                 className="w-full h-full object-cover"
               >
-                <source src="/CLE53_Video.mp4" type="video/mp4" />
+                <source src="/MidwestLuxuryRentalsVideo1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -105,9 +109,9 @@ export function ExperienceSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="absolute -bottom-8 -left-8 bg-white text-black p-6 rounded-xl shadow-luxury-lg max-w-xs"
             >
-              <p className="text-4xl font-display mb-2">3+</p>
+              <p className="text-4xl font-display mb-2">5+</p>
               <p className="text-sm text-neutral-600">Years of Excellence</p>
-              <p className="text-sm text-neutral-600">Serving Discerning Clients Worldwide</p>
+              <p className="text-sm text-neutral-600">Serving Discerning Clients Across the Midwest</p>
             </motion.div>
           </motion.div>
         </div>

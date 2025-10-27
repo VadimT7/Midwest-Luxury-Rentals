@@ -148,7 +148,7 @@ export default function BookingPage() {
     },
     rating: 4.9,
     featured: car.featured,
-    location: 'Dubai',
+    location: 'Chicago',
     available: true,
   }
 
@@ -246,8 +246,8 @@ export default function BookingPage() {
           endDate: bookingData.endDate,
           pickupType: bookingData.pickupLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
           returnType: bookingData.returnLocation === 'showroom' ? 'SHOWROOM' : 'DELIVERY',
-          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'Falcon Flair Showroom' : 'Delivery',
-          returnLocation: bookingData.returnLocation === 'showroom' ? 'Falcon Flair Showroom' : 'Delivery',
+          pickupLocation: bookingData.pickupLocation === 'showroom' ? 'Midwest Luxury Rentals Showroom' : 'Delivery',
+          returnLocation: bookingData.returnLocation === 'showroom' ? 'Midwest Luxury Rentals Showroom' : 'Delivery',
           guestEmail: bookingData.driverEmail,
           guestName: bookingData.driverName,
           guestPhone: bookingData.driverPhone,
@@ -412,9 +412,10 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, pickupLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">Falcon Flair Showroom (Dubai)</option>
-                  <option value="airport">Dubai International Airport (DXB)</option>
-                  <option value="hotel">Hotel Delivery (Dubai)</option>
+                  <option value="showroom">Midwest Luxury Rentals Showroom (Chicago)</option>
+                  <option value="airport-ord">O'Hare International Airport (ORD)</option>
+                  <option value="airport-mdw">Midway International Airport (MDW)</option>
+                  <option value="hotel">Hotel Delivery (Chicago Area)</option>
                 </select>
               </div>
               <div>
@@ -425,9 +426,10 @@ export default function BookingPage() {
                   onChange={(e) => setBookingData(prev => ({ ...prev, returnLocation: e.target.value }))}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="showroom">Falcon Flair Showroom (Dubai)</option>
-                  <option value="airport">Dubai International Airport (DXB)</option>
-                  <option value="hotel">Hotel Pickup (Dubai)</option>
+                  <option value="showroom">Midwest Luxury Rentals Showroom (Chicago)</option>
+                  <option value="airport-ord">O'Hare International Airport (ORD)</option>
+                  <option value="airport-mdw">Midway International Airport (MDW)</option>
+                  <option value="hotel">Hotel Pickup (Chicago Area)</option>
                 </select>
               </div>
             </div>
@@ -438,8 +440,8 @@ export default function BookingPage() {
                 <div>
                   <h3 className="font-semibold text-blue-900 mb-1">Location Information</h3>
                   <p className="text-blue-700 text-sm">
-                    Our showroom is located in Dubai, UAE. Airport and hotel delivery services are available 
-                    throughout Dubai for an additional fee. Please contact us for specific arrangements.
+                    Our showroom is located in Chicago, IL. Airport and hotel delivery services are available 
+                    throughout Chicago and the surrounding area for an additional fee. Please contact us for specific arrangements.
                   </p>
                 </div>
               </div>

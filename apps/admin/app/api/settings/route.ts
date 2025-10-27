@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@valore/database'
+import { randomUUID } from 'crypto'
 
 // GET all settings or specific setting by key
 export async function GET(request: NextRequest) {
@@ -72,10 +73,12 @@ export async function PUT(request: NextRequest) {
       where: { key },
       update: { value },
       create: {
+        id: randomUUID(),
         key,
         value,
         description: body.description,
-        category: body.category || 'general'
+        category: body.category || 'general',
+        updatedAt: new Date()
       }
     })
 
@@ -114,9 +117,11 @@ export async function POST(request: NextRequest) {
           where: { key },
           update: { value },
           create: {
+            id: randomUUID(),
             key,
             value,
-            category: 'general'
+            category: 'general',
+            updatedAt: new Date()
           }
         })
       })

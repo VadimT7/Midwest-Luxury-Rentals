@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     if (slug) {
       const vehicle = await vehicleService.findUnique({ slug }, {
         include: {
-          priceRules: {
+          PriceRule: {
             where: {
               isActive: true,
               validFrom: { lte: new Date() },
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
             },
             take: 1
           },
-          images: true
+          CarImage: true
         }
       })
 
@@ -51,9 +51,9 @@ export async function GET(request: NextRequest) {
         // Include all images (primary first, then gallery) for the carousel
         images: [
           vehicle.primaryImageUrl || '/placeholder-car.jpg',
-          ...((vehicle as any).images?.filter((img: any) => img.isGallery)?.map((img: any) => img.url) || [])
+          ...((vehicle as any).CarImage?.filter((img: any) => img.isGallery)?.map((img: any) => img.url) || [])
         ].filter(Boolean), // Remove any null/undefined values
-        pricePerDay: Number((vehicle as any).priceRules?.[0]?.basePricePerDay) || 0,
+        pricePerDay: Number((vehicle as any).PriceRule?.[0]?.basePricePerDay) || 0,
         features: vehicle.features as string[],
         specs: {
           transmission: vehicle.transmission,
@@ -70,15 +70,15 @@ export async function GET(request: NextRequest) {
           fuelConsumption: vehicle.fuelConsumption
         },
         pricing: {
-          basePricePerDay: (vehicle as any).priceRules?.[0]?.basePricePerDay || 0,
-          weekendMultiplier: (vehicle as any).priceRules?.[0]?.weekendMultiplier || 1,
-          weeklyDiscount: (vehicle as any).priceRules?.[0]?.weeklyDiscount || 0,
-          monthlyDiscount: (vehicle as any).priceRules?.[0]?.monthlyDiscount || 0,
-          minimumDays: (vehicle as any).priceRules?.[0]?.minimumDays || 1,
-          maximumDays: (vehicle as any).priceRules?.[0]?.maximumDays || 30,
-          includedKmPerDay: (vehicle as any).priceRules?.[0]?.includedKmPerDay || 200,
-          extraKmPrice: (vehicle as any).priceRules?.[0]?.extraKmPrice || 0.5,
-          depositAmount: (vehicle as any).priceRules?.[0]?.depositAmount || 500
+          basePricePerDay: (vehicle as any).PriceRule?.[0]?.basePricePerDay || 0,
+          weekendMultiplier: (vehicle as any).PriceRule?.[0]?.weekendMultiplier || 1,
+          weeklyDiscount: (vehicle as any).PriceRule?.[0]?.weeklyDiscount || 0,
+          monthlyDiscount: (vehicle as any).PriceRule?.[0]?.monthlyDiscount || 0,
+          minimumDays: (vehicle as any).PriceRule?.[0]?.minimumDays || 1,
+          maximumDays: (vehicle as any).PriceRule?.[0]?.maximumDays || 30,
+          includedKmPerDay: (vehicle as any).PriceRule?.[0]?.includedKmPerDay || 200,
+          extraKmPrice: (vehicle as any).PriceRule?.[0]?.extraKmPrice || 0.5,
+          depositAmount: (vehicle as any).PriceRule?.[0]?.depositAmount || 500
         }
       }
 
@@ -100,7 +100,7 @@ export async function GET(request: NextRequest) {
 
     const vehicles = await vehicleService.findMany(where, {
       include: {
-        priceRules: {
+        PriceRule: {
           where: {
             isActive: true,
             validFrom: { lte: new Date() },
@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
           },
           take: 1
         },
-        images: {
+        CarImage: {
           orderBy: { order: 'asc' },
           take: 1
         }
@@ -130,8 +130,8 @@ export async function GET(request: NextRequest) {
         id: v.id,
         displayName: v.displayName,
         primaryImageUrl: v.primaryImageUrl,
-        hasImages: !!(v as any).images,
-        imagesCount: (v as any).images?.length || 0
+        hasImages: !!(v as any).CarImage,
+        imagesCount: (v as any).CarImage?.length || 0
       }))
     })
 
@@ -141,9 +141,9 @@ export async function GET(request: NextRequest) {
         id: vehicle.id,
         displayName: vehicle.displayName,
         primaryImageUrl: vehicle.primaryImageUrl,
-        hasImages: !!vehicle.images,
-        imagesCount: vehicle.images?.length || 0,
-        firstImageUrl: vehicle.images?.[0]?.url
+        hasImages: !!vehicle.CarImage,
+        imagesCount: vehicle.CarImage?.length || 0,
+        firstImageUrl: vehicle.CarImage?.[0]?.url
       })
       
       return {
@@ -156,8 +156,8 @@ export async function GET(request: NextRequest) {
         category: vehicle.category,
         bodyType: vehicle.bodyType,
         description: vehicle.description,
-        primaryImage: vehicle.primaryImageUrl || vehicle.images?.[0]?.url || '/placeholder-car.jpg',
-        pricePerDay: Number((vehicle as any).priceRules?.[0]?.basePricePerDay) || 0,
+        primaryImage: vehicle.primaryImageUrl || vehicle.CarImage?.[0]?.url || '/placeholder-car.jpg',
+        pricePerDay: Number((vehicle as any).PriceRule?.[0]?.basePricePerDay) || 0,
         featured: vehicle.featured,
         featuredOrder: vehicle.featuredOrder,
         specs: {

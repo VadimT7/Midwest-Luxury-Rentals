@@ -18,23 +18,23 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: '+971 58 504 6440 / +971 58 132 1831',
-    href: 'tel:+971585046440',
+    details: '888-263-0123',
+    href: 'tel:+18882630123',
     description: '24/7 Premium Support'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: 'info@falconflair.ae',
-    href: 'mailto:info@falconflair.ae',
+    details: 'info@midwestluxuryrentals.com',
+    href: 'mailto:info@midwestluxuryrentals.com',
     description: 'Quick Response Guaranteed'
   },
   {
     icon: MapPin,
     title: 'Location',
-    details: 'Dubai, UAE 🇦🇪',
+    details: 'Chicago | Miami | MI | OH | IA',
     href: '/contact',
-    description: 'Premium Service in Dubai'
+    description: 'Exotic Cars - Private Members Club'
   },
   {
     icon: Clock,

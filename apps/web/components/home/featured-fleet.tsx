@@ -178,7 +178,7 @@ export function FeaturedFleet() {
                            {/* Shining overlay effect */}
                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-1000 ease-out transform -skew-x-12 z-20 pointer-events-none"></div>
                          </h3>
-                        <p className="text-slate-400 font-medium">{vehicle.year} Model</p>
+                        <p className="text-slate-400 font-medium">{vehicle.bodyType}</p>
                       </div>
                       
                       {/* Specs Grid */}
