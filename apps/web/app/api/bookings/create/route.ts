@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@valore/database'
 import { checkCarAvailability } from '@valore/lib'
-import { randomBytes } from 'crypto'
+import { randomBytes, randomUUID } from 'crypto'
 
 // Test database connection
 async function testDatabaseConnection() {
@@ -110,11 +110,13 @@ export async function POST(request: NextRequest) {
         // Create a guest user
         const guestUser = await tx.user.create({
           data: {
+            id: crypto.randomUUID(),
             email: guestEmail,
             name: guestName || 'Guest User',
             phone: guestPhone,
             role: 'CUSTOMER',
             status: 'ACTIVE',
+            updatedAt: new Date(),
           }
         });
         userId = guestUser.id;
@@ -123,6 +125,7 @@ export async function POST(request: NextRequest) {
       // Create the booking
       const newBooking = await tx.booking.create({
         data: {
+          id: randomUUID(),
           bookingNumber,
           userId,
           guestEmail,
@@ -147,6 +150,7 @@ export async function POST(request: NextRequest) {
           status: 'CONFIRMED',
           paymentStatus: 'PAID',
           confirmedAt: new Date(),
+          updatedAt: new Date(),
         },
         include: {
           car: true,
@@ -171,6 +175,7 @@ export async function POST(request: NextRequest) {
       // Create payment record
       await tx.payment.create({
         data: {
+          id: randomUUID(),
           bookingId: newBooking.id,
           stripePaymentIntentId: paymentIntentId,
           amount: totalAmount,
@@ -183,6 +188,7 @@ export async function POST(request: NextRequest) {
             guestEmail,
             guestName,
           },
+          updatedAt: new Date(),
         },
       })
 

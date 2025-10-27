@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { prisma } from '@valore/database'
+import { randomUUID } from 'crypto'
 
 // Initialize Stripe with error handling
 let stripe: Stripe | null = null
@@ -103,6 +104,7 @@ export async function POST(request: NextRequest) {
       try {
         await prisma.payment.create({
           data: {
+            id: randomUUID(),
             bookingId,
             stripePaymentIntentId: paymentIntent.id,
             amount: amount,
@@ -111,6 +113,7 @@ export async function POST(request: NextRequest) {
             method: 'CARD',
             status: 'PENDING',
             metadata: paymentIntent as any,
+            updatedAt: new Date(),
           },
         })
       } catch (dbError) {
