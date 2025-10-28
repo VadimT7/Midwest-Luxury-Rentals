@@ -1,22 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import GetPaidTab from '@/components/billing/get-paid-tab';
-import PlanTab from '@/components/billing/plan-tab';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../../components/ui/tabs';
+import GetPaidTab from '../../../components/billing/get-paid-tab';
+import PlanTab from '../../../components/billing/plan-tab';
 import { 
   Wallet, 
   CreditCard,
 } from 'lucide-react';
 
 // Keep imports for hidden tabs (for future use)
-import OverviewTab from '@/components/billing/overview-tab';
-import PayoutsTab from '@/components/billing/payouts-tab';
-import SubscriptionsTab from '@/components/billing/subscriptions-tab';
-import BookingFeesTab from '@/components/billing/booking-fees-tab';
-import DepositsTab from '@/components/billing/deposits-tab';
-import InvoicesTab from '@/components/billing/invoices-tab';
-import SettingsTab from '@/components/billing/settings-tab';
+import OverviewTab from '../../../components/billing/overview-tab';
+import PayoutsTab from '../../../components/billing/payouts-tab';
+import SubscriptionsTab from '../../../components/billing/subscriptions-tab';
+import BookingFeesTab from '../../../components/billing/booking-fees-tab';
+import DepositsTab from '../../../components/billing/deposits-tab';
+import InvoicesTab from '../../../components/billing/invoices-tab';
+import SettingsTab from '../../../components/billing/settings-tab';
 
 export default function BillingPage() {
   const [activeTab, setActiveTab] = useState('get-paid');

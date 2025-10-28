@@ -6,8 +6,8 @@ export async function GET(request: NextRequest) {
     // Fetch all data in parallel
     const [vehicles, bookings, customers] = await Promise.all([
       vehicleService.findMany(),
-      bookingService.findMany({}, { include: { car: true, user: true } }),
-      userService.findMany({ where: { role: 'CUSTOMER' } })
+      bookingService.findMany({}, { include: { Car: true, User: true } }),
+      userService.findMany({ role: 'CUSTOMER' })
     ])
 
     // Calculate real statistics
@@ -53,8 +53,8 @@ export async function GET(request: NextRequest) {
       })
       .map((booking: any) => ({
         time: '10:00 AM', // Default pickup time
-        vehicle: booking.car?.displayName || 'Unknown Vehicle',
-        customer: booking.user?.name || booking.guestName || 'Unknown Customer',
+        vehicle: booking.Car?.displayName || 'Unknown Vehicle',
+        customer: booking.User?.name || booking.guestName || 'Unknown Customer',
         status: booking.status === 'CONFIRMED' ? 'ready' : 'preparing'
       }))
     
@@ -68,8 +68,8 @@ export async function GET(request: NextRequest) {
       })
       .map((booking: any) => ({
         time: '10:00 PM', // Default return time
-        vehicle: booking.car?.displayName || 'Unknown Vehicle',
-        customer: booking.user?.name || booking.guestName || 'Unknown Customer',
+        vehicle: booking.Car?.displayName || 'Unknown Vehicle',
+        customer: booking.User?.name || booking.guestName || 'Unknown Customer',
         status: 'scheduled'
       }))
 
