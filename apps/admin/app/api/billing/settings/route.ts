@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { prisma } from '@valore/database';
 import { stripe } from '@/lib/stripe';
+import { randomUUID } from 'crypto';
 
 const TENANT_ID = 'default'; // Replace with multi-tenant logic
 
@@ -138,6 +139,7 @@ export async function POST(req: NextRequest) {
     // Audit log
     await prisma.auditLog.create({
       data: {
+        id: randomUUID(),
         actor: 'admin@falconflair.com',
         actorType: 'user',
         action: 'settings_updated',

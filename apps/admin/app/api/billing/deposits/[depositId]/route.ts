@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { prisma } from '@valore/database';
+import { randomUUID } from 'crypto';
 import { captureDeposit, cancelDeposit } from '@/lib/stripe';
 
 export async function POST(
@@ -54,6 +55,7 @@ export async function POST(
       // Audit log
       await prisma.auditLog.create({
         data: {
+          id: randomUUID(),
           actor: 'admin@falconflair.com',
           action: 'deposit_captured',
           entity: 'DepositAuthorization',
@@ -87,6 +89,7 @@ export async function POST(
       // Audit log
       await prisma.auditLog.create({
         data: {
+          id: randomUUID(),
           actor: 'admin@falconflair.com',
           action: 'deposit_released',
           entity: 'DepositAuthorization',

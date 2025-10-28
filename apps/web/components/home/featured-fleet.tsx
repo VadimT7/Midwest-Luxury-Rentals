@@ -17,6 +17,7 @@ interface Vehicle {
   model: string
   year: number
   category: string
+  bodyType: string
   pricePerDay: number
   primaryImage: string
   featured: boolean

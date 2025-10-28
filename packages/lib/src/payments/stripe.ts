@@ -1,6 +1,7 @@
 import Stripe from 'stripe'
 import { prisma } from '@valore/database'
 import Decimal from 'decimal.js'
+import { randomUUID } from 'crypto'
 
 // Type imports - these will be available after Prisma generates
 type User = any
@@ -33,19 +34,19 @@ export interface CreateHoldParams {
 /**
  * Create a Stripe customer for a user
  */
-export async function createStripeCustomer(user: User): Promise<string> {
+export async function createStripeCustomer(User: User): Promise<string> {
   const customer = await stripe.customers.create({
-    email: user.email,
-    name: user.name || undefined,
-    phone: user.phone || undefined,
+    email: User.email,
+    name: User.name || undefined,
+    phone: User.phone || undefined,
     metadata: {
-      userId: user.id,
+      userId: User.id,
     },
   })
   
   // Store customer ID in database
   await prisma.user.update({
-    where: { id: user.id },
+    where: { id: User.id },
     data: { 
       // TODO: Add stripeCustomerId field to User model
       // For now, we'll store it in metadata
@@ -69,7 +70,7 @@ export async function createPaymentIntent({
 }: CreatePaymentIntentParams): Promise<Stripe.PaymentIntent> {
   const booking = await prisma.booking.findUnique({
     where: { id: bookingId },
-    include: { user: true },
+    include: { User: true },
   })
   
   if (!booking) {
@@ -78,10 +79,10 @@ export async function createPaymentIntent({
   
   // Create or get Stripe customer
   let stripeCustomerId = customerId
-  if (!stripeCustomerId && booking.user) {
+  if (!stripeCustomerId && booking.User) {
     // For now, create a new customer each time
     // TODO: Add stripeCustomerId field to User model
-    stripeCustomerId = await createStripeCustomer(booking.user)
+    stripeCustomerId = await createStripeCustomer(booking.User)
   }
   
   const paymentIntent = await stripe.paymentIntents.create({
@@ -101,6 +102,7 @@ export async function createPaymentIntent({
   // Store payment intent in database
   await prisma.payment.create({
     data: {
+      id: randomUUID(),
       bookingId,
       stripePaymentIntentId: paymentIntent.id,
       amount: amount.toNumber(),
@@ -109,6 +111,7 @@ export async function createPaymentIntent({
       method: 'CARD',
       status: 'PROCESSING',
       metadata: paymentIntent as any,
+      updatedAt: new Date(),
     },
   })
   
@@ -222,6 +225,7 @@ export async function createRefund(
   // Create refund payment record
   await prisma.payment.create({
     data: {
+      id: randomUUID(),
       bookingId: payment.bookingId,
       stripePaymentIntentId: paymentIntentId,
       stripeRefundId: refund.id,
@@ -232,6 +236,7 @@ export async function createRefund(
       status: 'SUCCEEDED',
       processedAt: new Date(),
       metadata: refund as any,
+      updatedAt: new Date(),
     },
   })
   

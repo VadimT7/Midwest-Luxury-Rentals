@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { prisma } from '@valore/database';
 import { refundPayment } from '@/lib/stripe';
+import { randomUUID } from 'crypto';
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
     const booking = await prisma.booking.findUnique({
       where: { id: bookingId },
       include: {
-        payments: {
+        Payment: {
           where: {
             type: 'RENTAL_FEE',
             status: 'SUCCEEDED',
@@ -34,7 +35,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Booking not found' }, { status: 404 });
     }
 
-    const payment = booking.payments[0];
+    const payment = booking.Payment[0];
     if (!payment || !payment.stripePaymentIntentId) {
       return NextResponse.json({ error: 'No payment to refund' }, { status: 400 });
     }
@@ -62,6 +63,7 @@ export async function POST(req: NextRequest) {
     // Create refund payment record
     await prisma.payment.create({
       data: {
+        id: randomUUID(),
         bookingId,
         stripeRefundId: refund.id,
         stripePaymentIntentId: payment.stripePaymentIntentId,
@@ -72,6 +74,7 @@ export async function POST(req: NextRequest) {
         status: 'SUCCEEDED',
         processedAt: new Date(),
         description: reason || 'Refund',
+        updatedAt: new Date(),
       },
     });
 
@@ -97,6 +100,7 @@ export async function POST(req: NextRequest) {
     // Audit log
     await prisma.auditLog.create({
       data: {
+        id: randomUUID(),
         actor: 'admin@falconflair.com',
         action: 'refund_created',
         entity: 'Booking',

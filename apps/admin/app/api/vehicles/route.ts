@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@valore/database'
 import { saveImageToBothDirectories } from '../../../lib/image-utils'
+import { randomUUID } from 'crypto'
 
 export const dynamic = 'force-dynamic'
 
@@ -178,6 +179,7 @@ export async function POST(request: NextRequest) {
 
      // Prepare vehicle data for creation
      const vehicleCreateData: any = {
+       id: randomUUID(),
        displayName: vehicleData.displayName,
        make: vehicleData.make,
        model: vehicleData.model,
@@ -206,8 +208,10 @@ export async function POST(request: NextRequest) {
        fuelConsumption: vehicleData.fuelConsumption || 0,
        features: vehicleData.features || [],
        primaryImageUrl: '/placeholder-car.jpg', // Default placeholder
+       updatedAt: new Date(),
        PriceRule: {
          create: {
+           id: randomUUID(),
            basePricePerDay: String(vehicleData.pricePerDay || 0),
            currency: 'USD',
            weekendMultiplier: String(vehicleData.weekendMultiplier || 1.0),
@@ -218,7 +222,8 @@ export async function POST(request: NextRequest) {
            includedKmPerDay: vehicleData.includedKmPerDay || 200,
            extraKmPrice: String(vehicleData.extraKmPrice || 0.5),
            depositAmount: String(vehicleData.depositAmount || 1000),
-           isActive: true
+           isActive: true,
+           updatedAt: new Date()
          }
        }
      }
@@ -251,6 +256,7 @@ export async function POST(request: NextRequest) {
             vehicleCreateData.primaryImageUrl = result.imageUrl
             
             vehicleCreateData.CarImage.create.push({
+              id: randomUUID(),
               url: result.imageUrl,
               alt: vehicleData.displayName,
               caption: 'Primary image',
@@ -267,6 +273,7 @@ export async function POST(request: NextRequest) {
             // Use placeholder but don't fail the vehicle creation
             vehicleCreateData.primaryImageUrl = '/placeholder-car.jpg'
             vehicleCreateData.CarImage.create.push({
+              id: randomUUID(),
               url: '/placeholder-car.jpg',
               alt: vehicleData.displayName,
               caption: 'Primary image',
@@ -279,6 +286,7 @@ export async function POST(request: NextRequest) {
           // Use placeholder but don't fail the vehicle creation
           vehicleCreateData.primaryImageUrl = '/placeholder-car.jpg'
           vehicleCreateData.CarImage.create.push({
+            id: randomUUID(),
             url: '/placeholder-car.jpg',
             alt: vehicleData.displayName,
             caption: 'Primary image',
@@ -309,6 +317,7 @@ export async function POST(request: NextRequest) {
             
             if (result.success && result.imageUrl) {
               vehicleCreateData.CarImage.create.push({
+                id: randomUUID(),
                 url: result.imageUrl,
                 alt: vehicleData.displayName,
                 caption: `Gallery image ${index + 1}`,

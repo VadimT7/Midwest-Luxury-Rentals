@@ -18,11 +18,11 @@ export async function GET(request: NextRequest) {
       skip: offset,
       orderBy: { createdAt: 'desc' },
       include: {
-        booking: {
+        Booking: {
           select: {
             id: true,
             bookingNumber: true,
-            user: {
+            User: {
               select: {
                 id: true,
                 name: true,
@@ -37,8 +37,8 @@ export async function GET(request: NextRequest) {
     // Transform the data to match the expected format
     const transformedPayments = payments.map((payment: any) => ({
       id: payment.id,
-      bookingNumber: payment.booking?.bookingNumber || 'N/A',
-      customerName: payment.booking?.user?.name || 'Unknown',
+      bookingNumber: payment.Booking?.bookingNumber || 'N/A',
+      customerName: payment.Booking?.User?.name || 'Unknown',
       amount: parseFloat(String(payment.amount)),
       currency: payment.currency,
       type: payment.type, // Keep original type from DB

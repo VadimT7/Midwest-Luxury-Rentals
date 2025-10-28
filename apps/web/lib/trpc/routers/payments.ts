@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { router, protectedProcedure } from '@valore/lib'
 import { prisma } from '@valore/database'
+import { randomUUID } from 'crypto'
 import { 
   createSetupIntent, 
   attachPaymentMethod, 
@@ -60,11 +61,13 @@ export const paymentsRouter = router({
       // Save to database
       await prisma.paymentMethod.create({
         data: {
+          id: randomUUID(),
           userId: ctx.session.user.id,
           stripePaymentMethodId: paymentMethod.id,
           type: paymentMethod.type,
           card: paymentMethod.card as any,
           isDefault: input.setAsDefault,
+          updatedAt: new Date(),
         },
       })
       
@@ -132,14 +135,14 @@ export const paymentsRouter = router({
     .query(async ({ input, ctx }) => {
       const payments = await prisma.payment.findMany({
         where: {
-          booking: {
+          Booking: {
             userId: ctx.session.user.id,
           },
         },
         include: {
-          booking: {
+          Booking: {
             include: {
-              car: true,
+              Car: true,
             },
           },
         },

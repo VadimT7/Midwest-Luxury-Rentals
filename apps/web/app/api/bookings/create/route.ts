@@ -216,6 +216,7 @@ export async function POST(request: NextRequest) {
             reason: 'BOOKED',
           },
           create: {
+            id: randomUUID(),
             carId,
             date,
             isAvailable: false,
@@ -239,7 +240,7 @@ export async function POST(request: NextRequest) {
         totalAmount: booking.totalAmount,
         startDate: booking.startDate,
         endDate: booking.endDate,
-        car: booking.car,
+        car: booking.Car,
       },
     })
   } catch (error) {

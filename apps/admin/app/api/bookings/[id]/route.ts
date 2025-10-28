@@ -66,7 +66,7 @@ export async function PATCH(
       where: { id: bookingId },
       data: updateData,
       include: {
-        user: {
+        User: {
           select: {
             id: true,
             name: true,
@@ -75,7 +75,7 @@ export async function PATCH(
             isVerified: true
           }
         },
-        car: {
+        Car: {
           select: {
             id: true,
             displayName: true,
@@ -86,7 +86,7 @@ export async function PATCH(
             primaryImageUrl: true
           }
         },
-        payments: {
+        Payment: {
           select: {
             id: true,
             amount: true,
@@ -146,7 +146,7 @@ export async function GET(
     const booking = await prisma.booking.findUnique({
       where: { id: bookingId },
       include: {
-        car: {
+        Car: {
           select: {
             id: true,
             displayName: true,
@@ -158,7 +158,7 @@ export async function GET(
             licensePlate: true,
           }
         },
-        user: {
+        User: {
           select: {
             id: true,
             name: true,
@@ -168,7 +168,7 @@ export async function GET(
             isVerified: true
           }
         },
-        payments: {
+        Payment: {
           select: {
             id: true,
             amount: true,
@@ -211,12 +211,12 @@ export async function GET(
       createdAt: booking.createdAt,
       updatedAt: booking.updatedAt,
       // Customer info (from user or guest fields)
-      customer: booking.user ? {
-        id: booking.user.id,
-        name: booking.user.name || (booking as any).guestName,
-        email: booking.user.email || (booking as any).guestEmail,
-        phone: booking.user.phone || (booking as any).guestPhone,
-        licenseNumber: booking.user.licenseNumber || (booking as any).guestLicense,
+      customer: booking.User ? {
+        id: booking.User.id,
+        name: booking.User.name || (booking as any).guestName,
+        email: booking.User.email || (booking as any).guestEmail,
+        phone: booking.User.phone || (booking as any).guestPhone,
+        licenseNumber: booking.User.licenseNumber || (booking as any).guestLicense,
         address: null,
       } : {
         name: (booking as any).guestName,
@@ -226,19 +226,19 @@ export async function GET(
         address: null,
       },
       // Vehicle info (keep both car and vehicle for compatibility)
-      car: booking.car,
-      vehicle: booking.car ? {
-        id: booking.car.id,
-        displayName: booking.car.displayName,
-        make: booking.car.make,
-        model: booking.car.model,
-        year: booking.car.year,
-        category: booking.car.category,
-        primaryImageUrl: booking.car.primaryImageUrl,
-        licensePlate: booking.car.licensePlate,
+      car: booking.Car,
+      vehicle: booking.Car ? {
+        id: booking.Car.id,
+        displayName: booking.Car.displayName,
+        make: booking.Car.make,
+        model: booking.Car.model,
+        year: booking.Car.year,
+        category: booking.Car.category,
+        primaryImageUrl: booking.Car.primaryImageUrl,
+        licensePlate: booking.Car.licensePlate,
       } : null,
       // Payment info
-      payments: booking.payments,
+      payments: booking.Payment,
     }
 
     console.log(`✅ Booking ${bookingId} details fetched successfully`)

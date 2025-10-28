@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { prisma } from '@valore/database';
 import { stripe, STRIPE_CONFIG } from '@/lib/stripe';
 import { switchPlan } from '@/lib/billing-service';
+import { randomUUID } from 'crypto';
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -130,6 +131,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
   // Record payment
   await prisma.payment.create({
     data: {
+      id: randomUUID(),
       bookingId,
       stripePaymentIntentId: paymentIntent.id,
       amount: paymentIntent.amount / 100,
@@ -138,6 +140,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
       method: 'CARD',
       status: 'SUCCEEDED',
       processedAt: new Date(),
+      updatedAt: new Date(),
     },
   });
 

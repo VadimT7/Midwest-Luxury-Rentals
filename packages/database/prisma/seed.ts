@@ -960,35 +960,35 @@ async function main() {
       features: carInfo.features,
       slug: `${carInfo.make}-${carInfo.model}-${carInfo.year}-${featuredOrder}`.toLowerCase().replace(/\s+/g, '-').replace(/[()!]/g, ''),
       description: `Experience the pinnacle of automotive excellence with the ${carInfo.displayName}. This ${carInfo.year} masterpiece combines breathtaking performance with uncompromising luxury, delivering ${carInfo.horsePower} horsepower and a top speed of ${carInfo.topSpeed} mph.`,
-      primaryImageUrl: primaryImageUrl,
+        primaryImageUrl: primaryImageUrl,
       featured: featured,
       featuredOrder: featuredOrder,
       updatedAt: new Date(),
       CarImage: {
-        create: [{
+          create: [{
           id: randomUUID(),
-          url: primaryImageUrl,
-          alt: `${carInfo.displayName} - Primary Image`,
-          order: 0,
-          isGallery: true
-        }]
-      },
+            url: primaryImageUrl,
+            alt: `${carInfo.displayName} - Primary Image`,
+            order: 0,
+            isGallery: true
+          }]
+        },
       PriceRule: {
-        create: {
+          create: {
           id: randomUUID(),
-          basePricePerDay,
-          depositAmount,
+            basePricePerDay,
+            depositAmount,
           currency: 'USD',
-          weekendMultiplier: 1.15,
-          weeklyDiscount: 0.10,
-          monthlyDiscount: 0.20,
-          minimumDays: 1,
-          maximumDays: 30,
-          includedKmPerDay: 200,
+            weekendMultiplier: 1.15,
+            weeklyDiscount: 0.10,
+            monthlyDiscount: 0.20,
+            minimumDays: 1,
+            maximumDays: 30,
+            includedKmPerDay: 200,
           extraKmPrice: 2,
           updatedAt: new Date()
+          }
         }
-      }
     }
     
     const car = await prisma.car.create({
@@ -1057,11 +1057,11 @@ async function main() {
       await prisma.availability.create({
         data: {
           id: randomUUID(),
-          carId: car.id,
-          date,
+        carId: car.id,
+        date,
           isAvailable: true
-        }
-      })
+    }
+    })
     }
   }
 

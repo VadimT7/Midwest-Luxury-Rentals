@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { prisma } from '@valore/database';
 import { stripe, STRIPE_CONFIG } from '@/lib/stripe';
 import { switchPlan } from '@/lib/billing-service';
+import { randomUUID } from 'crypto';
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -44,6 +45,7 @@ export async function POST(req: NextRequest) {
   await prisma.webhookEventLog.upsert({
     where: { eventId: event.id },
     create: {
+      id: randomUUID(),
       eventId: event.id,
       eventType: event.type,
       payload: event as any,
@@ -235,6 +237,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
     await prisma.depositAuthorization.upsert({
       where: { bookingId },
       create: {
+        id: randomUUID(),
         bookingId,
         stripePaymentIntentId: paymentIntent.id,
         amountCents: paymentIntent.amount,
@@ -243,6 +246,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
         capturedCents: paymentIntent.capture_method === 'manual' ? 0 : paymentIntent.amount,
         expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
         metadata: paymentIntent.metadata as any,
+        updatedAt: new Date(),
       },
       update: {
         status: paymentIntent.capture_method === 'manual' ? 'AUTHORIZED' : 'CAPTURED',
@@ -263,6 +267,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
     await prisma.payment.upsert({
       where: { stripePaymentIntentId: paymentIntent.id },
       create: {
+        id: randomUUID(),
         bookingId,
         stripePaymentIntentId: paymentIntent.id,
         amount: paymentIntent.amount / 100,
@@ -271,6 +276,7 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
         method: 'CARD',
         status: 'SUCCEEDED',
         processedAt: new Date(),
+        updatedAt: new Date(),
       },
       update: {
         status: 'SUCCEEDED',
@@ -307,7 +313,7 @@ async function handleChargeRefunded(charge: Stripe.Charge) {
   if (paymentIntentId) {
     const payment = await prisma.payment.findUnique({
       where: { stripePaymentIntentId: paymentIntentId },
-      include: { booking: true },
+      include: { Booking: true },
     });
 
     if (payment) {
@@ -352,6 +358,7 @@ async function handleDisputeCreated(dispute: Stripe.Dispute) {
     if (payment) {
       await prisma.dispute.create({
         data: {
+          id: randomUUID(),
           bookingId: payment.bookingId,
           stripeDisputeId: dispute.id,
           amount: dispute.amount,
@@ -364,6 +371,7 @@ async function handleDisputeCreated(dispute: Stripe.Dispute) {
           evidenceDetails: dispute.evidence_details as any,
           isChargeRefundable: dispute.is_charge_refundable,
           metadata: dispute.metadata as any,
+          updatedAt: new Date(),
         },
       });
 
@@ -404,6 +412,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 
   await prisma.auditLog.create({
     data: {
+      id: randomUUID(),
       actor: 'stripe',
       actorType: 'system',
       action: 'subscription_created',
@@ -502,6 +511,7 @@ async function handleSetupIntentSucceeded(setupIntent: Stripe.SetupIntent) {
 
     await prisma.auditLog.create({
       data: {
+        id: randomUUID(),
         actor: 'stripe',
         actorType: 'system',
         action: 'card_on_file_added',

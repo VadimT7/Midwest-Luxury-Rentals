@@ -222,20 +222,20 @@ export const bookingsRouter = router({
           ...(input.status && { status: input.status }),
         },
         include: {
-          car: {
+          Car: {
             include: {
-              images: {
+              CarImage: {
                 take: 1,
                 orderBy: { order: 'asc' },
               },
             },
           },
-          addOns: {
+          BookingAddOn: {
             include: {
-              addOn: true,
+              AddOn: true,
             },
           },
-          payments: {
+          Payment: {
             where: {
               status: 'SUCCEEDED',
             },
@@ -270,23 +270,23 @@ export const bookingsRouter = router({
       const booking = await prisma.booking.findUnique({
         where: { id: input },
         include: {
-          car: {
+          Car: {
             include: {
-              images: true,
-              priceRules: {
+              CarImage: true,
+              PriceRule: {
                 where: { isActive: true },
                 take: 1,
               },
             },
           },
-          user: true,
-          addOns: {
+          User: true,
+          BookingAddOn: {
             include: {
-              addOn: true,
+              AddOn: true,
             },
           },
-          payments: true,
-          contract: true,
+          Payment: true,
+          Contract: true,
         },
       })
       
@@ -320,7 +320,7 @@ export const bookingsRouter = router({
       const booking = await prisma.booking.findUnique({
         where: { id: input.bookingId },
         include: {
-          payments: {
+          Payment: {
             where: {
               type: { in: ['RENTAL_FEE', 'DEPOSIT'] },
               status: 'SUCCEEDED',

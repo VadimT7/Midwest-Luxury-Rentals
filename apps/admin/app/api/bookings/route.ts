@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
       skip: offset,
       orderBy: { createdAt: 'desc' },
       include: {
-        car: {
+        Car: {
           select: {
             id: true,
             displayName: true,
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
             primaryImageUrl: true,
           }
         },
-        user: {
+        User: {
           select: {
             id: true,
             name: true,
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
             phone: true,
           }
         },
-        payments: {
+        Payment: {
           where: {
             type: 'RENTAL_FEE',
           },
@@ -78,20 +78,20 @@ export async function GET(request: NextRequest) {
       createdAt: booking.createdAt,
       updatedAt: booking.updatedAt,
       // Customer info (from user or guest fields)
-      customer: booking.user ? {
-        id: booking.user.id,
-        name: booking.user.name,
-        email: booking.user.email,
-        phone: booking.user.phone,
+      customer: booking.User ? {
+        id: booking.User.id,
+        name: booking.User.name,
+        email: booking.User.email,
+        phone: booking.User.phone,
       } : {
         name: booking.guestName,
         email: booking.guestEmail,
         phone: booking.guestPhone,
       },
       // Car info
-      car: booking.car,
+      car: booking.Car,
       // Payment info
-      payments: booking.payments,
+      payments: booking.Payment,
     }))
 
     console.log(`✅ Found ${transformedBookings.length} bookings`)
@@ -157,7 +157,7 @@ export async function PATCH(request: NextRequest) {
         cancelledAt: status === 'CANCELLED' ? new Date() : undefined
       },
       include: {
-        car: {
+        Car: {
           select: {
             id: true,
             displayName: true,
@@ -167,7 +167,7 @@ export async function PATCH(request: NextRequest) {
             primaryImageUrl: true,
           }
         },
-        user: {
+        User: {
           select: {
             id: true,
             name: true,
@@ -175,7 +175,7 @@ export async function PATCH(request: NextRequest) {
             phone: true,
           }
         },
-        payments: {
+        Payment: {
           where: {
             type: 'RENTAL_FEE',
           },

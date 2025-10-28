@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 import { prisma } from '@valore/database'
 import { format } from 'date-fns'
+import { randomUUID } from 'crypto'
 
 // Initialize Resend with a dummy key if not provided (for build purposes)
 const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build')
@@ -55,15 +56,15 @@ export async function sendBookingConfirmation(bookingId: string): Promise<void> 
   const booking = await prisma.booking.findUnique({
     where: { id: bookingId },
     include: {
-      user: true,
-      car: {
+      User: true,
+      Car: {
         include: {
-          images: { take: 1 },
+          CarImage: { take: 1 },
         },
       },
-      addOns: {
+      BookingAddOn: {
         include: {
-          addOn: true,
+          AddOn: true,
         },
       },
     },
@@ -73,7 +74,7 @@ export async function sendBookingConfirmation(bookingId: string): Promise<void> 
     throw new Error('Booking not found')
   }
   
-  const recipientEmail = booking.user?.email || booking.guestEmail
+  const recipientEmail = booking.User?.email || booking.guestEmail
   if (!recipientEmail) {
     throw new Error('No recipient email found')
   }
@@ -89,7 +90,8 @@ export async function sendBookingConfirmation(bookingId: string): Promise<void> 
     // Log notification
     await prisma.notification.create({
       data: {
-        userId: booking.userId,
+        id: randomUUID(),
+        userId: booking.User?.id,
         bookingId: booking.id,
         channel: 'EMAIL',
         type: 'BOOKING_CONFIRMATION',
@@ -104,7 +106,8 @@ export async function sendBookingConfirmation(bookingId: string): Promise<void> 
     // Log failed notification
     await prisma.notification.create({
       data: {
-        userId: booking.userId,
+        id: randomUUID(),
+        userId: booking.User?.id,
         bookingId: booking.id,
         channel: 'EMAIL',
         type: 'BOOKING_CONFIRMATION',
@@ -127,8 +130,8 @@ export async function sendPickupReminder(bookingId: string): Promise<void> {
   const booking = await prisma.booking.findUnique({
     where: { id: bookingId },
     include: {
-      user: true,
-      car: true,
+      User: true,
+      Car: true,
     },
   })
   
@@ -136,7 +139,7 @@ export async function sendPickupReminder(bookingId: string): Promise<void> {
     return
   }
   
-  const recipientEmail = booking.user?.email || booking.guestEmail
+  const recipientEmail = booking.User?.email || booking.guestEmail
   if (!recipientEmail) {
     return
   }
@@ -261,7 +264,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
           <h2 style="font-size: 24px; font-weight: 300; margin-bottom: 10px;">
             Booking Confirmed
           </h2>
-          <p>Dear ${booking.user?.name || booking.guestName || 'Valued Customer'},</p>
+          <p>Dear ${booking.User?.name || booking.guestName || 'Valued Customer'},</p>
           <p>
             Thank you for choosing FlyRentals. Your booking for the 
             <strong>${booking.car.displayName}</strong> has been confirmed.
@@ -341,7 +344,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
         <div class="footer">
           <p>© ${new Date().getFullYear()} FlyRentals. All rights reserved.</p>
           <p>
-            This email was sent to ${booking.user?.email || booking.guestEmail}. 
+            This email was sent to ${booking.User?.email || booking.guestEmail}. 
             If you no longer wish to receive these emails, you can 
             <a href="${process.env.NEXT_PUBLIC_APP_URL}/unsubscribe">unsubscribe here</a>.
           </p>
@@ -354,7 +357,7 @@ function generateBookingConfirmationTemplate(booking: any): EmailTemplate {
   const text = `
 FlyRentals - Booking Confirmation
 
-Dear ${booking.user?.name || booking.guestName || 'Valued Customer'},
+Dear ${booking.User?.name || booking.guestName || 'Valued Customer'},
 
 Thank you for choosing FlyRentals. Your booking for the ${booking.car.displayName} has been confirmed.
 

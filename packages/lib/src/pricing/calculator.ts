@@ -74,7 +74,7 @@ export async function calculateBookingPrice(
       ],
     },
     include: {
-      seasonalRates: {
+      SeasonalRate: {
         where: {
           startDate: { lte: end },
           endDate: { gte: start },
@@ -117,7 +117,7 @@ export async function calculateBookingPrice(
   
   // Calculate seasonal surcharge
   let seasonalSurcharge = new Decimal(0)
-  for (const seasonalRate of priceRule.seasonalRates) {
+  for (const seasonalRate of priceRule.SeasonalRate) {
     const overlapDays = calculateOverlapDays(
       start,
       end,

@@ -64,7 +64,7 @@ export async function GET(req: NextRequest) {
       take: 10,
       orderBy: { createdAt: 'desc' },
       include: {
-        booking: {
+        Booking: {
           select: {
             bookingNumber: true,
           },
@@ -75,7 +75,7 @@ export async function GET(req: NextRequest) {
     for (const payment of bookingPayments) {
       invoices.push({
         id: payment.id,
-        number: `BOOK-${payment.booking.bookingNumber}`,
+        number: `BOOK-${payment.Booking.bookingNumber}`,
         amount: Number(payment.amount) * 100, // Convert to cents
         currency: payment.currency || 'USD',
         status: 'paid',

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { vehicleService, prisma } from '@valore/database'
 import { saveImageToBothDirectories, deleteImageFromBothDirectories } from '../../../../lib/image-utils'
+import { randomUUID } from 'crypto'
 
 export async function PUT(
   request: NextRequest,
@@ -279,6 +280,7 @@ export async function PUT(
         // Create new primary image record
         await prisma.carImage.create({
           data: {
+            id: randomUUID(),
             carId: vehicleId,
             url: primaryImageUrl,
             alt: vehicle.displayName,
@@ -367,6 +369,7 @@ export async function PUT(
           // Create new price rule if none exists
           await prisma.priceRule.create({
             data: {
+              id: randomUUID(),
               ...priceRuleData,
               carId: vehicleId,
               createdAt: new Date()

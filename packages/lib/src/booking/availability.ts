@@ -1,5 +1,6 @@
 import { prisma } from '@valore/database'
 import { startOfDay, eachDayOfInterval, isBefore, isAfter, isEqual } from 'date-fns'
+import { randomUUID } from 'crypto'
 
 // Type imports - these will be available after Prisma generates
 type Car = any
@@ -236,6 +237,7 @@ export async function blockCarAvailability(
   reason: string
 ): Promise<void> {
   const availabilityData = dates.map(date => ({
+    id: randomUUID(),
     carId,
     date: startOfDay(date),
     isAvailable: false,
@@ -285,7 +287,7 @@ export async function getAvailableCars(
       ...(options?.minSeats && { seats: { gte: options.minSeats } }),
     },
     include: {
-      priceRules: {
+      PriceRule: {
         where: {
           isActive: true,
           validFrom: { lte: startDate },
@@ -304,8 +306,8 @@ export async function getAvailableCars(
   
   for (const car of cars) {
     // Apply price filter if specified
-    if (options?.priceRange && car.priceRules[0]) {
-      const pricePerDay = Number(car.priceRules[0].basePricePerDay)
+    if (options?.priceRange && car.PriceRule[0]) {
+      const pricePerDay = Number(car.PriceRule[0].basePricePerDay)
       if (pricePerDay < options.priceRange.min || pricePerDay > options.priceRange.max) {
         continue
       }

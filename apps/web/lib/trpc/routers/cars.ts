@@ -47,11 +47,11 @@ export const carsRouter = router({
           status: 'ACTIVE',
         },
         include: {
-          images: {
+          CarImage: {
             orderBy: { order: 'asc' },
             take: 1,
           },
-          priceRules: {
+          PriceRule: {
             where: {
               isActive: true,
               OR: [
@@ -111,10 +111,10 @@ export const carsRouter = router({
           ].filter(Boolean),
         },
         include: {
-          images: {
+          CarImage: {
             orderBy: { order: 'asc' },
           },
-          priceRules: {
+          PriceRule: {
             where: {
               isActive: true,
               OR: [
@@ -123,7 +123,7 @@ export const carsRouter = router({
               ],
             },
             include: {
-              seasonalRates: {
+              SeasonalRate: {
                 where: {
                   endDate: { gte: new Date() },
                 },
@@ -179,11 +179,11 @@ export const carsRouter = router({
           status: 'ACTIVE',
         },
         include: {
-          images: {
+          CarImage: {
             orderBy: { order: 'asc' },
             take: 1,
           },
-          priceRules: {
+          PriceRule: {
             where: {
               isActive: true,
               OR: [
@@ -228,11 +228,11 @@ export const carsRouter = router({
           id: { not: car.id },
         },
         include: {
-          images: {
+          CarImage: {
             orderBy: { order: 'asc' },
             take: 1,
           },
-          priceRules: {
+          PriceRule: {
             where: {
               isActive: true,
               OR: [

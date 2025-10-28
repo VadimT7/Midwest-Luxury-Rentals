@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { prisma } from '@valore/database';
+import { randomUUID } from 'crypto';
 import { stripe, createConnectAccount, createAccountLink } from '@/lib/stripe';
 import { getOrCreateTenantBilling } from '@/lib/billing-service';
 
@@ -139,6 +140,7 @@ export async function POST(req: NextRequest) {
       // Audit log
       await prisma.auditLog.create({
         data: {
+          id: randomUUID(),
           actor: 'admin@falconflair.com',
           action: 'connect_account_created',
           entity: 'TenantStripeConnect',

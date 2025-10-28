@@ -107,9 +107,9 @@ export const adminRouter = router({
         take: input.limit,
         orderBy: { createdAt: 'desc' },
         include: {
-          car: true,
-          user: true,
-          payments: {
+          Car: true,
+          User: true,
+          Payment: {
             where: {
               type: 'RENTAL_FEE',
             },
@@ -164,7 +164,7 @@ export const adminRouter = router({
     const cars = await prisma.car.findMany({
       where: { status: 'ACTIVE' },
       include: {
-        bookings: {
+        Booking: {
           where: {
             status: {
               in: ['CONFIRMED', 'IN_PROGRESS', 'COMPLETED'],
@@ -177,7 +177,7 @@ export const adminRouter = router({
 
     const utilization = cars.map((car: any) => {
       const totalDays = 30
-      const bookedDays = car.bookings.reduce((sum: number, booking: any) => {
+      const bookedDays = car.Booking.reduce((sum: number, booking: any) => {
         const start = booking.startDate > thirtyDaysAgo ? booking.startDate : thirtyDaysAgo
         const end = booking.endDate < now ? booking.endDate : now
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))

@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
       skip: offset,
       orderBy: { createdAt: 'desc' },
       include: {
-        bookings: {
+        Booking: {
           select: {
             id: true,
             bookingNumber: true,
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
         },
         _count: {
           select: {
-            bookings: true,
+            Booking: true,
           }
         }
       },
@@ -52,9 +52,9 @@ export async function GET(request: NextRequest) {
       status: customer.status,
       createdAt: customer.createdAt,
       updatedAt: customer.updatedAt,
-      totalBookings: customer._count.bookings,
-      totalSpent: customer.bookings.reduce((sum: number, booking: any) => sum + parseFloat(String(booking.totalAmount)), 0),
-      recentBookings: customer.bookings,
+      totalBookings: customer._count.Booking,
+      totalSpent: customer.Booking.reduce((sum: number, booking: any) => sum + parseFloat(String(booking.totalAmount)), 0),
+      recentBookings: customer.Booking,
     }))
 
     console.log(`✅ Found ${transformedCustomers.length} customers`)
@@ -92,7 +92,7 @@ export async function PATCH(request: NextRequest) {
         updatedAt: new Date()
       },
       include: {
-        bookings: {
+        Booking: {
           select: {
             id: true,
             bookingNumber: true,
@@ -107,7 +107,7 @@ export async function PATCH(request: NextRequest) {
         },
         _count: {
           select: {
-            bookings: true,
+            Booking: true,
           }
         }
       },

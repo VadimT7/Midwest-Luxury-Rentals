@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { prisma } from '@valore/database';
+import { randomUUID } from 'crypto';
 import { createDestinationCharge, createDepositAuthorization } from '@/lib/stripe';
 import { calculateBookingFee, recordBookingFee } from '@/lib/billing-service';
 
@@ -23,15 +24,15 @@ export async function POST(req: NextRequest) {
     const booking = await prisma.booking.findUnique({
       where: { id: bookingId },
       include: {
-        car: {
+        Car: {
           include: {
-            priceRules: {
+            PriceRule: {
               where: { isActive: true },
               take: 1,
             },
           },
         },
-        user: true,
+        User: true,
       },
     });
 
@@ -64,8 +65,8 @@ export async function POST(req: NextRequest) {
       currency: booking.currency.toLowerCase(),
       connectedAccountId: connectAccount.stripeAccountId,
       applicationFeeCents,
-      customerEmail: booking.user.email,
-      description: `Booking #${booking.bookingNumber} - ${booking.car.displayName}`,
+      customerEmail: booking.User.email,
+      description: `Booking #${booking.bookingNumber} - ${booking.Car.displayName}`,
       metadata: {
         bookingId: booking.id,
         bookingNumber: booking.bookingNumber,
@@ -89,9 +90,9 @@ export async function POST(req: NextRequest) {
     let depositPaymentIntent;
 
     // Create deposit authorization if requested
-    if (createDeposit && booking.car.priceRules[0]) {
+    if (createDeposit && booking.Car.PriceRule[0]) {
       const depositAmountCents = Math.round(
-        Number(booking.car.priceRules[0].depositAmount) * 100
+        Number(booking.Car.PriceRule[0].depositAmount) * 100
       );
       const depositFeeCents = Math.round(depositAmountCents * (feePercent / 100));
 
@@ -100,7 +101,7 @@ export async function POST(req: NextRequest) {
         currency: booking.currency.toLowerCase(),
         connectedAccountId: connectAccount.stripeAccountId,
         applicationFeeCents: depositFeeCents,
-        customerEmail: booking.user.email,
+        customerEmail: booking.User.email,
         description: `Security Deposit - Booking #${booking.bookingNumber}`,
         metadata: {
           bookingId: booking.id,
@@ -114,6 +115,7 @@ export async function POST(req: NextRequest) {
       // Record deposit authorization
       await prisma.depositAuthorization.create({
         data: {
+          id: randomUUID(),
           bookingId: booking.id,
           stripePaymentIntentId: depositPaymentIntent.id,
           amountCents: depositAmountCents,
@@ -124,6 +126,7 @@ export async function POST(req: NextRequest) {
             feePercent,
             applicationFeeCents: depositFeeCents,
           },
+          updatedAt: new Date(),
         },
       });
     }
@@ -131,6 +134,7 @@ export async function POST(req: NextRequest) {
     // Audit log
     await prisma.auditLog.create({
       data: {
+        id: randomUUID(),
         actor: 'admin@falconflair.com',
         action: 'booking_payment_created',
         entity: 'Booking',

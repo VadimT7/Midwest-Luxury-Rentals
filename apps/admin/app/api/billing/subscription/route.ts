@@ -4,6 +4,7 @@ import { prisma } from '@valore/database';
 import { stripe, createSubscriptionCheckoutSession, STRIPE_CONFIG } from '@/lib/stripe';
 import { getOrCreateTenantBilling, switchPlan } from '@/lib/billing-service';
 import { BillingPlan } from '@prisma/client';
+import { randomUUID } from 'crypto';
 
 const TENANT_ID = 'default'; // Replace with multi-tenant logic
 
@@ -169,6 +170,7 @@ export async function POST(req: NextRequest) {
       // Audit log
       await prisma.auditLog.create({
         data: {
+          id: randomUUID(),
           actor: 'admin@falconflair.com',
           action: 'subscription_canceled',
           entity: 'TenantBillingProfile',

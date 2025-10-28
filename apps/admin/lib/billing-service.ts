@@ -1,6 +1,7 @@
 import { prisma } from '@valore/database';
 import { BillingPlan } from '@prisma/client';
 import { getActiveFeePercent, calculateApplicationFee } from './stripe';
+import { randomUUID } from 'crypto';
 
 export async function getOrCreateTenantBilling(tenantId: string) {
   let billing = await prisma.tenantBillingProfile.findUnique({
@@ -146,6 +147,7 @@ export async function switchPlan(
   // Audit log
   await prisma.auditLog.create({
     data: {
+      id: randomUUID(),
       actor: metadata?.actor || 'system',
       actorType: 'user',
       action: 'plan_switched',

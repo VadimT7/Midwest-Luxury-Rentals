@@ -62,8 +62,8 @@ export async function GET(request: NextRequest) {
         take: 10,
         orderBy: { createdAt: 'desc' },
         include: {
-          car: { select: { displayName: true, category: true } },
-          user: { select: { name: true } }
+          Car: { select: { displayName: true, category: true } },
+          User: { select: { name: true } }
         }
       }),
       
@@ -73,10 +73,10 @@ export async function GET(request: NextRequest) {
         take: 10,
         orderBy: { createdAt: 'desc' },
         include: {
-          booking: {
+          Booking: {
             include: {
-              car: { select: { displayName: true, category: true } },
-              user: { select: { name: true } }
+              Car: { select: { displayName: true, category: true } },
+              User: { select: { name: true } }
             }
           }
         }
@@ -86,14 +86,14 @@ export async function GET(request: NextRequest) {
       prisma.user.findMany({
         where: { role: 'CUSTOMER' },
         include: {
-          _count: { select: { bookings: true } }
+          _count: { select: { Booking: true } }
         }
       }),
       
       // Vehicle statistics
       prisma.car.findMany({
         include: {
-          _count: { select: { bookings: true } }
+          _count: { select: { Booking: true } }
         }
       })
     ])
@@ -237,7 +237,7 @@ export async function GET(request: NextRequest) {
     vehicleStats.forEach((vehicle: any) => {
       const category = vehicle.category || 'Standard'
       if (!categoryStats.has(category)) {
-        categoryStats.set(category, { bookings: 0, revenue: 0, count: 0 })
+        categoryStats.set(category, { Booking: 0, revenue: 0, count: 0 })
       }
       const stats = categoryStats.get(category)
       stats.bookings += vehicle._count.bookings
@@ -252,7 +252,7 @@ export async function GET(request: NextRequest) {
       .slice(0, 5)
       .map((customer: any) => ({
         name: customer.name || 'Unknown Customer',
-        bookings: customer._count.bookings,
+        Booking: customer._count.bookings,
         revenue: customer._count.bookings * averageBookingValue,
         loyaltyTier: customer._count.bookings >= 10 ? 'GOLD' : 
                      customer._count.bookings >= 5 ? 'SILVER' : 'BRONZE'
@@ -268,7 +268,7 @@ export async function GET(request: NextRequest) {
         daily: dailyRevenue,
         monthly: monthlyRevenue
       },
-      bookings: {
+      Booking: {
         total: totalBookings,
         completed: completedBookings,
         cancelled: cancelledBookings,
@@ -316,26 +316,26 @@ export async function GET(request: NextRequest) {
           .slice(0, 5)
           .map((vehicle: any) => ({
             name: vehicle.displayName || `${vehicle.make} ${vehicle.model}`,
-            bookings: vehicle._count.bookings,
+            Booking: vehicle._count.bookings,
             revenue: Math.round(vehicle._count.bookings * averageBookingValue),
             utilization: Math.round((vehicle._count.bookings / Math.max(1, totalBookings)) * 100)
           })),
         categoryPerformance: Array.from(categoryStats.entries()).map(([category, stats]: [string, any]) => ({
           category,
-          bookings: stats.bookings,
+          Booking: stats.bookings,
           revenue: Math.round(stats.revenue),
           avgPrice: stats.bookings > 0 ? Math.round(stats.revenue / stats.bookings) : 0
         }))
       },
       recent: {
-        bookings: recentBookings.slice(0, 5).map((booking: any) => ({
-          id: booking.id,
-          bookingNumber: booking.bookingNumber,
-          customer: booking.user?.name || 'Unknown',
-          vehicle: booking.car?.displayName || 'Unknown',
-          amount: parseFloat(String(booking.totalAmount)),
-          status: booking.status,
-          createdAt: booking.createdAt
+        Booking: recentBookings.slice(0, 5).map((Booking: any) => ({
+          id: Booking.id,
+          bookingNumber: Booking.bookingNumber,
+          customer: Booking.User?.name || 'Unknown',
+          vehicle: Booking.Car?.displayName || 'Unknown',
+          amount: parseFloat(String(Booking.totalAmount)),
+          status: Booking.status,
+          createdAt: Booking.createdAt
         })),
         payments: recentPayments.slice(0, 5).map((payment: any) => ({
           id: payment.id,
