@@ -41,7 +41,7 @@ Confirmed all required models are available:
 
 ### Database URL
 ```
-DATABASE_URL="postgresql://neondb_owner:npg_iv6p2quWbOrc@ep-crimson-sunset-ad06j3o2-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://neondb_owner:npg_aIh4DpPLm8SZ@ep-billowing-meadow-a484k9rx-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 ```
 
 ### Stripe Configuration
