@@ -123,8 +123,22 @@ export async function POST(req: NextRequest) {
     }
 
     // Get or create Stripe customer
-    let customerId = billing.stripeCustomerId;
-    if (!customerId) {
+    let customerId: string | null = billing.stripeCustomerId;
+    let customerExists = false;
+
+    // Check if existing customer is valid
+    if (customerId) {
+      try {
+        await stripe.customers.retrieve(customerId);
+        customerExists = true;
+      } catch (error: any) {
+        console.log('Customer not found, will create new one:', error.message);
+        customerExists = false;
+      }
+    }
+
+    // Create new customer if none exists or existing one is invalid
+    if (!customerExists) {
       const customer = await stripe.customers.create({
         email: email,
         metadata: {
@@ -184,6 +198,13 @@ export async function POST(req: NextRequest) {
           { status: 500 }
         );
       }
+    }
+
+    // Ensure customerId is not null
+    if (!customerId) {
+      return NextResponse.json({
+        error: 'Failed to create or retrieve customer'
+      }, { status: 500 });
     }
 
     // Create checkout session - Always redirect to admin dashboard

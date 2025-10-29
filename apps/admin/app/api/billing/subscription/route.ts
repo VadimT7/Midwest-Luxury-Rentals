@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      let customerId = billing.stripeCustomerId;
+      let customerId: string | null = billing.stripeCustomerId;
 
       if (!email) {
         return NextResponse.json({
@@ -117,7 +117,21 @@ export async function POST(req: NextRequest) {
       }
 
       // Get or create customer
-      if (!customerId) {
+      let customerExists = false;
+
+      // Check if existing customer is valid
+      if (customerId) {
+        try {
+          await stripe.customers.retrieve(customerId);
+          customerExists = true;
+        } catch (error: any) {
+          console.log('Customer not found, will create new one:', error.message);
+          customerExists = false;
+        }
+      }
+
+      // Create new customer if none exists or existing one is invalid
+      if (!customerExists) {
         const customer = await stripe.customers.create({
           email: email,
           name: 'Admin User',
@@ -135,6 +149,13 @@ export async function POST(req: NextRequest) {
             billingEmail: email,
           },
         });
+      }
+
+      // Ensure customerId is not null
+      if (!customerId) {
+        return NextResponse.json({
+          error: 'Failed to create or retrieve customer'
+        }, { status: 500 });
       }
 
       // Create checkout session
