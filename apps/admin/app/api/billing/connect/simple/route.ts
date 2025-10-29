@@ -55,6 +55,27 @@ export async function GET(req: NextRequest) {
       }
     }
 
+    // Check if onboarding is actually complete
+    const isOnboardingComplete = accountDetails?.details_submitted && 
+                                 accountDetails?.payouts_enabled && 
+                                 accountDetails?.charges_enabled;
+
+    // If onboarding is not complete, reset the account to initial state
+    if (!isOnboardingComplete) {
+      console.log('🔄 Onboarding not complete, resetting account to initial state');
+      
+      // Delete the incomplete account from database
+      await prisma.tenantStripeConnect.delete({
+        where: { tenantId: TENANT_ID },
+      });
+
+      return NextResponse.json({ 
+        connected: false,
+        reset: true, // Flag to show reset message
+        message: 'Onboarding was not completed. You can start fresh.'
+      });
+    }
+
     return NextResponse.json({
       connected: true,
       stripeAccountId: connectAccount.stripeAccountId,

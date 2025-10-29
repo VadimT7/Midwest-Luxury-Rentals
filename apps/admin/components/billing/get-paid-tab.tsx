@@ -18,6 +18,8 @@ interface ConnectStatus {
   detailsSubmitted?: boolean;
   payoutsEnabled?: boolean;
   chargesEnabled?: boolean;
+  reset?: boolean;
+  message?: string;
 }
 
 export default function GetPaidTab() {
@@ -53,7 +55,14 @@ export default function GetPaidTab() {
         detailsSubmitted: data.detailsSubmitted,
         payoutsEnabled: data.payoutsEnabled,
         chargesEnabled: data.chargesEnabled,
+        reset: data.reset,
+        message: data.message,
       });
+
+      // Show reset message if onboarding was reset
+      if (data.reset && data.message) {
+        toast.success(data.message);
+      }
     } catch (error) {
       console.error('Error fetching Connect status:', error);
       setStatus({ connected: false });
