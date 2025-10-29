@@ -110,8 +110,8 @@ export async function POST(req: NextRequest) {
       }
 
       // Create new Connect account
+      // Note: Email should be configured in Stripe dashboard after account creation
       const account = await createConnectAccount({
-        email: 'admin@falconflair.com', // Default email
         country,
         businessType,
       });
@@ -141,7 +141,7 @@ export async function POST(req: NextRequest) {
       await prisma.auditLog.create({
         data: {
           id: randomUUID(),
-          actor: 'admin@falconflair.com',
+          actor: 'system',
           action: 'connect_account_created',
           entity: 'TenantStripeConnect',
           entityId: TENANT_ID,

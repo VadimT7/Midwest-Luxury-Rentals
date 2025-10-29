@@ -116,23 +116,14 @@ export async function POST(req: NextRequest) {
     // Determine fee percentage based on plan
     const feePercent = plan === 'STARTER' ? 3.0 : 1.0;
 
-    // Get or create Stripe customer
+    // Check if Stripe customer exists
     let customerId = billing.stripeCustomerId;
     if (!customerId) {
-      const customer = await stripe.customers.create({
-        email: 'admin@falconflair.com', // Use actual tenant email
-        metadata: {
-          tenantId: TENANT_ID,
-        },
-      });
-      customerId = customer.id;
-
-      await prisma.tenantBillingProfile.update({
-        where: { tenantId: TENANT_ID },
-        data: {
-          stripeCustomerId: customerId,
-        },
-      });
+      // Don't auto-create customer - require manual setup
+      return NextResponse.json({
+        error: 'Stripe customer not configured. Please set up your Stripe customer ID in the Stripe dashboard first.',
+        requiresSetup: true
+      }, { status: 400 });
     }
 
     // Get price ID (support both price_ and prod_ values in env)

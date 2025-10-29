@@ -56,7 +56,7 @@ export async function POST(
       await prisma.auditLog.create({
         data: {
           id: randomUUID(),
-          actor: 'admin@falconflair.com',
+          actor: 'system',
           action: 'deposit_captured',
           entity: 'DepositAuthorization',
           entityId: deposit.id,
@@ -90,7 +90,7 @@ export async function POST(
       await prisma.auditLog.create({
         data: {
           id: randomUUID(),
-          actor: 'admin@falconflair.com',
+          actor: 'system',
           action: 'deposit_released',
           entity: 'DepositAuthorization',
           entityId: deposit.id,

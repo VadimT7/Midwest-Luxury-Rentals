@@ -27,25 +27,13 @@ export async function POST(req: NextRequest) {
 
     let customerId = billing.stripeCustomerId;
 
-    // Create Stripe customer if doesn't exist
+    // Check if Stripe customer exists
     if (!customerId) {
-      const customer = await stripe.customers.create({
-        email: 'admin@falconflair.com',
-        name: 'Admin User',
-        metadata: {
-          tenantId: TENANT_ID,
-        },
-      });
-
-      customerId = customer.id;
-
-      await prisma.tenantBillingProfile.update({
-        where: { tenantId: TENANT_ID },
-        data: {
-          stripeCustomerId: customerId,
-          billingEmail: 'admin@falconflair.com',
-        },
-      });
+      // Don't auto-create customer - require manual setup
+      return NextResponse.json({
+        error: 'Stripe customer not configured. Please set up your Stripe customer ID in the Stripe dashboard first.',
+        requiresSetup: true
+      }, { status: 400 });
     }
 
     // Create Setup Intent for card on file

@@ -63,23 +63,28 @@ export function getActiveFeePercent(
 }
 
 export async function createConnectAccount(params: {
-  email: string;
+  email?: string; // Made optional - should be configured in Stripe dashboard
   country: string;
   businessType?: 'individual' | 'company';
 }) {
   if (!stripe) throw new Error('Stripe is not initialized');
   
-  const account = await stripe.accounts.create({
+  const accountData: any = {
     type: 'express',
     country: params.country,
-    email: params.email,
     business_type: params.businessType || 'individual',
     capabilities: {
       card_payments: { requested: true },
       transfers: { requested: true },
     },
-  });
+  };
+  
+  // Only add email if provided
+  if (params.email) {
+    accountData.email = params.email;
+  }
 
+  const account = await stripe.accounts.create(accountData);
   return account;
 }
 

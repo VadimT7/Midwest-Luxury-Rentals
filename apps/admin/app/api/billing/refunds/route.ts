@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
     await prisma.auditLog.create({
       data: {
         id: randomUUID(),
-        actor: 'admin@falconflair.com',
+        actor: 'system',
         action: 'refund_created',
         entity: 'Booking',
         entityId: bookingId,

@@ -235,7 +235,7 @@ export async function POST(request: NextRequest) {
         <div class="contact-info">
             <h4>📞 Need Help?</h4>
             <p><strong>Phone:</strong> 888-263-0123</p>
-            <p><strong>Email:</strong> info@midwestluxuryrentals.com</p>
+            <p><strong>Email:</strong> ${process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'Contact us through website'}</p>
             <p><strong>Hours:</strong> 24/7 Premium Service</p>
         </div>
 

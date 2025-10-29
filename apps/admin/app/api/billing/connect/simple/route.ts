@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
         
         // Create new Connect Express account
         const account = await createConnectAccount({
-          email: 'admin@falconflair.com', // Use actual tenant email
+          // Email should be configured in Stripe dashboard
           country: 'US',
           businessType: 'individual',
         });

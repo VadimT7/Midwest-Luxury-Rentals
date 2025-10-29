@@ -11,8 +11,8 @@ export async function POST(request: NextRequest) {
         success: true, 
         user: { 
           id: 'admin-1', 
-          name: 'Admin User', 
-          email: 'admin@falconflair.com' 
+          name: 'Admin User'
+          // Email should be configured in admin settings if needed
         } 
       })
       

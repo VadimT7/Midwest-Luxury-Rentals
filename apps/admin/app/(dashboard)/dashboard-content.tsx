@@ -13,7 +13,7 @@ export function DashboardContent({ children }: DashboardContentProps) {
   const mockUser = {
     id: 'admin-1',
     name: 'Admin User',
-    email: 'admin@midwestluxuryrentals.com',
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'Contact email not configured',
   }
 
   return (
