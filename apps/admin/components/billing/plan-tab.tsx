@@ -168,7 +168,6 @@ export default function PlanTab() {
   const [billingInterval, setBillingInterval] = useState<'monthly' | 'annual'>('annual');
   const [monthlyBookings, setMonthlyBookings] = useState(50000);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [email, setEmail] = useState('');
 
   useEffect(() => {
     fetchPlanData();
@@ -229,11 +228,6 @@ export default function PlanTab() {
       return;
     }
 
-    if (!email.trim()) {
-      toast.error('Please enter your email address');
-      return;
-    }
-
     setProcessing(planId);
     try {
       const res = await fetch('/api/billing/plan', {
@@ -241,8 +235,7 @@ export default function PlanTab() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           plan: planId,
-          interval: billingInterval,
-          email: email.trim()
+          interval: billingInterval
         }),
       });
 
@@ -369,27 +362,6 @@ export default function PlanTab() {
           </div>
         </div>
       )}
-
-      {/* Email Input */}
-      <div className="bg-white border rounded-lg p-6">
-        <div className="max-w-md mx-auto">
-          <label htmlFor="subscription-email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address for Billing
-          </label>
-          <input
-            id="subscription-email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email address"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-          <p className="text-xs text-gray-500 mt-1">
-            This email will be used for billing notifications and Stripe account management
-          </p>
-        </div>
-      </div>
 
       {/* Plan Cards */}
       <div className={`grid gap-6 lg:grid-cols-3 transition-opacity duration-200 ${

@@ -140,7 +140,7 @@ export async function createSetupIntent(customerId: string) {
 }
 
 export async function createSubscriptionCheckoutSession(params: {
-  customerId: string;
+  customerId?: string; // Optional - let Stripe create customer
   priceId: string;
   successUrl: string;
   cancelUrl: string;
@@ -148,8 +148,7 @@ export async function createSubscriptionCheckoutSession(params: {
 }) {
   if (!stripe) throw new Error('Stripe is not initialized');
   
-  const session = await stripe.checkout.sessions.create({
-    customer: params.customerId,
+  const sessionData: any = {
     mode: 'subscription',
     line_items: [
       {
@@ -159,7 +158,7 @@ export async function createSubscriptionCheckoutSession(params: {
     ],
     success_url: params.successUrl,
     cancel_url: params.cancelUrl,
-    metadata: params.metadata,
+    metadata: params.metadata || {},
     allow_promotion_codes: true,
     billing_address_collection: 'auto',
     customer_update: {
@@ -169,7 +168,14 @@ export async function createSubscriptionCheckoutSession(params: {
     tax_id_collection: {
       enabled: true,
     },
-  });
+  };
+
+  // Only add customer if provided - otherwise let Stripe collect email
+  if (params.customerId) {
+    sessionData.customer = params.customerId;
+  }
+  
+  const session = await stripe.checkout.sessions.create(sessionData);
 
   return session;
 }

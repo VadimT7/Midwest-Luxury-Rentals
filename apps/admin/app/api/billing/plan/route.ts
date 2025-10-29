@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { plan, interval = 'monthly', email } = body;
+    const { plan, interval = 'monthly' } = body;
 
     if (!['PERFORMANCE', 'STARTER', 'PRO'].includes(plan)) {
       return NextResponse.json(
@@ -116,45 +116,8 @@ export async function POST(req: NextRequest) {
     // Determine fee percentage based on plan
     const feePercent = plan === 'STARTER' ? 3.0 : 1.0;
 
-    if (!email) {
-      return NextResponse.json({
-        error: 'Email is required to create subscription'
-      }, { status: 400 });
-    }
-
-    // Get or create Stripe customer
-    let customerId: string | null = billing.stripeCustomerId;
-    let customerExists = false;
-
-    // Check if existing customer is valid
-    if (customerId) {
-      try {
-        await stripe.customers.retrieve(customerId);
-        customerExists = true;
-      } catch (error: any) {
-        console.log('Customer not found, will create new one:', error.message);
-        customerExists = false;
-      }
-    }
-
-    // Create new customer if none exists or existing one is invalid
-    if (!customerExists) {
-      const customer = await stripe.customers.create({
-        email: email,
-        metadata: {
-          tenantId: TENANT_ID,
-        },
-      });
-      customerId = customer.id;
-
-      await prisma.tenantBillingProfile.update({
-        where: { tenantId: TENANT_ID },
-        data: {
-          stripeCustomerId: customerId,
-          billingEmail: email,
-        },
-      });
-    }
+    // Let Stripe collect email in checkout - no customer pre-creation needed
+    // This allows users to enter their email directly in Stripe's secure form
 
     // Get price ID (support both price_ and prod_ values in env)
     const priceKey = `${plan.toLowerCase()}_${interval}` as keyof typeof STRIPE_CONFIG.prices;
@@ -200,17 +163,11 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Ensure customerId is not null
-    if (!customerId) {
-      return NextResponse.json({
-        error: 'Failed to create or retrieve customer'
-      }, { status: 500 });
-    }
-
     // Create checkout session - Always redirect to admin dashboard
+    // Stripe will collect email and create customer automatically
     const adminUrl = process.env.ADMIN_URL || 'http://localhost:3001';
     const checkoutSession = await createSubscriptionCheckoutSession({
-      customerId,
+      // No customerId - let Stripe handle customer creation
       priceId,
       successUrl: `${adminUrl}/billing?tab=plan&success=true`,
       cancelUrl: `${adminUrl}/billing?tab=plan&canceled=true`,
