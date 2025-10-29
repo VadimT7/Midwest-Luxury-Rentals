@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
         where: { email: guestEmail }
       });
       
-      if (existingGuest) {
+      if (existingGuest) { 
         userId = existingGuest.id;
       } else {
         // Create a guest user
