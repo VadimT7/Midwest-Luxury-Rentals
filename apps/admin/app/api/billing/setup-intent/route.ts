@@ -23,17 +23,38 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const body = await req.json();
+    const { email } = body;
+
     const billing = await getOrCreateTenantBilling(TENANT_ID);
 
     let customerId = billing.stripeCustomerId;
-
-    // Check if Stripe customer exists
-    if (!customerId) {
-      // Don't auto-create customer - require manual setup
+    
+    if (!email) {
       return NextResponse.json({
-        error: 'Stripe customer not configured. Please set up your Stripe customer ID in the Stripe dashboard first.',
-        requiresSetup: true
+        error: 'Email is required to create setup intent'
       }, { status: 400 });
+    }
+
+    // Get or create customer
+    if (!customerId) {
+      const customer = await stripe.customers.create({
+        email: email,
+        name: 'Admin User',
+        metadata: {
+          tenantId: TENANT_ID,
+        },
+      });
+
+      customerId = customer.id;
+
+      await prisma.tenantBillingProfile.update({
+        where: { tenantId: TENANT_ID },
+        data: {
+          stripeCustomerId: customerId,
+          billingEmail: email,
+        },
+      });
     }
 
     // Create Setup Intent for card on file

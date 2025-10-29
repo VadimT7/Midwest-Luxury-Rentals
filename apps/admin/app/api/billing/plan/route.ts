@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { plan, interval = 'monthly' } = body;
+    const { plan, interval = 'monthly', email } = body;
 
     if (!['PERFORMANCE', 'STARTER', 'PRO'].includes(plan)) {
       return NextResponse.json(
@@ -116,14 +116,30 @@ export async function POST(req: NextRequest) {
     // Determine fee percentage based on plan
     const feePercent = plan === 'STARTER' ? 3.0 : 1.0;
 
-    // Check if Stripe customer exists
+    if (!email) {
+      return NextResponse.json({
+        error: 'Email is required to create subscription'
+      }, { status: 400 });
+    }
+
+    // Get or create Stripe customer
     let customerId = billing.stripeCustomerId;
     if (!customerId) {
-      // Don't auto-create customer - require manual setup
-      return NextResponse.json({
-        error: 'Stripe customer not configured. Please set up your Stripe customer ID in the Stripe dashboard first.',
-        requiresSetup: true
-      }, { status: 400 });
+      const customer = await stripe.customers.create({
+        email: email,
+        metadata: {
+          tenantId: TENANT_ID,
+        },
+      });
+      customerId = customer.id;
+
+      await prisma.tenantBillingProfile.update({
+        where: { tenantId: TENANT_ID },
+        data: {
+          stripeCustomerId: customerId,
+          billingEmail: email,
+        },
+      });
     }
 
     // Get price ID (support both price_ and prod_ values in env)

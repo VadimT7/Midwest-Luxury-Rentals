@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { action, plan, interval = 'monthly' } = body;
+    const { action, plan, interval = 'monthly', email } = body;
 
     const billing = await getOrCreateTenantBilling(TENANT_ID);
 
@@ -110,13 +110,31 @@ export async function POST(req: NextRequest) {
 
       let customerId = billing.stripeCustomerId;
 
-      // Check if customer exists
-      if (!customerId) {
-        // Don't auto-create customer - require manual setup in Stripe
+      if (!email) {
         return NextResponse.json({
-          error: 'Stripe customer not configured. Please create a customer in your Stripe dashboard first.',
-          requiresSetup: true
+          error: 'Email is required to create subscription'
         }, { status: 400 });
+      }
+
+      // Get or create customer
+      if (!customerId) {
+        const customer = await stripe.customers.create({
+          email: email,
+          name: 'Admin User',
+          metadata: {
+            tenantId: TENANT_ID,
+          },
+        });
+
+        customerId = customer.id;
+
+        await prisma.tenantBillingProfile.update({
+          where: { tenantId: TENANT_ID },
+          data: {
+            stripeCustomerId: customerId,
+            billingEmail: email,
+          },
+        });
       }
 
       // Create checkout session
@@ -203,7 +221,7 @@ export async function POST(req: NextRequest) {
 
       await switchPlan(TENANT_ID, plan as BillingPlan, {
         stripeSubscriptionId: billing.stripeSubscriptionId,
-        actor: 'admin@falconflair.com',
+        actor: 'system',
         reason: 'subscription_updated',
       });
 
