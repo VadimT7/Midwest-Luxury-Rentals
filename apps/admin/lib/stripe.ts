@@ -161,18 +161,18 @@ export async function createSubscriptionCheckoutSession(params: {
     metadata: params.metadata || {},
     allow_promotion_codes: true,
     billing_address_collection: 'auto',
-    customer_update: {
-      name: 'auto',
-      address: 'auto',
-    },
     tax_id_collection: {
       enabled: true,
     },
   };
 
-  // Only add customer if provided - otherwise let Stripe collect email
+  // Only add customer and customer_update if customer ID is provided
   if (params.customerId) {
     sessionData.customer = params.customerId;
+    sessionData.customer_update = {
+      name: 'auto',
+      address: 'auto',
+    };
   }
   
   const session = await stripe.checkout.sessions.create(sessionData);
