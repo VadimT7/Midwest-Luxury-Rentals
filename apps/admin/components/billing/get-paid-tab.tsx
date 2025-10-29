@@ -49,6 +49,12 @@ export default function GetPaidTab() {
       const res = await fetch('/api/billing/connect/simple');
       const data = await res.json();
       console.log('Connect status received:', data);
+      console.log('Onboarding complete check:', {
+        detailsSubmitted: data.detailsSubmitted,
+        payoutsEnabled: data.payoutsEnabled,
+        chargesEnabled: data.chargesEnabled,
+        connected: data.connected
+      });
       setStatus({
         connected: data.connected || false,
         stripeAccountId: data.stripeAccountId,

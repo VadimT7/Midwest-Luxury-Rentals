@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const OLD_COMPANY_NAME = /proper\s*rentals?/gi;
+const OLD_COMPANY_NAME = /midwest\s*luxury\s*rentals?/gi;
 const PAGES_TO_CHECK = ['/', '/fleet', '/about', '/contact'];
 
 test.describe('Brand Name Verification', () => {
@@ -23,23 +23,23 @@ test.describe('Brand Name Verification', () => {
       
       // Also check page title
       const pageTitle = await browserPage.title();
-      expect(pageTitle.toLowerCase()).not.toContain('proper rental');
+      expect(pageTitle.toLowerCase()).not.toContain('midwest luxury rental');
       
       // Check meta tags
       const metaDescription = await browserPage.getAttribute('meta[name="description"]', 'content');
       if (metaDescription) {
-        expect(metaDescription.toLowerCase()).not.toContain('proper rental');
+        expect(metaDescription.toLowerCase()).not.toContain('midwest luxury rental');
       }
       
       // Check OG tags
       const ogTitle = await browserPage.getAttribute('meta[property="og:title"]', 'content');
       if (ogTitle) {
-        expect(ogTitle.toLowerCase()).not.toContain('proper rental');
+        expect(ogTitle.toLowerCase()).not.toContain('midwest luxury rental');
       }
       
       const ogDescription = await browserPage.getAttribute('meta[property="og:description"]', 'content');
       if (ogDescription) {
-        expect(ogDescription.toLowerCase()).not.toContain('proper rental');
+        expect(ogDescription.toLowerCase()).not.toContain('midwest luxury rental');
       }
     });
   });
@@ -47,11 +47,11 @@ test.describe('Brand Name Verification', () => {
   test('should display correct new company name', async ({ page }) => {
     await page.goto('/');
     
-    // Check that FlyRentals appears
-    await expect(page.locator('text=FlyRentals').first()).toBeVisible();
+    // Check that Midwest Luxury Rentals appears
+    await expect(page.locator('text=Midwest Luxury Rentals').first()).toBeVisible();
     
-    // Check page title contains FlyRentals
+    // Check page title contains Midwest Luxury Rentals
     const title = await page.title();
-    expect(title).toContain('FlyRentals');
+    expect(title).toContain('Midwest Luxury Rentals');
   });
 });

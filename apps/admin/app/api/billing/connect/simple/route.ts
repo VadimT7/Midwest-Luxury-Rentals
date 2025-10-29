@@ -49,6 +49,8 @@ export async function GET(req: NextRequest) {
           detailsSubmitted: accountDetails.details_submitted,
           payoutsEnabled: accountDetails.payouts_enabled,
           chargesEnabled: accountDetails.charges_enabled,
+          requirements: accountDetails.requirements,
+          capabilities: accountDetails.capabilities,
         });
       } catch (error) {
         console.error('Error fetching Stripe account:', error);
@@ -56,9 +58,9 @@ export async function GET(req: NextRequest) {
     }
 
     // Check if onboarding is actually complete
-    const isOnboardingComplete = accountDetails?.details_submitted && 
-                                 accountDetails?.payouts_enabled && 
-                                 accountDetails?.charges_enabled;
+    // If details_submitted is true, the user completed the onboarding process
+    // The other flags (payouts_enabled, charges_enabled) may take time to activate
+    const isOnboardingComplete = accountDetails?.details_submitted;
 
     // If onboarding is not complete, reset the account to initial state
     if (!isOnboardingComplete) {
