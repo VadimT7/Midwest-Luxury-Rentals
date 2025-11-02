@@ -26,7 +26,6 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # local env files
-.env
 .env*.local
 
 # vercel
@@ -110,3 +109,4 @@ coverage
 
 # Prisma
 prisma/migrations/dev/
+config.bat
