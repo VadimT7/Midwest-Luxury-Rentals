@@ -16,6 +16,7 @@
     "cleanup": "tsx scripts/cleanup-database.ts",
     "cleanup:sql": "psql $DATABASE_URL -f scripts/cleanup-database.sql",
     "verify-cleanup": "tsx scripts/verify-cleanup.ts",
+    "delete-customers": "tsx scripts/delete-customers.ts",
     "studio": "prisma studio",
     "format": "prisma format",
     "typecheck": "tsc --noEmit"
