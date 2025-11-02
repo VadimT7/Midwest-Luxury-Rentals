@@ -294,16 +294,38 @@ export async function PUT(
       }
     }
 
+    // Always clean up placeholder gallery images, even if no new ones are uploaded
+    if (vehicle) {
+      try {
+        // Delete placeholder gallery images
+        await prisma.carImage.deleteMany({
+          where: {
+            carId: vehicleId,
+            isGallery: true,
+            OR: [
+              { url: '/placeholder-car.jpg' },
+              { url: { contains: 'placeholder' } }
+            ]
+          }
+        })
+        console.log('🗑️ Cleaned up placeholder gallery images')
+      } catch (error) {
+        console.error('❌ Failed to clean up placeholder images:', error)
+        // Don't fail the whole operation for this
+      }
+    }
+
     // Handle new gallery images if any were uploaded
     if (newGalleryImages.length > 0 && vehicle) {
       try {
         console.log(`📸 Adding ${newGalleryImages.length} new gallery images to database...`)
         
-        // Delete existing gallery images (we're replacing them)
+        // Delete existing non-placeholder gallery images (we're replacing them)
         await prisma.carImage.deleteMany({
           where: {
             carId: vehicleId,
-            isGallery: true
+            isGallery: true,
+            url: { not: { contains: 'placeholder' } }
           }
         })
         console.log('🗑️ Deleted existing gallery images')

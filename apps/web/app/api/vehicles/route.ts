@@ -49,10 +49,28 @@ export async function GET(request: NextRequest) {
         description: vehicle.description,
         primaryImage: vehicle.primaryImageUrl || '/placeholder-car.jpg',
         // Include all images (primary first, then gallery) for the carousel
-        images: [
-          vehicle.primaryImageUrl || '/placeholder-car.jpg',
-          ...((vehicle as any).CarImage?.filter((img: any) => img.isGallery)?.map((img: any) => img.url) || [])
-        ].filter(Boolean), // Remove any null/undefined values
+        // Filter out placeholder images and ensure we only show real uploaded images
+        images: (() => {
+          const allImages: string[] = []
+          
+          // Add primary image if it exists and is not a placeholder
+          if (vehicle.primaryImageUrl && vehicle.primaryImageUrl !== '/placeholder-car.jpg') {
+            allImages.push(vehicle.primaryImageUrl)
+          }
+          
+          // Add gallery images that are not placeholders
+          const galleryImages = ((vehicle as any).CarImage?.filter((img: any) => 
+            img.isGallery && 
+            img.url && 
+            img.url !== '/placeholder-car.jpg' &&
+            !img.url.includes('placeholder')
+          )?.map((img: any) => img.url) || [])
+          
+          allImages.push(...galleryImages)
+          
+          // Remove duplicates and return
+          return [...new Set(allImages)]
+        })(),
         pricePerDay: Number((vehicle as any).PriceRule?.[0]?.basePricePerDay) || 0,
         features: vehicle.features as string[],
         specs: {
