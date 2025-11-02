@@ -642,30 +642,30 @@ export default function BookingPage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-slate-600">Base Rate ({calculateDays()} days):</span>
-                    <span className="font-medium">{formatCurrency(carData.pricePerDay * calculateDays())} CAD</span>
+                    <span className="font-medium">{formatCurrency(carData.pricePerDay * calculateDays())}</span>
                   </div>
                   {bookingData.addOns.extraMileage && (
                     <div className="flex justify-between">
                       <span className="text-slate-600">Extra Mileage:</span>
-                      <span className="font-medium">{formatCurrency(50 * calculateDays())} CAD</span>
+                      <span className="font-medium">{formatCurrency(50 * calculateDays())}</span>
                     </div>
                   )}
                   {bookingData.addOns.childSeat && (
                     <div className="flex justify-between">
                       <span className="text-slate-600">Child Seat:</span>
-                      <span className="font-medium">{formatCurrency(25 * calculateDays())} CAD</span>
+                      <span className="font-medium">{formatCurrency(25 * calculateDays())}</span>
                     </div>
                   )}
                   {bookingData.addOns.chauffeur && (
                     <div className="flex justify-between">
                       <span className="text-slate-600">Chauffeur:</span>
-                      <span className="font-medium">{formatCurrency(200 * calculateDays())} CAD</span>
+                      <span className="font-medium">{formatCurrency(200 * calculateDays())}</span>
                     </div>
                   )}
                   <div className="border-t pt-3">
                     <div className="flex justify-between">
                       <span className="font-semibold text-slate-900">Total:</span>
-                      <span className="font-bold text-primary text-lg">{formatCurrency(calculateTotal())} CAD</span>
+                      <span className="font-bold text-primary text-lg">{formatCurrency(calculateTotal())}</span>
                     </div>
                   </div>
                 </div>
@@ -754,7 +754,7 @@ export default function BookingPage() {
                 <h2 className="text-xl font-bold text-slate-900">{carData.displayName}</h2>
                 <p className="text-slate-600">{carData.year} • {carData.category}</p>
                 <div className="flex items-center gap-4 mt-2">
-                  <span className="text-2xl font-bold text-primary">{formatCurrency(carData.pricePerDay)} CAD</span>
+                  <span className="text-2xl font-bold text-primary">{formatCurrency(carData.pricePerDay)}</span>
                   <span className="text-slate-500">per day</span>
                 </div>
               </div>

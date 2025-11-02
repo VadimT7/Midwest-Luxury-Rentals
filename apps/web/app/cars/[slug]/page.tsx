@@ -462,7 +462,7 @@ export default function CarDetailPage() {
                 {/* Price */}
                 <div className="text-center mb-6">
                   <p className="text-3xl font-bold text-slate-900 mb-2">
-                    {formatCurrency(carData.pricePerDay)} CAD
+                    {formatCurrency(carData.pricePerDay)}
                   </p>
                   <p className="text-slate-600">per day</p>
                 </div>
