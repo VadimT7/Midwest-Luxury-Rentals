@@ -1029,7 +1029,7 @@ async function main() {
       updatedAt: new Date(),
       CarImage: {
         create: carImages
-      },
+        },
       PriceRule: {
           create: {
           id: randomUUID(),

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { Button, Card, Input, Textarea } from '@valore/ui'
 import { 
@@ -133,6 +133,8 @@ export default function EditVehiclePage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(false)
   const [initialLoading, setInitialLoading] = useState(true)
+  const navigationRef = useRef<HTMLDivElement>(null)
+  const scrollPositionRef = useRef<number>(0)
 
   // Load existing vehicle data
   useEffect(() => {
@@ -273,13 +275,35 @@ export default function EditVehiclePage() {
 
   const nextStep = () => {
     if (validateStep(currentStep)) {
+      // Store current scroll position relative to navigation buttons
+      if (navigationRef.current) {
+        const rect = navigationRef.current.getBoundingClientRect()
+        scrollPositionRef.current = rect.top + window.scrollY
+      } else {
+        scrollPositionRef.current = window.scrollY
+      }
       setCurrentStep(prev => Math.min(prev + 1, steps.length - 1))
     }
   }
 
   const prevStep = () => {
+    // Store current scroll position relative to navigation buttons
+    if (navigationRef.current) {
+      const rect = navigationRef.current.getBoundingClientRect()
+      scrollPositionRef.current = rect.top + window.scrollY
+    } else {
+      scrollPositionRef.current = window.scrollY
+    }
     setCurrentStep(prev => Math.max(prev - 1, 0))
   }
+
+  // Maintain scroll position when step changes
+  useLayoutEffect(() => {
+    if (navigationRef.current && scrollPositionRef.current > 0) {
+      const targetY = scrollPositionRef.current - (navigationRef.current.getBoundingClientRect().top - window.scrollY)
+      window.scrollTo({ top: targetY, behavior: 'instant' })
+    }
+  }, [currentStep])
 
   const handleSubmit = async () => {
     // Validate all steps
@@ -1154,7 +1178,7 @@ export default function EditVehiclePage() {
       </Card>
 
       {/* Step Content */}
-      <Card className="p-6">
+      <Card className="p-6 flex flex-col" style={{ minHeight: '70vh' }}>
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-neutral-900 flex items-center gap-2">
             {(() => {
@@ -1165,10 +1189,12 @@ export default function EditVehiclePage() {
           </h2>
         </div>
 
-        {renderStepContent()}
+        <div className="flex-1 min-h-0">
+          {renderStepContent()}
+        </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between pt-6 border-t mt-8">
+        {/* Navigation - Fixed at bottom */}
+        <div ref={navigationRef} className="flex justify-between pt-6 border-t mt-8 flex-shrink-0">
           <Button
             variant="outline"
             onClick={prevStep}
