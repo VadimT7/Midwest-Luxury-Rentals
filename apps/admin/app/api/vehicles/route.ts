@@ -5,6 +5,10 @@ import { randomUUID } from 'crypto'
 
 export const dynamic = 'force-dynamic'
 
+// Increase body size limit to 10MB for image uploads
+export const runtime = 'nodejs'
+export const maxDuration = 30
+
 export async function GET(request: NextRequest) {
   try {
     console.log('🚗 Fetching vehicles for admin dashboard...')

@@ -21,6 +21,7 @@ import {
   Trash2
 } from 'lucide-react'
 import Image from 'next/image'
+import { compressImage, needsCompression } from '../../../../../lib/image-compression'
 
 interface FormData {
   // Basic Info
@@ -235,11 +236,29 @@ export default function EditVehiclePage() {
     }
   }
 
-  const handleImageUpload = (file: File, type: 'primary' | 'gallery') => {
-    if (type === 'primary') {
-      setForm(prev => ({ ...prev, primaryImage: file }))
-    } else {
-      setForm(prev => ({ ...prev, galleryImages: [...prev.galleryImages, file] }))
+  const handleImageUpload = async (file: File, type: 'primary' | 'gallery') => {
+    try {
+      // Compress the image if it's too large (> 2MB)
+      let processedFile = file
+      if (needsCompression(file)) {
+        console.log(`📸 Compressing ${type} image (${(file.size / 1024 / 1024).toFixed(2)}MB)...`)
+        processedFile = await compressImage(file, {
+          maxWidth: 2048,
+          maxHeight: 2048,
+          quality: 0.85,
+          format: 'jpeg'
+        })
+        console.log(`✅ Compressed to ${(processedFile.size / 1024 / 1024).toFixed(2)}MB`)
+      }
+      
+      if (type === 'primary') {
+        setForm(prev => ({ ...prev, primaryImage: processedFile }))
+      } else {
+        setForm(prev => ({ ...prev, galleryImages: [...prev.galleryImages, processedFile] }))
+      }
+    } catch (error) {
+      console.error('Failed to process image:', error)
+      alert('Failed to process image. Please try a smaller image or different format.')
     }
   }
 
@@ -1016,9 +1035,9 @@ export default function EditVehiclePage() {
               <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => {
+                onChange={async (e) => {
                   const file = e.target.files?.[0]
-                  if (file) handleImageUpload(file, 'primary')
+                  if (file) await handleImageUpload(file, 'primary')
                 }}
                 className="hidden"
                 id="primary-image-replace"
@@ -1037,9 +1056,9 @@ export default function EditVehiclePage() {
               <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => {
+                onChange={async (e) => {
                   const file = e.target.files?.[0]
-                  if (file) handleImageUpload(file, 'primary')
+                  if (file) await handleImageUpload(file, 'primary')
                 }}
                 className="hidden"
                 id="primary-image"
@@ -1081,9 +1100,9 @@ export default function EditVehiclePage() {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => {
+              onChange={async (e) => {
                 const file = e.target.files?.[0]
-                if (file) handleImageUpload(file, 'gallery')
+                if (file) await handleImageUpload(file, 'gallery')
               }}
               className="hidden"
               id="gallery-image"

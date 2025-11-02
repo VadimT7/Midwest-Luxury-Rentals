@@ -2,5 +2,13 @@
   "framework": "nextjs",
   "installCommand": "cd ../.. && npm install -g pnpm@8.15.1 && pnpm install --frozen-lockfile",
   "buildCommand": "cd ../.. && pnpm --filter @valore/database generate && pnpm --filter @valore/admin build",
-  "outputDirectory": "apps/admin/.next"
+  "outputDirectory": "apps/admin/.next",
+  "functions": {
+    "apps/admin/app/api/vehicles/route.ts": {
+      "maxDuration": 30
+    },
+    "apps/admin/app/api/vehicles/[id]/route.ts": {
+      "maxDuration": 30
+    }
+  }
 }

@@ -3,6 +3,10 @@ import { vehicleService, prisma } from '@valore/database'
 import { saveImageToBothDirectories, deleteImageFromBothDirectories } from '../../../../lib/image-utils'
 import { randomUUID } from 'crypto'
 
+// Increase body size limit to 10MB for image uploads
+export const runtime = 'nodejs'
+export const maxDuration = 30
+
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
