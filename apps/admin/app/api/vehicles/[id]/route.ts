@@ -38,8 +38,8 @@ export async function PUT(
     const model = formData.get('model') as string
     const year = parseInt(formData.get('year') as string)
     const trim = formData.get('trim') as string || ''
-    const vin = formData.get('vin') as string
-    const licensePlate = formData.get('licensePlate') as string
+    const vin = (formData.get('vin') as string) || ''
+    const licensePlate = (formData.get('licensePlate') as string) || ''
     const description = formData.get('description') as string || ''
     const featured = formData.get('featured') === 'true'
     const featuredOrder = parseInt(formData.get('featuredOrder') as string) || 0
@@ -63,12 +63,6 @@ export async function PUT(
     }
     if (!model?.trim()) {
       return NextResponse.json({ error: 'Model is required' }, { status: 400 })
-    }
-    if (!vin?.trim()) {
-      return NextResponse.json({ error: 'VIN is required' }, { status: 400 })
-    }
-    if (!licensePlate?.trim()) {
-      return NextResponse.json({ error: 'License plate is required' }, { status: 400 })
     }
     if (!year || year < 1900 || year > new Date().getFullYear() + 2) {
       return NextResponse.json({ error: 'Valid year is required' }, { status: 400 })

@@ -525,30 +525,30 @@ export default function EditVehiclePage() {
             <option value="COMING_SOON">Coming Soon</option>
           </select>
         </div>
-        
-        <div>
-          <label className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={form.featured}
-              onChange={(e) => handleInputChange('featured', e.target.checked)}
-              className="rounded border-neutral-300"
+      </div>
+
+      <div className="mt-6">
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={form.featured}
+            onChange={(e) => handleInputChange('featured', e.target.checked)}
+            className="rounded border-neutral-300"
+          />
+          <span className="text-sm font-medium text-neutral-700">Featured Vehicle</span>
+        </label>
+        {form.featured && (
+          <div className="mt-2">
+            <label className="block text-sm text-neutral-600 mb-1">Featured Order</label>
+            <Input
+              type="number"
+              value={form.featuredOrder}
+              onChange={(e) => handleInputChange('featuredOrder', parseInt(e.target.value))}
+              min={0}
+              className="w-32"
             />
-            <span className="text-sm font-medium text-neutral-700">Featured Vehicle</span>
-          </label>
-          {form.featured && (
-            <div className="mt-2">
-              <label className="block text-sm text-neutral-600 mb-1">Featured Order</label>
-              <Input
-                type="number"
-                value={form.featuredOrder}
-                onChange={(e) => handleInputChange('featuredOrder', parseInt(e.target.value))}
-                min={0}
-                className="w-32"
-              />
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       <div>
