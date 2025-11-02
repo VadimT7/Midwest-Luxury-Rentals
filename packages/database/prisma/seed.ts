@@ -38,7 +38,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 1600,
     depositAmount: 15000,
-    primaryImageUrl: '/Ferrari 488 - red.jpg',
+    primaryImageUrl: '/Cars/image0.jpeg',
+    images: ['/Cars/image0.jpeg', '/Cars/image2.jpeg'],
     featured: true,
     featuredOrder: 1
   },
@@ -74,7 +75,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 999,
     depositAmount: 10000,
-    primaryImageUrl: '/Ferrari 488 - black.jpg',
+    primaryImageUrl: '/Cars/Ferrari 488 - black.jpg',
+    images: ['/Cars/Ferrari 488 - black.jpg', '/Cars/Ferrari 488 - red.jpg', '/Cars/image3.jpeg'],
     featured: true,
     featuredOrder: 2
   },
@@ -110,7 +112,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 999,
     depositAmount: 10000,
-    primaryImageUrl: '/Lamborghini Urus Performante Blue.jpg',
+    primaryImageUrl: '/Cars/image22.jpeg',
+    images: ['/Cars/image22.jpeg', '/Cars/image23.jpeg', '/Cars/image24.jpeg'],
     featured: true,
     featuredOrder: 3
   },
@@ -146,7 +149,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 999,
     depositAmount: 10000,
-    primaryImageUrl: '/Lamborghini Urus Performante Blue.jpg',
+    primaryImageUrl: '/Cars/image29.jpeg',
+    images: ['/Cars/image29.jpeg', '/Cars/image31.jpeg', '/Cars/image32.jpeg'],
     featured: true,
     featuredOrder: 4
   },
@@ -155,7 +159,7 @@ const LUXURY_CARS = [
     model: 'Huracan Evo Spyder',
     year: 2024,
     trim: 'Evo Spyder',
-    displayName: 'Lamborghini Huracan Evo Spyder',
+    displayName: 'Lamborghini Huracan Evo Spyder #2',
     category: CarCategory.SUPERCAR,
     bodyType: BodyType.CONVERTIBLE,
     transmission: TransmissionType.AUTOMATIC,
@@ -182,7 +186,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 999,
     depositAmount: 10000,
-    primaryImageUrl: '/Urus Hulk Green.jpg',
+    primaryImageUrl: '/Cars/image33.jpeg',
+    images: ['/Cars/image33.jpeg', '/Cars/image36.jpeg', '/Cars/image37.jpeg'],
     featured: false,
     featuredOrder: 5
   },
@@ -218,7 +223,13 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 1049,
     depositAmount: 10000,
-    primaryImageUrl: '/Lamborghini Urus Performante Blue.jpg',
+    primaryImageUrl: '/Cars/Lamborghini Urus Performante Blue.jpg',
+    images: [
+      '/Cars/Lamborghini Urus Performante Blue.jpg',
+      '/Cars/Urus Hulk Green.jpg',
+      '/Cars/Urus Black.png',
+      '/Cars/image20.jpeg'
+    ],
     featured: true,
     featuredOrder: 6
   },
@@ -254,7 +265,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 899,
     depositAmount: 8000,
-    primaryImageUrl: '/G63-white.jpg',
+    primaryImageUrl: '/Cars/G63-white.jpg',
+    images: ['/Cars/G63-white.jpg'],
     featured: false,
     featuredOrder: 7
   },
@@ -290,7 +302,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 899,
     depositAmount: 8000,
-    primaryImageUrl: '/placeholder-car.jpg',
+    primaryImageUrl: '/Cars/image17.jpeg',
+    images: ['/Cars/image17.jpeg', '/Cars/image16.jpeg'],
     featured: false,
     featuredOrder: 8
   },
@@ -326,7 +339,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 899,
     depositAmount: 9000,
-    primaryImageUrl: '/McLaren Blue.jpg',
+    primaryImageUrl: '/Cars/McLaren Blue.jpg',
+    images: ['/Cars/McLaren Blue.jpg', '/Cars/image38.jpeg', '/Cars/image39.jpeg'],
     featured: true,
     featuredOrder: 9
   },
@@ -335,7 +349,7 @@ const LUXURY_CARS = [
     model: '570S Spider',
     year: 2024,
     trim: 'Spider Tuned',
-    displayName: 'McLaren 570S Spider - Tuned',
+    displayName: 'McLaren 570S Spider - Tuned #2',
     category: CarCategory.SUPERCAR,
     bodyType: BodyType.CONVERTIBLE,
     transmission: TransmissionType.AUTOMATIC,
@@ -362,7 +376,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 899,
     depositAmount: 9000,
-    primaryImageUrl: '/McLaren Blue.jpg',
+    primaryImageUrl: '/Cars/image40.jpeg',
+    images: ['/Cars/image40.jpeg', '/Cars/image41.jpeg'],
     featured: false,
     featuredOrder: 10
   },
@@ -398,7 +413,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 999,
     depositAmount: 10000,
-    primaryImageUrl: '/McLaren Blue.jpg',
+    primaryImageUrl: '/Cars/image42.jpeg',
+    images: ['/Cars/image42.jpeg', '/Cars/image43.jpeg', '/Cars/image44.jpeg'],
     featured: true,
     featuredOrder: 11
   },
@@ -434,7 +450,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 899,
     depositAmount: 9000,
-    primaryImageUrl: '/McLaren Blue.jpg',
+    primaryImageUrl: '/Cars/image45.jpeg',
+    images: ['/Cars/image45.jpeg', '/Cars/image46.jpeg'],
     featured: false,
     featuredOrder: 12
   },
@@ -470,7 +487,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 299,
     depositAmount: 3000,
-    primaryImageUrl: '/placeholder-car.jpg',
+    primaryImageUrl: '/Cars/image18.jpeg',
+    images: ['/Cars/image18.jpeg'],
     featured: false,
     featuredOrder: 13
   },
@@ -479,7 +497,7 @@ const LUXURY_CARS = [
     model: 'Corvette C8',
     year: 2024,
     trim: 'Tuned/Exhaust',
-    displayName: 'Corvette C8 - Tuned/Exhaust',
+    displayName: 'Corvette C8 - Tuned/Exhaust #2',
     category: CarCategory.SPORT,
     bodyType: BodyType.COUPE,
     transmission: TransmissionType.AUTOMATIC,
@@ -687,6 +705,7 @@ const LUXURY_CARS = [
     basePricePerDay: 299,
     depositAmount: 3000,
     primaryImageUrl: '/placeholder-car.jpg',
+    images: [],
     featured: false,
     featuredOrder: 19
   },
@@ -722,7 +741,8 @@ const LUXURY_CARS = [
     ],
     basePricePerDay: 599,
     depositAmount: 6000,
-    primaryImageUrl: '/placeholder-car.jpg',
+    primaryImageUrl: '/Cars/Porsche 911 GT3.jpg',
+    images: ['/Cars/Porsche 911 GT3.jpg'],
     featured: true,
     featuredOrder: 20
   },
@@ -759,6 +779,7 @@ const LUXURY_CARS = [
     basePricePerDay: 599,
     depositAmount: 6000,
     primaryImageUrl: '/placeholder-car.jpg',
+    images: [],
     featured: false,
     featuredOrder: 21
   }
@@ -933,7 +954,49 @@ async function main() {
   console.log('🚗 Creating luxury cars...')
   const cars = []
   for (const carInfo of LUXURY_CARS) {
-    const { basePricePerDay, depositAmount, primaryImageUrl, featured, featuredOrder, ...carData } = carInfo
+    const { basePricePerDay, depositAmount, primaryImageUrl, images, featured, featuredOrder } = carInfo
+    
+    // Create CarImage records for all images
+    const carImages = []
+    
+    // Add primary image first (always include it)
+    if (primaryImageUrl && primaryImageUrl !== '/placeholder-car.jpg') {
+      carImages.push({
+        id: randomUUID(),
+        url: primaryImageUrl,
+        alt: `${carInfo.displayName} - Primary Image`,
+        order: 0,
+        isGallery: true
+      })
+    }
+    
+    // Add additional images if they exist
+    const imageArray = (images as string[]) || []
+    if (imageArray.length > 0) {
+      imageArray.forEach((imageUrl, index) => {
+        // Skip if it's the same as primary image or placeholder
+        if (imageUrl !== primaryImageUrl && imageUrl !== '/placeholder-car.jpg') {
+          carImages.push({
+            id: randomUUID(),
+            url: imageUrl,
+            alt: `${carInfo.displayName} - Image ${index + 2}`,
+            order: index + 1,
+            isGallery: true
+          })
+        }
+      })
+    }
+    
+    // If no images at all, create a placeholder
+    if (carImages.length === 0) {
+      carImages.push({
+        id: randomUUID(),
+        url: '/placeholder-car.jpg',
+        alt: `${carInfo.displayName} - Image`,
+        order: 0,
+        isGallery: true
+      })
+    }
     
     // Create the car data object
     const carCreateData: any = {
@@ -958,21 +1021,15 @@ async function main() {
       acceleration: carInfo.acceleration,
       fuelConsumption: carInfo.fuelConsumption,
       features: carInfo.features,
-      slug: `${carInfo.make}-${carInfo.model}-${carInfo.year}-${featuredOrder}`.toLowerCase().replace(/\s+/g, '-').replace(/[()!]/g, ''),
+      slug: `${carInfo.make}-${carInfo.model}-${carInfo.year}-${featuredOrder}`.toLowerCase().replace(/\s+/g, '-').replace(/[()!#]/g, ''),
       description: `Experience the pinnacle of automotive excellence with the ${carInfo.displayName}. This ${carInfo.year} masterpiece combines breathtaking performance with uncompromising luxury, delivering ${carInfo.horsePower} horsepower and a top speed of ${carInfo.topSpeed} mph.`,
-        primaryImageUrl: primaryImageUrl,
+      primaryImageUrl: primaryImageUrl || '/placeholder-car.jpg',
       featured: featured,
       featuredOrder: featuredOrder,
       updatedAt: new Date(),
       CarImage: {
-          create: [{
-          id: randomUUID(),
-            url: primaryImageUrl,
-            alt: `${carInfo.displayName} - Primary Image`,
-            order: 0,
-            isGallery: true
-          }]
-        },
+        create: carImages
+      },
       PriceRule: {
           create: {
           id: randomUUID(),
