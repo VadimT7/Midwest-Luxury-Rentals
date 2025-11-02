@@ -10,45 +10,45 @@ import { cn } from '@valore/ui'
 const testimonials = [
   {
     id: '1',
-    authorName: 'Michael Anderson',
-    content: 'Exceptional service from start to finish. The Mercedes-Benz was absolutely stunning, and the delivery to my hotel in downtown Chicago was seamless. Midwest Luxury Rentals sets the standard for luxury car rentals.',
+    authorName: 'Jennifer Martinez',
+    content: 'Rented the Bentley Bentayga for my anniversary weekend and it was absolutely perfect. The car was spotless, delivery was on time, and driving it through Chicago felt incredible. My husband was so impressed - definitely booking again for our next special occasion.',
     rating: 5,
-    carModel: '2024 Mercedes-Benz CLA AMG',
+    carModel: 'Bentley Bentayga',
   },
   {
     id: '2',
-    authorName: 'Jennifer Martinez',
-    content: 'The Porsche was perfect for my Chicago business trip. The Midwest Luxury Rentals team understood my needs perfectly and exceeded my expectations with their professional service.',
+    authorName: 'Rajesh Patel',
+    content: "I needed something impressive for a client meeting and the Porsche 911 Turbo S did not disappoint. The horsepower on that thing is insane! Midwest Luxury Rentals made the whole process so smooth - I was in and out in minutes. They even helped me find parking near the restaurant.",
     rating: 5,
-    carModel: 'Porsche Cayenne',
+    carModel: 'Porsche 911 Turbo S - 900HP',
   },
   {
     id: '3',
-    authorName: 'David Thompson',
-    content: "I've rented luxury cars nationwide, but Midwest Luxury Rentals' attention to detail is unmatched. The vehicle was pristine, and their concierge service made everything effortless in Chicago.",
+    authorName: 'Aaliyah Washington',
+    content: "The Lamborghini Urus was everything I dreamed it would be. Rented it for my birthday and let me tell you, turning heads down Michigan Avenue never gets old. The team was super helpful, answered all my questions, and the car was in mint condition. Worth every penny!",
     rating: 5,
     carModel: 'Lamborghini Urus',
   },
   {
     id: '4',
-    authorName: 'Sarah Johnson',
-    content: 'Driving through Chicago was an absolute dream. The Midwest Luxury Rentals team organized the perfect experience and made sure every detail was taken care of.',
+    authorName: 'Marcus Chen',
+    content: 'Had the Ferrari SF90 Spider for a weekend and wow, just wow. I\'ve driven a lot of fast cars but this thing is on another level. The team at Midwest Luxury Rentals knows their stuff - they walked me through all the features and even recommended some great driving routes.',
     rating: 5,
-    carModel: 'Ferrari 488',
+    carModel: 'Ferrari SF90 Spider',
   },
   {
     id: '5',
-    authorName: 'Robert Williams',
-    content: 'Midwest Luxury Rentals exceeded all my expectations. The vehicle was delivered in perfect condition, and their customer service team was incredibly responsive and professional throughout my rental period in Chicago.',
+    authorName: 'Sofia Rodriguez',
+    content: "Booked the Mercedes S580 Maybach for a week and it was pure luxury. The ride was so smooth and comfortable, perfect for the longer drives we took. Customer service responded immediately when I had questions, and the pickup/dropoff was super convenient.",
     rating: 5,
-    carModel: 'Mercedes-Benz G63',
+    carModel: 'Mercedes-Benz S580 Maybach',
   },
   {
     id: '6',
-    authorName: 'Emily Davis',
-    content: 'Impeccable service from A to Z. The McLaren was in perfect condition and the Midwest Luxury Rentals team adapted to my specific needs. I highly recommend them for an exceptional luxury rental experience in Chicago.',
+    authorName: 'James O\'Connor',
+    content: "The McLaren 720S exceeded all my expectations. Rented it for a special occasion and the performance was absolutely mind-blowing. The Midwest Luxury Rentals team was professional, the car was pristine, and the whole experience was seamless. Highly recommend!",
     rating: 5,
-    carModel: 'Mercedes C43 AMG',
+    carModel: 'McLaren 720S',
   },
 ]
 
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
         <p className="text-luxury text-primary mb-4">Client Experiences</p>
         <h2 className="heading-large mb-4">Voices of Excellence</h2>
         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-          Discover why discerning individuals choose Falcon Flair for their luxury automotive experiences
+          Discover why discerning individuals choose Midwest Luxury Rentals for their luxury automotive experiences
         </p>
       </motion.div>
 
