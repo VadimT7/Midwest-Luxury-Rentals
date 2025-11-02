@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
           allImages.push(...galleryImages)
           
           // Remove duplicates and return
-          return [...new Set(allImages)]
+          return Array.from(new Set(allImages))
         })(),
         pricePerDay: Number((vehicle as any).PriceRule?.[0]?.basePricePerDay) || 0,
         features: vehicle.features as string[],
